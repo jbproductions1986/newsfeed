@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light}body{margin:0}</style>
+</head>
+<body>
+<title>Wochenblick Bild &amp; Ton</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: Regiepult. Kopfzeile mit Farbbalken, der zugleich als Themenfilter dient,
+   links die aufklappbaren Meldungen, rechts Schlagzeilen und Termine als Ablaufplan. */
+:root {
+  --bg: #E8EDEE;
+  --surface: #F5F8F8;
+  --ink: #10171A;
+  --ink2: #46555C;
+  --line: #C5CFD3;
+  --accent: #D93A22;
+  --accent-ink: #FFFFFF;
+  --c-broadcast: #3566D0;
+  --c-kamera: #C99700;
+  --c-drohnen: #1C9B72;
+  --c-gyroflow: #0E9DB1;
+  --c-resolve: #B8379A;
+  --c-adobe: #7255D0;
+  --c-ki: #DB6A14;
+  --c-schnitt: #62737C;
+  --f-display: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", sans-serif;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0D1316;
+    --surface: #151D21;
+    --ink: #E6ECEE;
+    --ink2: #9BA9AF;
+    --line: #28343A;
+    --accent: #FF5B45;
+    --accent-ink: #10171A;
+    --c-broadcast: #6C98F2;
+    --c-kamera: #F0C23A;
+    --c-drohnen: #3ECF9D;
+    --c-gyroflow: #3BC9DC;
+    --c-resolve: #E36DC5;
+    --c-adobe: #A18CF2;
+    --c-ki: #F4954A;
+    --c-schnitt: #8DA0A9;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0D1316;
+  --surface: #151D21;
+  --ink: #E6ECEE;
+  --ink2: #9BA9AF;
+  --line: #28343A;
+  --accent: #FF5B45;
+  --accent-ink: #10171A;
+  --c-broadcast: #6C98F2;
+  --c-kamera: #F0C23A;
+  --c-drohnen: #3ECF9D;
+  --c-gyroflow: #3BC9DC;
+  --c-resolve: #E36DC5;
+  --c-adobe: #A18CF2;
+  --c-ki: #F4954A;
+  --c-schnitt: #8DA0A9;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 15px;
+  line-height: 1.55;
+  padding-block: 20px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1120px; margin: 0 auto; }
+button, input, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Kopf */
+.masthead { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; }
+.brand { min-width: 0; }
+.brand h1 {
+  margin: 0;
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: clamp(34px, 7vw, 54px);
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.brand h1 span { font-weight: 500; color: var(--ink2); }
+.edmeta { margin: 8px 0 0; font-family: var(--f-mono); font-size: 12.5px; color: var(--ink2); letter-spacing: 0.02em; }
+.edpick { display: flex; flex-direction: column; gap: 4px; }
+.edpick label, .lbl {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink2);
+}
+select {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 7px 10px;
+  min-width: 220px;
+  max-width: 100%;
+}
+
+.bar { display: flex; gap: 2px; height: 14px; margin-top: 16px; }
+.bar button {
+  flex-grow: 1;
+  flex-basis: 0;
+  min-width: 6px;
+  border: 0;
+  padding: 0;
+  border-radius: 1px;
+  transition: opacity .15s;
+}
+.bar.filtered button:not([aria-pressed="true"]) { opacity: .22; }
+
+.intro { max-width: 70ch; margin: 22px 0 0; font-size: 16.5px; line-height: 1.6; text-wrap: pretty; }
+.intro.start { color: var(--ink2); font-size: 13.5px; margin-top: 6px; }
+
+/* Raster */
+.grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; margin-top: 26px; }
+@media (min-width: 900px) {
+  .grid { grid-template-columns: minmax(0, 1fr) 320px; gap: 40px; align-items: start; }
+  .rail { order: 2; }
+  .main { order: 1; }
+}
+.rail { display: flex; flex-direction: column; gap: 26px; min-width: 0; }
+.main { min-width: 0; }
+@media (max-width: 899px) { .rail { order: 1; } .main { order: 2; } }
+
+h2.sec {
+  margin: 0 0 10px;
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: 21px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Schlagzeilen */
+.top { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.top li { border-bottom: 1px solid var(--line); }
+.top button {
+  display: grid;
+  grid-template-columns: 10px minmax(0, 1fr);
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 0;
+  padding: 10px 2px;
+}
+.top button:hover .tt { text-decoration: underline; text-underline-offset: 3px; }
+.top .tt { font-weight: 600; line-height: 1.35; }
+.top .ts { display: block; margin-top: 2px; font-family: var(--f-mono); font-size: 11.5px; color: var(--ink2); }
+.dot { width: 10px; height: 10px; margin-top: 6px; border-radius: 50%; background: var(--cc, var(--c-schnitt)); flex: none; }
+
+/* Termine */
+.rundown { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.rundown li { display: grid; grid-template-columns: 6.2ch minmax(0, 1fr); gap: 10px; padding: 8px 2px; border-bottom: 1px solid var(--line); }
+.rundown .tc { font-family: var(--f-mono); font-size: 12.5px; font-weight: 500; padding-top: 1px; font-variant-numeric: tabular-nums; }
+.rundown .tx { min-width: 0; }
+.rundown .tag {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 0 5px;
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  border: 1px solid var(--ink2);
+  border-radius: 3px;
+  color: var(--ink2);
+  vertical-align: 1px;
+}
+.rundown .heute .tc { color: var(--accent); }
+.rundown .past { opacity: .5; }
+
+/* Steuerung */
+.controls { display: flex; flex-direction: column; gap: 12px; margin-bottom: 14px; }
+.search {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 9px 12px;
+}
+.search::placeholder { color: var(--ink2); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 11px 4px 9px;
+  font-size: 13.5px;
+}
+.chip .n { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink2); }
+.chip[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: var(--bg); }
+.chip[aria-pressed="true"] .n { color: var(--bg); opacity: .75; }
+.row2 { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; background: var(--surface); }
+.seg button { border: 0; background: none; padding: 5px 11px; font-size: 13.5px; border-right: 1px solid var(--line); }
+.seg button:last-child { border-right: 0; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.chk { display: inline-flex; align-items: center; gap: 7px; font-size: 13.5px; cursor: pointer; }
+.chk input { width: 16px; height: 16px; accent-color: var(--ink); margin: 0; }
+.linkbtn { background: none; border: 0; padding: 4px 2px; font-size: 13.5px; text-decoration: underline; text-underline-offset: 3px; color: var(--ink2); }
+.linkbtn:hover { color: var(--ink); }
+.count { margin: 0 0 4px; font-family: var(--f-mono); font-size: 12px; color: var(--ink2); }
+
+/* Meldungen */
+.group { margin-top: 22px; }
+.group:first-of-type { margin-top: 8px; }
+.ghead { display: flex; align-items: center; gap: 10px; margin: 0 0 6px; padding-bottom: 6px; border-bottom: 2px solid var(--cc, var(--ink)); }
+.ghead h3 { margin: 0; font-family: var(--f-display); font-weight: 600; font-size: 22px; letter-spacing: .04em; text-transform: uppercase; }
+.ghead .gn { font-family: var(--f-mono); font-size: 12px; color: var(--ink2); }
+.flat { margin-top: 8px; border-top: 2px solid var(--ink); }
+
+details.item { border-bottom: 1px solid var(--line); }
+details.item > summary {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 10px minmax(0, 1fr) 14px;
+  gap: 12px;
+  align-items: start;
+  padding: 11px 2px;
+  cursor: pointer;
+}
+details.item > summary::-webkit-details-marker { display: none; }
+details.item > summary:hover .t { text-decoration: underline; text-underline-offset: 3px; }
+.t { display: block; font-weight: 600; line-height: 1.38; text-wrap: pretty; }
+.item.read .t { font-weight: 500; color: var(--ink2); }
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin-top: 4px; font-family: var(--f-mono); font-size: 11.5px; color: var(--ink2); }
+.badge {
+  display: inline-block;
+  padding: 0 6px;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  font-size: 10.5px;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  line-height: 17px;
+}
+.badge.geruecht { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.neu { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.item.read .neu { display: none; }
+.meter { display: inline-flex; align-items: center; gap: 3px; }
+.meter i { width: 9px; height: 9px; border: 1px solid var(--ink); background: transparent; }
+.meter i.on { background: var(--ink); }
+.chev { width: 8px; height: 8px; margin-top: 8px; border-right: 2px solid var(--ink2); border-bottom: 2px solid var(--ink2); transform: rotate(45deg); transition: transform .15s; }
+details[open] > summary .chev { transform: rotate(-135deg); margin-top: 11px; }
+.body { padding: 0 2px 16px 22px; max-width: 68ch; }
+.body p { margin: 0 0 10px; text-wrap: pretty; }
+.body .why { color: var(--ink2); }
+.body .why b { color: var(--ink); font-weight: 600; }
+.body .src {
+  display: inline-block;
+  font-size: 13.5px;
+  font-weight: 500;
+  padding: 5px 10px;
+  border: 1px solid var(--ink);
+  border-radius: 4px;
+  text-decoration: none;
+}
+.body .src:hover { background: var(--ink); color: var(--bg); }
+.empty { padding: 28px 0; }
+.empty p { margin: 0 0 8px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .chev, .bar button { transition: none; }
+}
+</style>
+
+<div class="wrap">
+  <noscript><p>Diese Seite braucht JavaScript, um die Meldungen anzuzeigen.</p></noscript>
+  <header class="masthead">
+    <div class="brand">
+      <h1>Wochenblick <span>Bild &amp; Ton</span></h1>
+      <p class="edmeta" id="edmeta"></p>
+    </div>
+    <div class="edpick">
+      <label for="edition">Ausgabe</label>
+      <select id="edition"></select>
+    </div>
+  </header>
+  <div class="bar" id="bar" role="group" aria-label="Themen nach Anzahl der Meldungen"></div>
+
+  <p class="intro" id="intro"></p>
+  <p class="intro start" id="startnote" hidden></p>
+
+  <div class="grid">
+    <aside class="rail">
+      <section aria-labelledby="h-top">
+        <h2 class="sec" id="h-top">Schlagzeilen</h2>
+        <ul class="top" id="top"></ul>
+      </section>
+      <section aria-labelledby="h-term">
+        <h2 class="sec" id="h-term">Termine</h2>
+        <ol class="rundown" id="termine"></ol>
+      </section>
+    </aside>
+
+    <main class="main">
+      <div class="controls">
+        <div>
+          <label class="lbl" for="q">Suche</label>
+          <input class="search" id="q" type="search" placeholder="Marke, Modell, Stichwort" autocomplete="off">
+        </div>
+        <div class="chips" id="chips" role="group" aria-label="Themen filtern"></div>
+        <div class="row2">
+          <div class="seg" id="typ" role="group" aria-label="Art der Meldung"></div>
+          <div class="seg" id="view" role="group" aria-label="Sortierung"></div>
+          <label class="chk" for="unread"><input type="checkbox" id="unread"> Nur ungelesen</label>
+          <button class="linkbtn" id="toggleall" type="button">Alle öffnen</button>
+          <button class="linkbtn" id="markall" type="button">Alle als gelesen</button>
+        </div>
+      </div>
+      <p class="count" id="count" aria-live="polite"></p>
+      <div id="list"></div>
+    </main>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var DATA = [{"jahr":2026,"kw":42,"von":"2026-10-05","bis":"2026-10-14","stand":"2026-10-14","intro":"Bei den Drohnen bestimmen DJI-Leaks und ein FCC-Termin am 29. Oktober die Woche, bei den Kameras stehen Sigma (24. Oktober) und Nikon (Ende Oktober) vor Ankündigungen. In der Postproduktion zeigt ein Praxistest, dass KI-Assistenten in Premiere und Resolve die Grundaufgaben schaffen, bei Feinheiten aber noch Nachhilfe brauchen.","hinweis":"Startausgabe: Sie deckt den Zeitraum seit dem 5. Oktober ab und enthält einige ältere Einträge, die als „Hintergrund“ markiert sind. Ab der nächsten Ausgabe kommen nur noch Meldungen seit der letzten Ausgabe.","termine":[{"datum":"2026-10-14","text":"DJI-Enterprise-Teaser, vermutlich Dock 4 mit Akkuwechsel","geruecht":true},{"datum":"2026-10-20","label":"20.–21.10.","text":"NAB Show New York, Javits Center (Calrec, Ikegami, Grass Valley u. a.)"},{"datum":"2026-10-24","text":"Sigma Produktevent, mögliches Objektiv: 65 mm f/1.1 oder f/1.0","geruecht":true},{"datum":"2026-10-29","text":"FCC-Abstimmung über chinesische Prüflabore"},{"datum":"2026-10-31","text":"DJI beendet Reparaturen der Phantom 4 Pro V2"},{"datum":"2026-10-30","label":"Ende Okt.","text":"Nikkor Z 120-300 mm f/2.8 TC VR S erwartet","geruecht":true},{"datum":"2026-11-01","label":"Nov.","text":"Nikon Z70 erwartet","geruecht":true},{"datum":"2026-11-10","label":"10.–12.11.","text":"Adobe MAX, Miami Beach (auch online)"}],"items":[{"id":"calrec-nab-ny","kat":"broadcast","typ":"news","titel":"Calrec zeigt Type RT und Apex M6 auf der NAB Show New York","kurz":"Die kompakte Konsole Type RT gibt es mit 6, 12 oder 18 Fadern, sie unterstützt ST 2110 und optional Dante und MADI und arbeitet lüfterlos. Das 1-HE-Modul Apex M6 übernimmt I/O und Routing. Beide debütieren in den USA. Dazu kommen die Software-Updates True Control 2.0, Argo v1.5 (mit True-Peak-Limitern) und ImPulseV v1.5 (mit NDI).","warum":"Audio over IP rutscht in kleinere Konsolenklassen.","quelle":"TV Technology","url":"https://www.tvtechnology.com/production/calrec-brings-new-consoles-software-to-nab-show-new-york","datum":"2026-10-08"},{"id":"ikegami-uhk-x700vn","kat":"broadcast","typ":"news","titel":"Ikegami zeigt die Studiokamera UHK-X700VN","kurz":"Die Studio- und Portable-Kamera bringt Funktionen mit, die man sonst eher aus der Digital-Cinema-Produktion kennt. Ikegami präsentiert sie auf der NAB Show New York.","warum":"Broadcast-Kameras nähern sich dem Cine-Look an.","quelle":"TV Technology","url":"https://www.tvtechnology.com/production/ikegami-to-unveil-uhk-x700vn-camera-at-nab-show-new-york","datum":"2026-10-08"},{"id":"nab-ny-trends","kat":"broadcast","typ":"news","titel":"NAB New York: IPMX und hybride Produktion als Leitthemen","kurz":"Cobalt Digital nennt IPMX und das Zusammenwachsen von Pro AV und Broadcast als wichtigste Trends, Grass Valley erwartet weiter hybride Produktionsumgebungen. Die Messe läuft vom 20. bis 21. Oktober im Javits Center.","warum":"Stichworte für alle, die ihre Studio-Infrastruktur planen.","quelle":"TV Technology","url":"https://www.tvtechnology.com/platform/broadcast/nab-show-new-york-exhibitor-insight-cobalt-digital","datum":"2026-10-13"},{"id":"lynx-cde-1923","kat":"broadcast","typ":"news","titel":"LYNX yellobrik CDE 1923: Synchronisation über SDI und IP","kurz":"Der neue Konverter behält die bidirektionale Wandlung und bekommt Referenz-Ein- und -Ausgänge, damit das Timing zwischen SDI- und IP-Welt stimmt.","warum":"Hilft bei Taktproblemen in Mischumgebungen.","quelle":"TV Technology","url":"https://www.tvtechnology.com/infrastructure/latest-lynx-yellobrik-converter-enables-synchronization-across-both-sdi-and-ip-environments","datum":"2026-10-13"},{"id":"dji-sdr-transmission-2","kat":"broadcast","typ":"news","titel":"DJI SDR Transmission 2 im Feldtest","kurz":"CineD testete das Funkübertragungssystem im Video Village mit drei Kameras, mit einem Hindernistest im Auto und einem Reichweitentest auf dem Wasser. Der Test ist laut Seite gesponsert.","warum":"Interessant für kleine Produktionen, die Funkstrecken fürs Monitoring brauchen.","quelle":"CineD","url":"https://www.cined.com/dji-sdr-transmission-2-field-tested-three-camera-video-village-obstruction-test-in-a-car-range-test-on-the-water/","datum":"2026-10-04"},{"id":"hdr-erwartung","kat":"broadcast","typ":"news","titel":"Studie: Zuschauer erwarten zunehmend HDR","kurz":"Ein Bericht von Parks Associates und InterDigital untersucht, wie sich HDR im Videoökosystem entwickelt und dass Zuschauer es immer häufiger voraussetzen.","warum":"Ein weiteres Argument, HDR-Workflows mitzudenken.","quelle":"TV Technology","url":"https://www.tvtechnology.com/platform/broadcast/report-viewers-increasingly-expect-hdr","datum":"2026-10-13"},{"id":"sigma-event-24-okt","kat":"kamera","typ":"geruecht","sicherheit":2,"schlagzeile":true,"titel":"Sigma lädt zum Produktevent am 24. Oktober ein","kurz":"Sigma Deutschland hat per Newsletter zu einer Produktankündigung am 24. Oktober eingeladen, öffentlich und damit ungewöhnlich. Spekuliert wird über ein extrem lichtstarkes Vollformat-Autofokus-Objektiv, möglicherweise 65 mm f/1.1 oder sogar f/1.0.","warum":"Lichtstarke AF-Festbrennweiten sind für Look und Low-Light-Video interessant. Details gibt es erst am Eventtag.","quelle":"Sony Alpha Rumors","url":"https://www.sonyalpharumors.com/something-big-is-coming-sigma-confirms-october-24-product-launch-event/","datum":"2026-09-30"},{"id":"nikon-120-300-z70","kat":"kamera","typ":"geruecht","sicherheit":2,"titel":"Nikkor Z 120-300 mm f/2.8 TC VR S: neue Leak-Fotos, Z70 im November?","kurz":"Neue Bilder, aufgenommen beim Formel-1-Rennen in Singapur, deuten auf eine Ankündigung Ende Oktober zu einem hohen Preis hin. Außerdem rechnet Nikon Rumors im November mit einer Z70; ein Gerücht zu einer Z7III wurde zurückgewiesen.","warum":"Das „TC“ steht bei Nikon üblicherweise für einen eingebauten Telekonverter, interessant für Sport und Tele-Video.","quelle":"Nikon Rumors","url":"https://nikonrumors.com/2026/10/12/more-leaked-pictures-of-the-upcoming-nikon-nikkor-z-120-300mm-f-2-8-tc-vr-s-lens.aspx/","datum":"2026-10-12"},{"id":"sony-26mp-stacked","kat":"kamera","typ":"geruecht","sicherheit":1,"titel":"Sony: 26-MP-Stacked-Sensor für FX30 II und A6900?","kurz":"Sony Alpha Rumors fragt, ob ein neuer 26-Megapixel-Sensor in voll gestapelter Bauweise in einer FX30 II und einer A6900 steckt. Belastbare Details fehlen, die Meldung ist ein Fragezeichen.","warum":"Gestapelte Sensoren bedeuten meist weniger Rolling Shutter, wichtig für Video.","quelle":"Sony Alpha Rumors","url":"https://www.sonyalpharumors.com/sonys-new-26mp-fully-stacked-sensor-coming-to-the-fx30-ii-and-a6900/","datum":null,"datum_hinweis":"Quelle ohne Datum"},{"id":"gopro-mission-1-firmware","kat":"kamera","typ":"update","schlagzeile":true,"titel":"GoPro MISSION 1 Pro: 50-MP-RAW-Serien und Anamorphot-Support","kurz":"Beide Modelle bekommen einen schnelleren Auslöser und Serienbilder, mehr als 20 RAW-Fotos mit 50 MP am Stück. Die ILS-Variante unterstützt Anamorphote mit Squeeze 1,33x bis 2,0x, HyperSmooth bleibt aktiv. Die MISSION-Monitor-App zeigt jetzt Histogramm, Waveform, RGB-Parade und False Color.","warum":"Die Dateien tragen Pixel-Aspect-Metadaten, sodass Premiere und Resolve das Bild richtig anzeigen. Die entzerrte Vorschau am Display soll später folgen.","quelle":"Newsshooter","url":"https://www.newsshooter.com/2026/10/13/gopro-mission-1-pro-mission-1-pro-ils-firmware-updates-continus-50mp-raw-photos-anamorphic-lens-support/","datum":"2026-10-13"},{"id":"lumix-s9-fw-2-1","kat":"kamera","typ":"update","titel":"Lumix S9: Firmware 2.1 mit 4K60 im MP4-Format (Lite)","kurz":"Die Firmware ergänzt 4K60 im MP4-(Lite)-Format, mehr Belegungsoptionen für die Objektivtaste und Unterstützung für LUMIX Flow.","warum":"Relevant für schnelle Clips mit kleineren Dateien.","quelle":"CineD","url":"https://www.cined.com/panasonic-lumix-s9-firmware-2-1-now-available-4k60-in-mp4-lite-more-lens-fn-options-and-lumix-flow-support/","datum":"2026-10-12"},{"id":"nikon-z6iii-fw-2-01","kat":"kamera","typ":"update","titel":"Nikon Z6III: Firmware 2.01 erschienen","kurz":"Nikon hat die Firmware 2.01 für die Z6III veröffentlicht. Die Änderungen stehen im verlinkten Beitrag.","warum":"Die Versionsnummer deutet auf ein Wartungsupdate hin. Vor dem nächsten Dreh einspielen und Changelog prüfen.","quelle":"Nikon Rumors","url":"https://nikonrumors.com/2026/10/14/nikon-z6iii-firmware-update-version-2-01-released.aspx/","datum":"2026-10-14"},{"id":"tamron-16-50-z","kat":"kamera","typ":"news","titel":"Tamron 16-50 mm f/2.8 für Nikon Z (APS-C) offiziell","kurz":"Tamron hat das zuvor durchgesickerte 16-50-mm-f/2.8 für APS-C-Kameras mit Nikon-Z-Mount vorgestellt. Vorbestellungen sollen bald starten.","warum":"Lichtstarkes Standardzoom für Videografen mit Nikon-Z-APS-C-Kameras.","quelle":"Nikon Rumors","url":"https://nikonrumors.com/2026/10/14/tamron-announced-a-new-16-50mm-f-2-8-aps-c-lens-for-nikon-z-mount.aspx/","datum":"2026-10-14"},{"id":"ttartisan-af-24","kat":"kamera","typ":"news","titel":"TTArtisan AF 24 mm F3.8: Vollformat-Autofokus unter 100 Dollar","kurz":"TTArtisan bringt ein Vollformat-Weitwinkel mit Autofokus für Sony E für weniger als 100 US-Dollar.","warum":"Günstiges Zweitobjektiv. Bildqualität und Fokusverhalten sind noch ungetestet.","quelle":"Newsshooter","url":"https://www.newsshooter.com/2026/10/13/ttartisan-af-24mm-f3-8-a-full-frame-sony-e-mount-af-lens-for-less-than-100-usd/","datum":"2026-10-13"},{"id":"osmo-pocket-4p-venedig","kat":"kamera","typ":"news","titel":"Osmo Pocket 4P: Was DJI mit der Pocket-Kamera vorhat","kurz":"CineD ordnet den Auftritt der Osmo Pocket 4P beim Filmfestival Venedig ein und fragt, welche Strategie DJI damit verfolgt. Ein Labortest der Kamera liegt seit dem 30. Juli vor.","warum":"Interessant, wenn du Pocket-Kameras als zweite Kamera am Set einplanst.","quelle":"CineD","url":"https://www.cined.com/a-pocket-camera-at-the-venice-film-festival-what-dji-wants-with-the-osmo-pocket-4p/","datum":"2026-10-12"},{"id":"sony-fx5-labortest","kat":"kamera","typ":"news","hintergrund":true,"titel":"Sony FX5: Labortest zu Rolling Shutter und Dynamikumfang","kurz":"CineD hat die FX5 im Labor gemessen (Rolling Shutter, Dynamikumfang, Belichtungsspielraum) und nennt sie in der Podcast-Folge einen neuen Maßstab bei Vollformat. Die Folge diskutiert auch Verkaufszahlen von DJI und Insta360 im Vergleich zu Spiegellosen.","warum":"Messwerte statt Datenblatt, wenn du eine Cine-Kamera anschaffst.","quelle":"CineD","url":"https://www.cined.com/sony-fx5-lab-test-rolling-shutter-dynamic-range-and-exposure-latitude/","datum":"2026-09-28"},{"id":"dji-neo-3-leaks","kat":"drohnen","typ":"geruecht","sicherheit":2,"schlagzeile":true,"titel":"DJI Neo 3: Leak-Stand nach gut drei Wochen","kurz":"Seit rund 23 Tagen sickern Details zur Neo 3 durch, zuletzt ein Unboxing-Video. Die Eckdaten gelten laut DroneXL als weitgehend geklärt, Preis und Starttermin fehlen noch.","warum":"Die Neo ist DJIs kleine Drohne für Selfie- und Vlog-Aufnahmen. Ein Nachfolger zeigt, wohin sich Kompaktdrohnen entwickeln.","quelle":"DroneXL","url":"https://dronexl.co/2026/10/08/dji-neo-3-everything-we-know-leaks-roundup/","datum":"2026-10-08"},{"id":"dji-dock-4-teaser","kat":"drohnen","typ":"geruecht","sicherheit":2,"titel":"DJI Dock 4 mit Akkuwechsel: Teaser für heute","kurz":"DJI hat für den 14. Oktober einen Enterprise-Teaser gesetzt. Er zeigt offenbar eine Dock 4, die Akkus automatisch tauscht. Laut Bericht kommt das Produkt nicht in die USA.","warum":"Zeigt den Trend zu autonomen Drohnenstationen im Enterprise-Bereich. Für Filmer eher ein Randthema.","quelle":"DroneXL","url":"https://dronexl.co/2026/10/08/dji-enterprise-teaser-battery-swap-dock-october-14/","datum":"2026-10-08"},{"id":"fcc-pruflabore","kat":"drohnen","typ":"news","schlagzeile":true,"titel":"FCC stimmt am 29. Oktober über chinesische Prüflabore ab","kurz":"Die FCC will darüber abstimmen, Prüflabore auf dem chinesischen Festland ab Dezember 2028 nicht mehr anzuerkennen. Laut Bericht testen diese Labore 82 Prozent der US-Geräte, auch die Osmo Pocket 4P wurde in einem geprüft.","warum":"Betrifft in erster Linie die Zulassung neuer Geräte in den USA.","quelle":"DroneXL","url":"https://dronexl.co/2026/10/10/fcc-vote-chinese-test-labs-82-percent-us-devices/","datum":"2026-10-10"},{"id":"phantom-4-pro-v2-ende","kat":"drohnen","typ":"news","titel":"DJI beendet Reparaturen der Phantom 4 Pro V2","kurz":"Ab dem 31. Oktober repariert DJI die Phantom 4 Pro V2 nicht mehr und rät zum Neukauf. Der Service für die Agras T16 und T20 endet am 2. November.","warum":"Wer eine Phantom 4 Pro V2 fliegt, sollte Reparaturen und Ersatzteile vorher klären.","quelle":"DroneXL","url":"https://dronexl.co/2026/10/12/dji-phantom-4-pro-v2-end-of-service-october-31/","datum":"2026-10-12"},{"id":"mini-5-pro-preis","kat":"drohnen","typ":"news","titel":"DJI Mini 5 Pro: Tiefstpreis von 679 US-Dollar","kurz":"Bei Amazon USA kostet die Mini 5 Pro nach den Prime Big Deal Days weiterhin 679 Dollar, ihr bisher niedrigster Preis.","warum":"US-Preis. In Europa können Angebote abweichen.","quelle":"DroneXL","url":"https://dronexl.co/2026/10/12/dji-mini-5-pro-679-amazon-record-low/","datum":"2026-10-12"},{"id":"avata-360-ohne-acro","kat":"drohnen","typ":"news","hintergrund":true,"titel":"Avata 360 ohne Acro: reicht das?","kurz":"Ein FPV-Pilot testete die Avata 360 in fünf Einsatzszenarien und kommt zu dem Schluss, dass sie für die meisten Käufer mehrere Drohnen ersetzen kann, auch ohne Acro-Modus.","warum":"Einordnung für alle, die zwischen 360°-Kameradrohne und klassischer FPV-Drohne schwanken.","quelle":"DroneXL","url":"https://dronexl.co/2026/09/30/dji-avata-360-kai-vertigoh-fpv-test/","datum":"2026-09-30"},{"id":"gyroflow-1-6-3","kat":"gyroflow","typ":"update","hintergrund":true,"titel":"Gyroflow 1.6.3: Bugfixes, davor 1.6.2 mit ProRes RAW","kurz":"Die aktuelle Version 1.6.3 (4. September) behebt 10-Bit-Rendering auf NVIDIA-Karten, einen Absturz auf Intel und Probleme in der Render-Warteschlange. Version 1.6.2 (19. August) brachte ProRes RAW, Insta360 Go Ultra, FFmpeg 8.0 und neue BRAW- und R3D-SDKs.","warum":"Keine neue Version in dieser Woche. Stand zum Nachschlagen.","quelle":"GitHub","url":"https://github.com/gyroflow/gyroflow/releases","datum":"2026-09-04"},{"id":"resolve-21-stand","kat":"resolve","typ":"update","hintergrund":true,"titel":"DaVinci Resolve 21: Stand der Dinge","kurz":"Resolve 21 (April) brachte eine Photo-Page und KI-Werkzeuge wie IntelliSearch und CineFocus. Zuletzt erschien Version 21.0.2 am 1. Juli mit schnellerem Bypass-Wechsel und besserer H.265-Wiedergabe auf NVIDIA-GPUs. Für Tests mit KI-Assistenten wird bereits Version 21.1 Studio genutzt.","warum":"Keine neue Resolve-Meldung in dieser Woche.","quelle":"Newsshooter","url":"https://www.newsshooter.com/2026/07/01/davinci-resolve-21-0-2-update/","datum":"2026-07-01"},{"id":"adobe-max-2026","kat":"adobe","typ":"news","titel":"Adobe MAX: 10. bis 12. November in Miami Beach","kurz":"Mehr als 200 Sessions in sieben Tracks, darunter „Accelerating Creativity with AI“ sowie Video, Audio und Motion. Die Vorkonferenz läuft am 8. und 9. November, eine Online-Teilnahme ist möglich.","warum":"Adobe stellt dort üblicherweise neue Firefly- und Premiere-Funktionen vor.","quelle":"Adobe MAX","url":"https://max.adobe.com/","datum":null,"datum_hinweis":"Termin"},{"id":"premiere-paper-edit","kat":"adobe","typ":"news","titel":"Premiere: Highlights per Paper Edit im Transkript-Panel","kurz":"Der Dienstagstipp von Jeff Greenberg zeigt, wie sich im Transkript-Panel die stärksten Momente per Paper Edit herausziehen lassen. Der Tipp davor verhindert, dass Premiere beim Schneiden automatisch Spuren anlegt.","warum":"Zwei kleine Workflow-Gewinne ohne neue Software.","quelle":"ProVideo Coalition","url":"https://www.provideocoalition.com/tool-tip-tuesday-for-adobe-premiere-grab-the-best-moments-in-the-transcript-panel-with-paper-edit/","datum":"2026-10-13"},{"id":"nle-ki-assistenten-test","kat":"ki","typ":"news","schlagzeile":true,"hintergrund":true,"titel":"Test: KI-Assistenten in Premiere und Resolve","kurz":"ProVideo Coalition ließ den Premiere-Assistenten (Beta) und Resolve 21.1 Studio mit Claude 19 Interviewclips auf eigene Timelines verteilen und Stringouts bauen. Beide schafften die Grundaufgaben, brauchten aber Nachbesserung. Resolve war bei Wiederholungsarbeit schneller, Premiere lieferte genauere Rückmeldungen. Bei Farbe, Audio-Keyframes und Grafikskalierung versagten beide teilweise. Premiere nutzt kostenlose tägliche Firefly-Credits, die Adobe nicht garantiert.","warum":"Der wichtigste Realitätscheck für alle, die den Schnitt per KI vereinfachen wollen: Der Zeitgewinn ist offen, ein schneller Cutter ist von Hand oft flotter.","quelle":"ProVideo Coalition","url":"https://www.provideocoalition.com/battle-of-the-nle-ai-assistants/","datum":null,"datum_hinweis":"vor ca. 4 Wochen"},{"id":"rohschnitt-tools-mcp","kat":"ki","typ":"news","titel":"Rohschnitt-Tools und MCP-Brücken für Editoren","kurz":"Iain Andersons Roundup nennt Doza Assist, PowerCut, RoughCut und Cutler (Beta) für automatische Rohschnitte sowie Jumper, das eigene KI-Werkzeuge per MCP an den Schnittplatz anbindet. FCP Extender bringt Generative Extend für Final Cut, abgerechnet über Credits.","warum":"Viele dieser Tools entstehen mit KI-Coding. Sie sind klein, schnell und oft günstiger als große Suiten.","quelle":"ProVideo Coalition","url":"https://www.provideocoalition.com/roundup-new-software-for-video-editors/","datum":"2026-10-05"},{"id":"compositor-opencine","kat":"schnitt","typ":"news","titel":"Compositor: freie Open-Source-Alternative zu Photoshop","kurz":"Robbie Tilton baut Compositor als kostenlose, quelloffene Photoshop-Alternative. Ein gewünschtes Feature (Filter Layers) kam laut Roundup binnen eines Tages dazu. Ebenfalls dabei: OpenPocketCine, eine freie Begleit-App für DJI-Osmo-Kameras mit Monitor, Scopes und Kamerasteuerung, sowie Softbox zur Hautglättung.","warum":"Foto-Compositing und Osmo-Monitoring ohne Abo.","quelle":"ProVideo Coalition","url":"https://www.provideocoalition.com/roundup-new-software-for-video-editors/","datum":"2026-10-05"},{"id":"getty-glaeubigerschutz","kat":"schnitt","typ":"news","titel":"Getty Images beantragt Gläubigerschutz","kurz":"Getty will laut CineD Schulden abbauen und in private Hand übergehen. Für Contributor soll sich nichts ändern.","warum":"Wichtig für Stockfoto-Lizenzierung und die Einnahmen von Fotografen.","quelle":"CineD","url":"https://www.cined.com/getty-images-to-file-for-bankruptcy-protection-debt-cut-private-ownership-no-change-for-contributors/","datum":"2026-10-13"},{"id":"macos-27-update","kat":"schnitt","typ":"news","titel":"macOS 27 „Golden Gate“: schon updaten?","kurz":"CineD prüft, ob Videoeditoren das Update auf macOS 27 schon wagen können.","warum":"Bis zur Klärung Resolve, Premiere und Plugins gegen die Kompatibilitätslisten der Hersteller prüfen.","quelle":"CineD","url":"https://www.cined.com/macos-27-golden-gate-for-video-editors-is-it-safe-to-update-yet/","datum":"2026-10-12"}],"key":"2026-KW42"}];
+
+  var CATS = [
+    { id: 'broadcast', label: 'Broadcast & Audio' },
+    { id: 'kamera', label: 'Kameras' },
+    { id: 'drohnen', label: 'Drohnen & FPV' },
+    { id: 'gyroflow', label: 'Gyroflow' },
+    { id: 'resolve', label: 'DaVinci Resolve' },
+    { id: 'adobe', label: 'Adobe' },
+    { id: 'ki', label: 'KI & Automation' },
+    { id: 'schnitt', label: 'Schnitt & Foto' }
+  ];
+  var CAT = {};
+  CATS.forEach(function (c) { CAT[c.id] = c; });
+  var TYP = { news: 'News', update: 'Update', geruecht: 'Gerücht' };
+  var SICH = { 1: 'Spekulation', 2: 'Glaubwürdig', 3: 'Fast bestätigt' };
+  var READ_KEY = 'wbb-gelesen-v1';
+
+  function $(id) { return document.getElementById(id); }
+  function h(tag, props, kids) {
+    var n = document.createElement(tag);
+    if (props) {
+      Object.keys(props).forEach(function (k) {
+        if (k === 'class') n.className = props[k];
+        else if (k === 'text') n.textContent = props[k];
+        else n.setAttribute(k, props[k]);
+      });
+    }
+    (kids || []).forEach(function (c) {
+      if (c == null) return;
+      n.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+    });
+    return n;
+  }
+  function dm(iso) { var p = iso.split('-'); return p[2] + '.' + p[1] + '.'; }
+  function dmy(iso) { var p = iso.split('-'); return p[2] + '.' + p[1] + '.' + p[0]; }
+  function range(a, b) {
+    var pa = a.split('-'), pb = b.split('-');
+    var left = pa[2] + '.' + (pa[1] === pb[1] && pa[0] === pb[0] ? '' : pa[1] + '.');
+    return left + '–' + pb[2] + '.' + pb[1] + '.' + pb[0];
+  }
+  function safeUrl(u) { return /^https?:\/\//i.test(u) ? u : '#'; }
+  function catColor(id) { return 'var(--c-' + id + ')'; }
+
+  var read = {};
+  try { read = JSON.parse(localStorage.getItem(READ_KEY) || '{}') || {}; } catch (e) { read = {}; }
+  function saveRead() { try { localStorage.setItem(READ_KEY, JSON.stringify(read)); } catch (e) {} }
+  function ikey(ed, it) { return ed.key + '/' + it.id; }
+
+  var state = { ed: DATA.length - 1, cats: {}, typ: 'alle', q: '', unread: false, view: 'thema' };
+
+  function ed() { return DATA[state.ed]; }
+  function catActive() { return Object.keys(state.cats).length > 0; }
+
+  function visible() {
+    var e = ed();
+    var q = state.q.trim().toLowerCase();
+    return e.items.filter(function (it) {
+      if (catActive() && !state.cats[it.kat]) return false;
+      if (state.typ !== 'alle' && it.typ !== state.typ) return false;
+      if (state.unread && read[ikey(e, it)]) return false;
+      if (q) {
+        var hay = (it.titel + ' ' + it.kurz + ' ' + (it.warum || '') + ' ' + it.quelle + ' ' + CAT[it.kat].label).toLowerCase();
+        if (hay.indexOf(q) < 0) return false;
+      }
+      return true;
+    });
+  }
+
+  function toggleCat(id) {
+    if (state.cats[id]) delete state.cats[id]; else state.cats[id] = true;
+    renderBar(); renderChips(); renderList();
+  }
+
+  function renderHead() {
+    var e = ed();
+    var sel = $('edition');
+    sel.textContent = '';
+    for (var i = DATA.length - 1; i >= 0; i--) {
+      var d = DATA[i];
+      var o = h('option', { value: String(i), text: 'KW ' + d.kw + ' · ' + range(d.von, d.bis) });
+      if (i === state.ed) o.selected = true;
+      sel.appendChild(o);
+    }
+    $('edmeta').textContent = 'KW ' + e.kw + ' · ' + range(e.von, e.bis) + ' · Stand ' + dmy(e.stand) + ' · ' + e.items.length + ' Meldungen';
+    $('intro').textContent = e.intro;
+    var sn = $('startnote');
+    if (e.hinweis) { sn.textContent = e.hinweis; sn.hidden = false; } else { sn.hidden = true; }
+  }
+
+  function counts() {
+    var c = {};
+    ed().items.forEach(function (it) { c[it.kat] = (c[it.kat] || 0) + 1; });
+    return c;
+  }
+
+  function renderBar() {
+    var bar = $('bar'), c = counts();
+    bar.textContent = '';
+    bar.className = 'bar' + (catActive() ? ' filtered' : '');
+    CATS.forEach(function (cat) {
+      if (!c[cat.id]) return;
+      var b = h('button', {
+        type: 'button',
+        'aria-pressed': state.cats[cat.id] ? 'true' : 'false',
+        'aria-label': cat.label + ', ' + c[cat.id] + ' Meldungen',
+        title: cat.label + ' (' + c[cat.id] + ')'
+      });
+      b.style.background = catColor(cat.id);
+      b.style.flexGrow = String(c[cat.id]);
+      b.addEventListener('click', function () { toggleCat(cat.id); });
+      bar.appendChild(b);
+    });
+  }
+
+  function renderChips() {
+    var box = $('chips'), c = counts();
+    box.textContent = '';
+    CATS.forEach(function (cat) {
+      if (!c[cat.id]) return;
+      var dot = h('span', { class: 'dot' });
+      dot.style.setProperty('--cc', catColor(cat.id));
+      dot.style.marginTop = '0';
+      var b = h('button', { type: 'button', class: 'chip', 'aria-pressed': state.cats[cat.id] ? 'true' : 'false' },
+        [dot, cat.label, h('span', { class: 'n', text: String(c[cat.id]) })]);
+      b.addEventListener('click', function () { toggleCat(cat.id); });
+      box.appendChild(b);
+    });
+  }
+
+  function renderSeg(id, opts, key) {
+    var box = $(id);
+    box.textContent = '';
+    opts.forEach(function (o) {
+      var b = h('button', { type: 'button', 'aria-pressed': state[key] === o[0] ? 'true' : 'false', text: o[1] });
+      b.addEventListener('click', function () { state[key] = o[0]; renderSeg(id, opts, key); renderList(); });
+      box.appendChild(b);
+    });
+  }
+
+  function renderTop() {
+    var e = ed(), ul = $('top');
+    ul.textContent = '';
+    e.items.filter(function (it) { return it.schlagzeile; }).forEach(function (it) {
+      var dot = h('span', { class: 'dot' });
+      dot.style.setProperty('--cc', catColor(it.kat));
+      var sub = CAT[it.kat].label + (it.typ === 'geruecht' ? ' · Gerücht' : '');
+      var b = h('button', { type: 'button' }, [dot, h('span', {}, [h('span', { class: 'tt', text: it.titel }), h('span', { class: 'ts', text: sub })])]);
+      b.addEventListener('click', function () { openItem(it.id); });
+      ul.appendChild(h('li', {}, [b]));
+    });
+  }
+
+  function renderTermine() {
+    var e = ed(), ol = $('termine');
+    ol.textContent = '';
+    var list = (e.termine || []).slice().sort(function (a, b) { return a.datum < b.datum ? -1 : a.datum > b.datum ? 1 : 0; });
+    list.forEach(function (t) {
+      var cls = t.datum < e.stand ? 'past' : (t.datum === e.stand ? 'heute' : '');
+      var tx = h('span', { class: 'tx' }, [t.text]);
+      if (t.datum === e.stand) tx.appendChild(h('span', { class: 'tag', text: 'heute' }));
+      if (t.geruecht) tx.appendChild(h('span', { class: 'tag', text: 'Gerücht' }));
+      ol.appendChild(h('li', { class: cls }, [h('span', { class: 'tc', text: t.label || dm(t.datum) }), tx]));
+    });
+    $('h-term').parentNode.hidden = list.length === 0;
+  }
+
+  function row(e, it, showCat) {
+    var key = ikey(e, it);
+    var dot = h('span', { class: 'dot' });
+    dot.style.setProperty('--cc', catColor(it.kat));
+    var meta = h('span', { class: 'meta' });
+    meta.appendChild(h('span', { class: 'neu', title: 'Ungelesen' }));
+    meta.appendChild(h('span', { class: 'badge ' + it.typ, text: TYP[it.typ] }));
+    if (it.typ === 'geruecht' && it.sicherheit) {
+      var m = h('span', { class: 'meter', role: 'img', 'aria-label': 'Glaubwürdigkeit ' + it.sicherheit + ' von 3: ' + SICH[it.sicherheit], title: SICH[it.sicherheit] });
+      for (var i = 1; i <= 3; i++) m.appendChild(h('i', { class: i <= it.sicherheit ? 'on' : '' }));
+      meta.appendChild(m);
+      meta.appendChild(h('span', { text: SICH[it.sicherheit] }));
+    }
+    meta.appendChild(h('span', { text: it.datum ? dm(it.datum) : (it.datum_hinweis || 'ohne Datum') }));
+    meta.appendChild(h('span', { text: it.quelle }));
+    if (it.hintergrund) meta.appendChild(h('span', { class: 'badge', text: 'Hintergrund' }));
+    if (showCat) meta.appendChild(h('span', { text: CAT[it.kat].label }));
+
+    var sum = h('summary', {}, [dot, h('span', {}, [h('span', { class: 't', text: it.titel }), meta]), h('span', { class: 'chev' })]);
+    var body = h('div', { class: 'body' }, [h('p', { text: it.kurz })]);
+    if (it.warum) body.appendChild(h('p', { class: 'why' }, [h('b', { text: 'Warum es zählt: ' }), it.warum]));
+    body.appendChild(h('a', { class: 'src', href: safeUrl(it.url), target: '_blank', rel: 'noopener noreferrer', text: 'Quelle: ' + it.quelle + ' ↗' }));
+
+    var d = h('details', { class: 'item' + (read[key] ? ' read' : ''), id: 'it-' + it.id }, [sum, body]);
+    sum.addEventListener('click', function () { if (!d.open) markRead(d, key); });
+    return d;
+  }
+
+  function markRead(d, key) {
+    read[key] = 1; saveRead();
+    d.classList.add('read');
+    updateCount();
+  }
+
+  var lastShown = 0;
+  function updateCount() {
+    var e = ed();
+    var unread = e.items.filter(function (it) { return !read[ikey(e, it)]; }).length;
+    $('count').textContent = lastShown + ' von ' + e.items.length + ' Meldungen · ' + unread + ' ungelesen';
+  }
+
+  function renderList() {
+    var e = ed(), items = visible(), box = $('list');
+    box.textContent = '';
+    lastShown = items.length;
+    $('toggleall').textContent = 'Alle öffnen';
+    updateCount();
+    if (!items.length) {
+      var reset = h('button', { type: 'button', class: 'linkbtn', text: 'Filter zurücksetzen' });
+      reset.addEventListener('click', resetFilters);
+      box.appendChild(h('div', { class: 'empty' }, [h('p', { text: 'Keine Meldung passt zu diesen Filtern.' }), reset]));
+      return;
+    }
+    if (state.view === 'datum') {
+      var sorted = items.slice().sort(function (a, b) {
+        var da = a.datum || '', db = b.datum || '';
+        return da < db ? 1 : da > db ? -1 : 0;
+      });
+      var flat = h('div', { class: 'flat' });
+      sorted.forEach(function (it) { flat.appendChild(row(e, it, true)); });
+      box.appendChild(flat);
+      return;
+    }
+    CATS.forEach(function (cat) {
+      var g = items.filter(function (it) { return it.kat === cat.id; });
+      if (!g.length) return;
+      var head = h('div', { class: 'ghead' }, [h('h3', { text: cat.label }), h('span', { class: 'gn', text: String(g.length) })]);
+      var sec = h('section', { class: 'group' }, [head]);
+      sec.style.setProperty('--cc', catColor(cat.id));
+      g.forEach(function (it) { sec.appendChild(row(e, it, false)); });
+      box.appendChild(sec);
+    });
+  }
+
+  function resetFilters() {
+    state.cats = {}; state.typ = 'alle'; state.q = ''; state.unread = false;
+    $('q').value = ''; $('unread').checked = false;
+    renderBar(); renderChips(); renderSeg('typ', TYP_OPTS, 'typ'); renderList();
+  }
+
+  function openItem(id) {
+    var e = ed();
+    var hit = visible().some(function (it) { return it.id === id; });
+    if (!hit) resetFilters();
+    var d = document.getElementById('it-' + id);
+    if (!d) return;
+    d.open = true;
+    var it = e.items.filter(function (x) { return x.id === id; })[0];
+    if (it) markRead(d, ikey(e, it));
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    d.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+    var s = d.querySelector('summary');
+    if (s) s.focus({ preventScroll: true });
+  }
+
+  var TYP_OPTS = [['alle', 'Alle'], ['news', 'News'], ['update', 'Updates'], ['geruecht', 'Gerüchte']];
+  var VIEW_OPTS = [['thema', 'Nach Thema'], ['datum', 'Nach Datum']];
+
+  function renderAll() {
+    renderHead(); renderBar(); renderChips();
+    renderSeg('typ', TYP_OPTS, 'typ');
+    renderSeg('view', VIEW_OPTS, 'view');
+    renderTop(); renderTermine(); renderList();
+  }
+
+  if (!DATA.length) {
+    $('intro').textContent = 'Noch keine Ausgabe vorhanden.';
+    return;
+  }
+
+  $('edition').addEventListener('change', function (ev) {
+    state.ed = parseInt(ev.target.value, 10);
+    state.cats = {};
+    renderAll();
+  });
+  $('q').addEventListener('input', function (ev) { state.q = ev.target.value; renderList(); });
+  $('unread').addEventListener('change', function (ev) { state.unread = ev.target.checked; renderList(); });
+  $('toggleall').addEventListener('click', function () {
+    var ds = Array.prototype.slice.call(document.querySelectorAll('#list details.item'));
+    var anyClosed = ds.some(function (d) { return !d.open; });
+    ds.forEach(function (d) { d.open = anyClosed; });
+    $('toggleall').textContent = anyClosed ? 'Alle schließen' : 'Alle öffnen';
+  });
+  $('markall').addEventListener('click', function () {
+    var e = ed();
+    e.items.forEach(function (it) { read[ikey(e, it)] = 1; });
+    saveRead();
+    Array.prototype.forEach.call(document.querySelectorAll('#list details.item'), function (d) { d.classList.add('read'); });
+    updateCount();
+    if (state.unread) renderList();
+  });
+
+  renderAll();
+})();
+</script>
+
+</body>
+</html>

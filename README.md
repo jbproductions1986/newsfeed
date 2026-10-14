@@ -1,36 +1,31 @@
-# newsfeed
+# Wochenblick Bild & Ton
 
-Sammlung und Wochenrückblick der wichtigsten Meldungen.
+Wöchentlicher, interaktiver Newsfeed zu Broadcast und Audio, Kameras (inklusive Gerüchte), Drohnen und FPV,
+Gyroflow, DaVinci Resolve, Adobe, KI-Vereinfachung in Kamera und Schnitt sowie Video- und Fotobearbeitung.
 
-## Struktur
+**Online:** https://jbproductions1986.github.io/newsfeed/
+
+Neue Ausgabe jeden Montag. Die Seite hat Themenfilter (der Farbbalken oben ist ebenfalls klickbar),
+Suche, Filter nach News, Updates und Gerüchten, eine Gerüchte-Einstufung, Schlagzeilen, einen
+Terminplan und Markierung gelesener Meldungen.
+
+## Aufbau
 
 ```
 newsfeed/
-├── README.md
-├── vorlagen/
-│   └── wochenrueckblick.md     # Vorlage für jede Woche
-├── rueckblicke/
-│   └── <Jahr>/
-│       └── KW<NN>.md           # ein Rückblick pro Kalenderwoche
-└── scripts/
-    └── neuer-rueckblick.sh     # erzeugt den Rückblick für eine Woche aus der Vorlage
+├── ausgaben/            # eine JSON-Datei pro Woche, z. B. 2026-KW42.json
+├── docs/                # fertige Seite (index.html), wird per GitHub Pages veröffentlicht
+├── feed/
+│   ├── template.html    # Layout und Bedienung der Seite
+│   └── build.py         # prüft die JSON-Dateien und baut docs/index.html
+└── REDAKTION.md         # Themen, Qualitätsregeln, Schema, Ablauf jeder Ausgabe
 ```
 
-## Neuen Wochenrückblick anlegen
+## Lokal bauen
 
 ```bash
-# aktuelle Kalenderwoche
-./scripts/neuer-rueckblick.sh
-
-# bestimmte Woche (ISO-Jahr und Kalenderwoche)
-./scripts/neuer-rueckblick.sh 2026 42
+python3 feed/build.py          # prüfen und docs/index.html schreiben
+python3 feed/build.py --check  # nur prüfen
 ```
 
-Das Skript legt `rueckblicke/<Jahr>/KW<NN>.md` an, trägt Kalenderwoche und
-Datumsbereich (Montag bis Sonntag) ein und überschreibt keine bestehende Datei.
-
-## Ablauf
-
-1. Während der Woche Meldungen unter „Meldungen" sammeln.
-2. Am Ende der Woche Highlights, Einordnung und Ausblick ergänzen.
-3. Committen und pushen.
+Der wöchentliche Lauf folgt den Regeln in `REDAKTION.md`.
