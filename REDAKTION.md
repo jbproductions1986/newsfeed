@@ -8,16 +8,16 @@ Struktur gleich bleibt.
 
 | id          | Thema             | Inhalt                                                                                     |
 |-------------|-------------------|--------------------------------------------------------------------------------------------|
-| `broadcast` | Broadcast & Audio | Broadcast-Technik, Live-Produktion, Audio, IP-Workflows (ST 2110, IPMX, NDI), Messen (NAB, IBC) |
-| `kamera`    | Kameras           | Kameras, Objektive, Firmware, Tests, **Gerüchte zu neuen Kameras**                         |
-| `drohnen`   | Drohnen & FPV     | DJI und Konkurrenz, FPV, Regulierung mit Einfluss auf Filmer, **Gerüchte zu neuen Drohnen** |
-| `gyroflow`  | Gyroflow          | Releases und Neuigkeiten zu Gyroflow und Stabilisierung per Gyro-Daten                     |
-| `resolve`   | DaVinci Resolve   | Resolve, Blackmagic Design, Fusion, Fairlight                                              |
-| `adobe`     | Adobe             | Premiere, After Effects, Photoshop, Lightroom, Firefly, Creative Cloud                     |
+| `broadcast` | Broadcast         | Broadcast-Technik, Live-Produktion, IP-Workflows (ST 2110, IPMX, NDI), Messen (NAB, IBC)   |
+| `kamera`    | Kameras & Audio   | Kameras, Objektive, Firmware, Tests, **Gerüchte zu neuen Kameras**, Audio (Mikrofone, Recorder, Tontechnik) |
+| `drohnen`   | Drohnen & FPV     | DJI und Konkurrenz, FPV, Regulierung mit Einfluss auf Filmer, **Gerüchte zu neuen Drohnen**; Gyroflow nur, wenn es etwas Relevantes gibt (Release, Neuerung) |
+| `schnitt`   | Schnitt           | DaVinci Resolve (inkl. Blackmagic Design, Fusion, Fairlight) und Adobe Premiere (inkl. After Effects, Firefly im Videokontext), allgemeine Schnitt-Tools und -Branche |
 | `ki`        | KI & Automation   | **Schwerpunkt:** Kamera und Video vereinfachen per KI (Assistenten, Rohschnitt, Automatisierung) |
-| `schnitt`   | Schnitt & Foto    | Allgemeines zu Video- und Fotobearbeitung, Tools, Branche                                  |
+| `foto`      | Foto              | Fotobearbeitung, Foto-Tools und -Branche, Adobe Photoshop und Lightroom. **Steht in der Ausgabe immer am Schluss.** |
 
 Gerüchte sind keine eigene Kategorie, sondern der Typ `geruecht` innerhalb ihres Themas.
+Gyroflow hat kein eigenes Thema mehr: Meldungen dazu erscheinen unter `drohnen`, aber nur bei echter Relevanz.
+Audio-Meldungen erscheinen unter `kamera`.
 
 ## Ablauf jeder Ausgabe
 
@@ -53,9 +53,9 @@ Gerüchte sind keine eigene Kategorie, sondern der Typ `geruecht` innerhalb ihre
 - Kameras und Video: CineD, Newsshooter, No Film School
 - Gerüchte: Nikon Rumors, Sony Alpha Rumors, Canon Rumors, Fuji Rumors, Photo Rumors (DJI-Gerüchte), Notebookcheck
 - Drohnen und FPV: DroneXL, DroneDJ, Oscar Liang
-- Broadcast und Audio: TV Technology, NewscastStudio, TVBEurope
+- Broadcast: TV Technology, NewscastStudio, TVBEurope
 - Schnitt und KI: ProVideo Coalition, Blackmagic-Pressemitteilungen, Adobe-Blog
-- Gyroflow: github.com/gyroflow/gyroflow/releases
+- Gyroflow (nur bei Relevanz, Thema Drohnen & FPV): github.com/gyroflow/gyroflow/releases
 
 Hinweis: Manche Startseiten (z. B. photorumors.com, fujirumors.com) liefern beim Abruf alte Inhalte.
 Dann Kategorieseiten oder die Websuche nutzen und das Datum jedes Beitrags prüfen.

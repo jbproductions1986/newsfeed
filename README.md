@@ -1,7 +1,7 @@
 # Wochenblick Bild & Ton
 
-Wöchentlicher, interaktiver Newsfeed zu Broadcast und Audio, Kameras (inklusive Gerüchte), Drohnen und FPV,
-Gyroflow, DaVinci Resolve, Adobe, KI-Vereinfachung in Kamera und Schnitt sowie Video- und Fotobearbeitung.
+Wöchentlicher, interaktiver Newsfeed zu Broadcast, Kameras und Audio (inklusive Gerüchte), Drohnen und FPV
+(Gyroflow bei Relevanz), Schnitt mit DaVinci Resolve und Premiere, KI-Vereinfachung in Kamera und Schnitt sowie Foto.
 
 **Online:** https://jbproductions1986.github.io/newsfeed/
 

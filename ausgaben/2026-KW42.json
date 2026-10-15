@@ -19,7 +19,7 @@
   "items": [
     {
       "id": "calrec-nab-ny",
-      "kat": "broadcast",
+      "kat": "kamera",
       "typ": "news",
       "titel": "Calrec zeigt Type RT und Apex M6 auf der NAB Show New York",
       "kurz": "Die kompakte Konsole Type RT gibt es mit 6, 12 oder 18 Fadern, sie unterstützt ST 2110 und optional Dante und MADI und arbeitet lüfterlos. Das 1-HE-Modul Apex M6 übernimmt I/O und Routing. Beide debütieren in den USA. Dazu kommen die Software-Updates True Control 2.0, Argo v1.5 (mit True-Peak-Limitern) und ImPulseV v1.5 (mit NDI).",
@@ -276,7 +276,7 @@
 
     {
       "id": "gyroflow-1-6-3",
-      "kat": "gyroflow",
+      "kat": "drohnen",
       "typ": "update",
       "hintergrund": true,
       "titel": "Gyroflow 1.6.3: Bugfixes, davor 1.6.2 mit ProRes RAW",
@@ -289,7 +289,7 @@
 
     {
       "id": "resolve-21-stand",
-      "kat": "resolve",
+      "kat": "schnitt",
       "typ": "update",
       "hintergrund": true,
       "titel": "DaVinci Resolve 21: Stand der Dinge",
@@ -302,7 +302,7 @@
 
     {
       "id": "adobe-max-2026",
-      "kat": "adobe",
+      "kat": "schnitt",
       "typ": "news",
       "titel": "Adobe MAX: 10. bis 12. November in Miami Beach",
       "kurz": "Mehr als 200 Sessions in sieben Tracks, darunter „Accelerating Creativity with AI“ sowie Video, Audio und Motion. Die Vorkonferenz läuft am 8. und 9. November, eine Online-Teilnahme ist möglich.",
@@ -314,7 +314,7 @@
     },
     {
       "id": "premiere-paper-edit",
-      "kat": "adobe",
+      "kat": "schnitt",
       "typ": "news",
       "titel": "Premiere: Highlights per Paper Edit im Transkript-Panel",
       "kurz": "Der Dienstagstipp von Jeff Greenberg zeigt, wie sich im Transkript-Panel die stärksten Momente per Paper Edit herausziehen lassen. Der Tipp davor verhindert, dass Premiere beim Schneiden automatisch Spuren anlegt.",
@@ -352,7 +352,7 @@
 
     {
       "id": "compositor-opencine",
-      "kat": "schnitt",
+      "kat": "foto",
       "typ": "news",
       "titel": "Compositor: freie Open-Source-Alternative zu Photoshop",
       "kurz": "Robbie Tilton baut Compositor als kostenlose, quelloffene Photoshop-Alternative. Ein gewünschtes Feature (Filter Layers) kam laut Roundup binnen eines Tages dazu. Ebenfalls dabei: OpenPocketCine, eine freie Begleit-App für DJI-Osmo-Kameras mit Monitor, Scopes und Kamerasteuerung, sowie Softbox zur Hautglättung.",
@@ -363,7 +363,7 @@
     },
     {
       "id": "getty-glaeubigerschutz",
-      "kat": "schnitt",
+      "kat": "foto",
       "typ": "news",
       "titel": "Getty Images beantragt Gläubigerschutz",
       "kurz": "Getty will laut CineD Schulden abbauen und in private Hand übergehen. Für Contributor soll sich nichts ändern.",

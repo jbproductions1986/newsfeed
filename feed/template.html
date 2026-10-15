@@ -17,11 +17,9 @@
   --c-broadcast: #3566D0;
   --c-kamera: #C99700;
   --c-drohnen: #1C9B72;
-  --c-gyroflow: #0E9DB1;
-  --c-resolve: #B8379A;
-  --c-adobe: #7255D0;
+  --c-schnitt: #B8379A;
+  --c-foto: #7255D0;
   --c-ki: #DB6A14;
-  --c-schnitt: #62737C;
   --f-display: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", sans-serif;
   --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
@@ -38,11 +36,9 @@
     --c-broadcast: #6C98F2;
     --c-kamera: #F0C23A;
     --c-drohnen: #3ECF9D;
-    --c-gyroflow: #3BC9DC;
-    --c-resolve: #E36DC5;
-    --c-adobe: #A18CF2;
+    --c-schnitt: #E36DC5;
+    --c-foto: #A18CF2;
     --c-ki: #F4954A;
-    --c-schnitt: #8DA0A9;
     color-scheme: dark;
   }
 }
@@ -57,11 +53,9 @@
   --c-broadcast: #6C98F2;
   --c-kamera: #F0C23A;
   --c-drohnen: #3ECF9D;
-  --c-gyroflow: #3BC9DC;
-  --c-resolve: #E36DC5;
-  --c-adobe: #A18CF2;
+  --c-schnitt: #E36DC5;
+  --c-foto: #A18CF2;
   --c-ki: #F4954A;
-  --c-schnitt: #8DA0A9;
   color-scheme: dark;
 }
 
@@ -342,14 +336,12 @@ details[open] > summary .chev { transform: rotate(-135deg); margin-top: 11px; }
   var DATA = /*__DATA__*/[];
 
   var CATS = [
-    { id: 'broadcast', label: 'Broadcast & Audio' },
-    { id: 'kamera', label: 'Kameras' },
+    { id: 'broadcast', label: 'Broadcast' },
+    { id: 'kamera', label: 'Kameras & Audio' },
     { id: 'drohnen', label: 'Drohnen & FPV' },
-    { id: 'gyroflow', label: 'Gyroflow' },
-    { id: 'resolve', label: 'DaVinci Resolve' },
-    { id: 'adobe', label: 'Adobe' },
+    { id: 'schnitt', label: 'Schnitt' },
     { id: 'ki', label: 'KI & Automation' },
-    { id: 'schnitt', label: 'Schnitt & Foto' }
+    { id: 'foto', label: 'Foto' }
   ];
   var CAT = {};
   CATS.forEach(function (c) { CAT[c.id] = c; });
