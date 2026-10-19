@@ -6,6 +6,11 @@ on:
   schedule:
     - cron: "30 5 * * 1"
   workflow_dispatch:
+    inputs:
+      dump:
+        description: "Rohdaten der API-Abrufe als Artefakt sichern (zum Testen der Filter)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -24,7 +29,20 @@ jobs:
       - name: YouTube-Daten holen
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
-        run: python3 feed/youtube_fetch.py
+        run: |
+          if [ "${{ inputs.dump }}" = "true" ]; then
+            python3 feed/youtube_fetch.py --dump "$RUNNER_TEMP/roh.json"
+          else
+            python3 feed/youtube_fetch.py
+          fi
+
+      - name: Rohdaten sichern
+        if: ${{ inputs.dump }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: youtube-roh
+          path: ${{ runner.temp }}/roh.json
+          retention-days: 1
 
       - name: Seite bauen
         run: python3 feed/build.py

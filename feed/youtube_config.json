@@ -4,34 +4,50 @@
   "ergebnisse_pro_suche": 25,
   "min_aufrufe": { "video": 500, "short": 1000 },
   "treffer_pro_rubrik": { "video": 6, "short": 4 },
+  "kategorien_erlaubt": ["1", "22", "24", "26", "27", "28"],
+  "sprachen": ["en", "de", "fr", "it"],
+  "ausschliessen": [
+    "unboxing", "vivo", "oppo", "realme", "redmi", "oneplus", "poco", "hindi", "kaise", "banaye",
+    "reels", "wallpaper", "ringtone", "prank", "asmr", "giveaway", "lookbook", "instagram"
+  ],
   "rubriken": {
     "broadcast": {
-      "suchen": ["broadcast live production", "SMPTE ST 2110 IP workflow", "NDI ATEM vMix live production"],
-      "shorts_suchen": ["live production broadcast", "ATEM switcher"]
+      "suchen": ["ATEM Mini live production", "NDI vMix live streaming production", "SMPTE ST 2110 IP broadcast", "broadcast news studio switcher"],
+      "shorts_suchen": ["ATEM live production", "live production switcher"],
+      "muss_enthalten": ["broadcast*", "atem", "ndi", "st 2110", "st2110", "smpte", "vmix", "live production", "live-produktion", "switcher", "tricaster", "grass valley", "ptz", "ob van", "ip workflow", "sdi", "nab", "ibc", "obs", "blackmagic", "multicam", "multi-cam", "teleprompter", "vision mixer", "bildmischer", "newsroom", "studio production"]
     },
     "kamera": {
-      "suchen": ["new cinema camera review", "mirrorless camera firmware update", "camera rumors new release", "microphone wireless audio recorder review"],
-      "shorts_suchen": ["new camera", "cinema camera"]
+      "suchen": ["Sony Canon Nikon cinema camera review", "mirrorless camera firmware update", "camera rumors leaked new camera", "wireless microphone audio recorder review"],
+      "shorts_suchen": ["new cinema camera", "mirrorless camera"],
+      "muss_enthalten": ["camera*", "kamera*", "cinema*", "mirrorless", "lens*", "objektiv*", "sony", "canon", "nikon", "fujifilm", "panasonic", "lumix", "arri", "red komodo", "v-raptor", "blackmagic", "microphone*", "mikrofon*", "wireless mic*", "recorder*", "firmware", "gimbal*", "sigma", "zeiss", "rode", "sennheiser", "shure", "fx3", "fx6", "fx9", "gopro", "osmo", "insta360"],
+      "ausschliessen": ["smartphone*", "phone*", "iphone*", "galaxy", "pixel", "specs"]
     },
     "licht": {
-      "suchen": ["Aputure Nanlite light", "LED video light review", "film lighting ARRI Astera Creamsource"],
-      "shorts_suchen": ["Aputure", "film lighting"]
+      "suchen": ["Aputure Nanlite Godox video light", "film lighting setup LED panel", "ARRI Astera Creamsource lighting", "cinematic lighting tutorial"],
+      "shorts_suchen": ["Aputure light", "film lighting"],
+      "muss_enthalten": ["aputure", "nanlite", "godox", "arri", "astera", "creamsource", "litepanels", "kino flo", "amaran", "lighting*", "video light*", "led light*", "led panel*", "cinema light*", "cine light*", "key light*", "softbox*", "dmx", "crmx", "beleuchtung", "lichtformer", "diffusion", "fresnel", "cob light*", "rgb light*", "tube light*"]
     },
     "drohnen": {
-      "suchen": ["DJI drone review", "FPV drone cinematic", "new drone leak DJI"],
-      "shorts_suchen": ["DJI drone", "FPV drone"]
+      "suchen": ["DJI drone review", "DJI new drone leak", "FPV drone cinematic", "drone regulations filmmakers"],
+      "shorts_suchen": ["DJI drone", "FPV drone"],
+      "muss_enthalten": ["drone*", "drohne*", "dji", "fpv", "quadcopter*", "mavic", "avata", "cinewhoop*", "gyroflow", "betaflight", "autel", "skydio", "antigravity", "easa", "uav"]
     },
     "schnitt": {
-      "suchen": ["DaVinci Resolve", "Premiere Pro", "video editing workflow"],
-      "shorts_suchen": ["DaVinci Resolve", "Premiere Pro"]
+      "suchen": ["DaVinci Resolve", "Premiere Pro", "After Effects video editing", "video editing workflow tips"],
+      "shorts_suchen": ["DaVinci Resolve", "Premiere Pro"],
+      "muss_enthalten": ["davinci", "resolve", "premiere", "after effects", "adobe", "fusion", "fairlight", "final cut", "capcut", "video edit*", "editing", "editor*", "schnitt", "color grading", "colour grading", "lut*", "motion graphics", "timeline*", "filmora", "blackmagic"]
     },
     "ki": {
-      "suchen": ["AI video editing", "AI camera autofocus tracking", "AI rough cut automation video"],
-      "shorts_suchen": ["AI video editing", "AI video tool"]
+      "suchen": ["AI video editing automation", "AI camera autofocus tracking", "AI rough cut tool video editor", "Claude AI video editing"],
+      "shorts_suchen": ["AI video editing", "AI camera"],
+      "muss_enthalten": ["ai", "a.i.", "ki", "artificial intelligence", "künstliche intelligenz", "machine learning", "generative", "claude", "chatgpt", "gemini", "sora", "veo", "runway", "firefly", "midjourney", "kling", "automation", "automat*"],
+      "und_enthalten": ["video*", "camera*", "kamera*", "edit*", "film*", "clip*", "footage", "premiere", "resolve", "capcut", "runway", "sora", "veo", "kling", "firefly", "animation*", "motion", "shot*", "schnitt"]
     },
     "foto": {
-      "suchen": ["Lightroom Photoshop", "AI photo editing", "photography gear review"],
-      "shorts_suchen": ["Lightroom", "photography tips"]
+      "suchen": ["Lightroom Photoshop tutorial", "AI photo editing tool", "photography gear camera lens review", "photography news"],
+      "shorts_suchen": ["Lightroom", "Photoshop"],
+      "muss_enthalten": ["photo*", "foto*", "photograph*", "lightroom", "photoshop", "capture one", "raw", "camera*", "lens*", "mirrorless", "portrait*", "retouch*", "fujifilm", "leica", "lumix", "nikon", "sony alpha", "canon eos", "petapixel", "adobe", "affinity", "luminar", "topaz", "dxo"],
+      "ausschliessen": ["poses"]
     }
   }
 }
