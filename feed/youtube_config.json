@@ -2,19 +2,30 @@
   "tage": 14,
   "short_max_sekunden": 180,
   "ergebnisse_pro_suche": 25,
-  "min_aufrufe": { "video": 500, "short": 1000 },
-  "treffer_pro_rubrik": { "video": 6, "short": 4 },
+  "min_aufrufe": {
+    "video": 500,
+    "short": 1000
+  },
+  "treffer_pro_rubrik": {
+    "video": 6,
+    "short": 4
+  },
   "kategorien_erlaubt": ["1", "22", "24", "26", "27", "28"],
-  "sprachen": ["en", "de", "fr", "it"],
-  "ausschliessen": [
-    "unboxing", "vivo", "oppo", "realme", "redmi", "oneplus", "poco", "hindi", "kaise", "banaye",
-    "reels", "wallpaper", "ringtone", "prank", "asmr", "giveaway", "lookbook", "instagram"
-  ],
+  "sprachen": ["en", "de", "fr", "it", "zxx"],
+  "ausschliessen": ["unboxing", "vivo", "oppo", "realme", "redmi", "oneplus", "poco", "hindi", "kaise", "banaye", "reels", "wallpaper", "ringtone", "prank", "asmr", "giveaway", "lookbook", "instagram", "viral", "viralvideo", "viralshorts", "shortsfeed", "fyp", "trending", "montagem", "slowed", "kdrama", "anime", "spiderman", "spider-man", "galaxy", "couple"],
   "rubriken": {
     "broadcast": {
-      "suchen": ["ATEM Mini live production", "NDI vMix live streaming production", "SMPTE ST 2110 IP broadcast", "broadcast news studio switcher"],
-      "shorts_suchen": ["ATEM live production", "live production switcher"],
-      "muss_enthalten": ["broadcast*", "atem", "ndi", "st 2110", "st2110", "smpte", "vmix", "live production", "live-produktion", "switcher", "tricaster", "grass valley", "ptz", "ob van", "ip workflow", "sdi", "nab", "ibc", "obs", "blackmagic", "multicam", "multi-cam", "teleprompter", "vision mixer", "bildmischer", "newsroom", "studio production"]
+      "suchen": ["ATEM Mini live production", "SMPTE ST 2110 IP broadcast"],
+      "shorts_suchen": ["ATEM live production"],
+      "muss_enthalten": ["broadcast*", "atem", "ndi", "st 2110", "st2110", "smpte", "vmix", "live production", "live-produktion", "switcher", "tricaster", "grass valley", "ptz", "ob van", "ip workflow", "sdi", "nab", "ibc", "obs", "blackmagic", "multicam", "multi-cam", "teleprompter", "vision mixer", "bildmischer", "newsroom", "studio production"],
+      "min_aufrufe": {
+        "video": 50,
+        "short": 150
+      },
+      "treffer": {
+        "video": 3,
+        "short": 2
+      }
     },
     "kamera": {
       "suchen": ["Sony Canon Nikon cinema camera review", "mirrorless camera firmware update", "camera rumors leaked new camera", "wireless microphone audio recorder review"],
@@ -25,12 +36,14 @@
     "licht": {
       "suchen": ["Aputure Nanlite Godox video light", "film lighting setup LED panel", "ARRI Astera Creamsource lighting", "cinematic lighting tutorial"],
       "shorts_suchen": ["Aputure light", "film lighting"],
-      "muss_enthalten": ["aputure", "nanlite", "godox", "arri", "astera", "creamsource", "litepanels", "kino flo", "amaran", "lighting*", "video light*", "led light*", "led panel*", "cinema light*", "cine light*", "key light*", "softbox*", "dmx", "crmx", "beleuchtung", "lichtformer", "diffusion", "fresnel", "cob light*", "rgb light*", "tube light*"]
+      "muss_enthalten": ["aputure", "nanlite", "godox", "arri", "astera", "creamsource", "litepanels", "kino flo", "amaran", "lighting*", "video light*", "led light*", "led panel*", "cinema light*", "cine light*", "key light*", "softbox*", "dmx", "crmx", "beleuchtung", "lichtformer", "diffusion", "fresnel", "cob light*", "rgb light*", "tube light*"],
+      "und_enthalten": ["aputure", "nanlite", "godox", "arri", "astera", "creamsource", "amaran", "film*", "video*", "cinema*", "cinematic", "camera*", "studio", "softbox*", "led", "setup", "tutorial", "portrait*", "photo*", "creator*", "youtuber*", "interview*", "dmx", "crmx"]
     },
     "drohnen": {
       "suchen": ["DJI drone review", "DJI new drone leak", "FPV drone cinematic", "drone regulations filmmakers"],
       "shorts_suchen": ["DJI drone", "FPV drone"],
-      "muss_enthalten": ["drone*", "drohne*", "dji", "fpv", "quadcopter*", "mavic", "avata", "cinewhoop*", "gyroflow", "betaflight", "autel", "skydio", "antigravity", "easa", "uav"]
+      "muss_enthalten": ["drone*", "drohne*", "dji", "fpv", "quadcopter*", "mavic", "avata", "cinewhoop*", "gyroflow", "betaflight", "autel", "skydio", "antigravity", "easa", "uav", "neo 3"],
+      "ausschliessen": ["glasses"]
     },
     "schnitt": {
       "suchen": ["DaVinci Resolve", "Premiere Pro", "After Effects video editing", "video editing workflow tips"],
@@ -40,14 +53,26 @@
     "ki": {
       "suchen": ["AI video editing automation", "AI camera autofocus tracking", "AI rough cut tool video editor", "Claude AI video editing"],
       "shorts_suchen": ["AI video editing", "AI camera"],
-      "muss_enthalten": ["ai", "a.i.", "ki", "artificial intelligence", "künstliche intelligenz", "machine learning", "generative", "claude", "chatgpt", "gemini", "sora", "veo", "runway", "firefly", "midjourney", "kling", "automation", "automat*"],
-      "und_enthalten": ["video*", "camera*", "kamera*", "edit*", "film*", "clip*", "footage", "premiere", "resolve", "capcut", "runway", "sora", "veo", "kling", "firefly", "animation*", "motion", "shot*", "schnitt"]
+      "muss_enthalten": ["ai", "a.i.", "ki", "artificial intelligence", "künstliche intelligenz", "machine learning", "generative", "claude", "chatgpt", "gemini", "sora", "veo", "runway", "firefly", "midjourney", "kling", "automation", "automat*", "mcp", "model context protocol"],
+      "und_enthalten": ["video*", "camera*", "kamera*", "edit*", "film*", "clip*", "footage", "premiere", "resolve", "capcut", "runway", "sora", "veo", "kling", "firefly", "animation*", "motion", "shot*", "schnitt", "lightroom", "photoshop", "davinci", "resolve", "blender", "photo*", "adobe", "editor*", "creative"]
     },
     "foto": {
       "suchen": ["Lightroom Photoshop tutorial", "AI photo editing tool", "photography gear camera lens review", "photography news"],
       "shorts_suchen": ["Lightroom", "Photoshop"],
       "muss_enthalten": ["photo*", "foto*", "photograph*", "lightroom", "photoshop", "capture one", "raw", "camera*", "lens*", "mirrorless", "portrait*", "retouch*", "fujifilm", "leica", "lumix", "nikon", "sony alpha", "canon eos", "petapixel", "adobe", "affinity", "luminar", "topaz", "dxo"],
       "ausschliessen": ["poses"]
+    }
+  },
+  "max_pro_kanal": 2,
+  "schwerpunkte": {
+    "mcp": {
+      "label": "MCP & KI-Anbindung",
+      "rubrik": "ki",
+      "begriffe": ["mcp", "model context protocol", "mcp server*"],
+      "suchen": ["DaVinci Resolve MCP Claude", "Lightroom MCP AI agent", "MCP server video editing Premiere Photoshop", "Model Context Protocol Blender creative apps"],
+      "shorts_suchen": ["MCP DaVinci Resolve", "Claude MCP"],
+      "treffer": 8,
+      "min_aufrufe": 100
     }
   }
 }

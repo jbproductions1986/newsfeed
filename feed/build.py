@@ -127,6 +127,11 @@ def youtube_laden():
     def ganz(x):
         return isinstance(x, int) and not isinstance(x, bool) and x >= 0
 
+    schwerpunkte = d.get("schwerpunkte", {})
+    if not isinstance(schwerpunkte, dict) or not all(isinstance(k, str) and isinstance(v, str) and v for k, v in schwerpunkte.items()):
+        f.append(f"{name}: 'schwerpunkte' muss eine Zuordnung von Kennung zu Bezeichnung sein")
+        schwerpunkte = {}
+
     ids = set()
     for i, it in enumerate(d["items"], start=1):
         wo = f"{name}: Eintrag {i}"
@@ -153,6 +158,8 @@ def youtube_laden():
                 f.append(f"{wo}: {feld} muss eine ganze Zahl oder null sein")
         if not isinstance(it.get("trend"), (int, float)) or isinstance(it.get("trend"), bool):
             f.append(f"{wo}: trend muss eine Zahl sein")
+        if it.get("schwerpunkt") is not None and it.get("schwerpunkt") not in schwerpunkte:
+            f.append(f"{wo}: schwerpunkt '{it.get('schwerpunkt')}' ist in 'schwerpunkte' nicht definiert")
     return (None if f else d), f
 
 

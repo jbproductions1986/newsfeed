@@ -175,13 +175,15 @@ class Filter:
             return "schrift"
         return None
 
-    def passt(self, kat, text):
+    def passt(self, kat, text, voll):
+        """text: Titel ohne Hashtags (bei Videos plus Tags) für die Stichwörter,
+        voll: Titel mit Hashtags plus Tags für die Ausschlüsse."""
         r = self.rub[kat]
         if r["muss"] and not r["muss"].search(text):
             return False
         if r["und"] and not r["und"].search(text):
             return False
-        if r["aus"] and r["aus"].search(text):
+        if r["aus"] and r["aus"].search(voll):
             return False
         return True
 
@@ -193,6 +195,9 @@ def bewerten(cfg, gefunden, info, jetzt):
     flt = Filter(cfg)
     grund = collections.Counter()
     kandidaten = collections.defaultdict(list)
+    schw_cfg = cfg.get("schwerpunkte", {})
+    schw_muster = {sid: muster(c.get("begriffe", [])) for sid, c in schw_cfg.items()}
+    schw_pool = collections.defaultdict(list)
 
     for vid, kats in gefunden.items():
         v = info.get(vid)
@@ -209,22 +214,30 @@ def bewerten(cfg, gefunden, info, jetzt):
             grund["ohne Zahlen"] += 1
             continue
         fmt = "short" if sek <= kurz_max else "video"
-        if aufrufe < int(cfg["min_aufrufe"][fmt]):
-            grund["zu wenig Aufrufe"] += 1
-            continue
         g = flt.allgemein(sn)
         if g:
             grund[g] += 1
             continue
         titel = html.unescape(sn.get("title", "")).strip()
-        text = (titel + " " + " ".join(sn.get("tags", []))).lower()
-        if flt.global_aus and flt.global_aus.search(text):
+        tags = " ".join(sn.get("tags", []))
+        ohne_hashtags = re.sub(r"#\w+", " ", titel)
+        # Shorts: nur der Titel zählt (Hashtag- und Tag-Spam ist dort üblich), Videos: Titel plus Tags
+        text = (ohne_hashtags if fmt == "short" else ohne_hashtags + " " + tags).lower()
+        voll = (titel + " " + tags).lower()
+        if flt.global_aus and flt.global_aus.search(voll):
             grund["ausschluss"] += 1
             continue
         # nur Rubriken, in deren Suchen das Video aufgetaucht ist, in der Reihenfolge der Konfiguration
-        passend = [k for k in reihenfolge if k in kats and flt.passt(k, text)]
+        passend = [k for k in reihenfolge if k in kats and flt.passt(k, text, voll)]
         if not passend:
             grund["Stichwörter"] += 1
+            continue
+        mindest = {**cfg["min_aufrufe"], **cfg["rubriken"][passend[0]].get("min_aufrufe", {})}
+        flaggen = [sid for sid, m in schw_muster.items() if m and m.search(voll)]
+        normal_ok = aufrufe >= int(mindest[fmt])
+        schw_ok = [sid for sid in flaggen if aufrufe >= int(schw_cfg[sid].get("min_aufrufe", 0))]
+        if not normal_ok and not schw_ok:
+            grund["zu wenig Aufrufe"] += 1
             continue
         try:
             veroeff = dt.datetime.fromisoformat(sn["publishedAt"].replace("Z", "+00:00"))
@@ -234,7 +247,7 @@ def bewerten(cfg, gefunden, info, jetzt):
         alter_h = max((jetzt - veroeff).total_seconds() / 3600, 0)
         trend = aufrufe / ((alter_h + 12) / 24)  # Aufrufe pro Tag, neue Videos nicht überbewertet
         kat = passend[0]
-        kandidaten[(kat, fmt)].append({
+        eintrag = {
             "id": vid,
             "kat": kat,
             "format": fmt,
@@ -246,13 +259,50 @@ def bewerten(cfg, gefunden, info, jetzt):
             "likes": zahl(st.get("likeCount")),
             "kommentare": zahl(st.get("commentCount")),
             "trend": round(trend, 1),
-        })
+        }
+        if flaggen:
+            eintrag["schwerpunkt"] = flaggen[0]
+        if normal_ok:
+            kandidaten[(kat, fmt)].append(eintrag)
+        for sid in schw_ok:
+            schw_pool[sid].append(eintrag)
 
     items = []
+    max_kanal = int(cfg.get("max_pro_kanal", 2))
+    gesehen = set()  # gleiche Titel (oft mehrfach hochgeladen) nur einmal
     for kat in reihenfolge:
         for fmt in ("video", "short"):
             liste = sorted(kandidaten.get((kat, fmt), []), key=lambda x: x["trend"], reverse=True)
-            items += liste[: int(cfg["treffer_pro_rubrik"][fmt])]
+            ziel = int({**cfg["treffer_pro_rubrik"], **cfg["rubriken"][kat].get("treffer", {})}[fmt])
+            je_kanal = collections.Counter()
+            gewaehlt = []
+            for it in liste:
+                schluessel = re.sub(r"\W+", " ", it["titel"].lower()).strip()
+                if schluessel in gesehen:
+                    grund["Dublette"] += 1
+                    continue
+                if je_kanal[it["kanal"]] >= max_kanal:
+                    grund["Kanal-Limit"] += 1
+                    continue
+                gesehen.add(schluessel)
+                je_kanal[it["kanal"]] += 1
+                gewaehlt.append(it)
+                if len(gewaehlt) >= ziel:
+                    break
+            items += gewaehlt
+    # Schwerpunkte: die besten Treffer kommen auch dann hinein, wenn sie in ihrer Rubrik nicht unter die ersten fallen
+    drin = {it["id"] for it in items}
+    for sid, pool in schw_pool.items():
+        pool = sorted(pool, key=lambda x: x["trend"], reverse=True)[: int(schw_cfg[sid].get("treffer", 8))]
+        for it in pool:
+            if it["id"] in drin:
+                continue
+            schluessel = re.sub(r"\W+", " ", it["titel"].lower()).strip()
+            if schluessel in gesehen:
+                continue
+            gesehen.add(schluessel)
+            drin.add(it["id"])
+            items.append(it)
     return items, grund
 
 
@@ -264,8 +314,10 @@ def sammeln(cfg, key, seit):
     gefunden = collections.OrderedDict()
     n = 0
     hinweis = None
+    quellen = [(kat, c) for kat, c in cfg["rubriken"].items()]
+    quellen += [(c.get("rubrik", "ki"), c) for c in cfg.get("schwerpunkte", {}).values()]
     try:
-        for kat, c in cfg["rubriken"].items():
+        for kat, c in quellen:
             for kurz, liste in ((False, c.get("suchen", [])), (True, c.get("shorts_suchen", []))):
                 for begriff in liste:
                     n += 1
@@ -310,6 +362,10 @@ def main():
         jetzt = dt.datetime.now(dt.timezone.utc).replace(microsecond=0)
         seit = (jetzt - dt.timedelta(days=tage)).strftime(ISO_ZEIT)
         gefunden, suchen_n, hinweis = sammeln(cfg, key, seit)
+        if hinweis:
+            print("Abbruch: unvollständige Daten werden nicht veröffentlicht, youtube/aktuell.json bleibt unverändert. "
+                  "Das Tageslimit setzt sich täglich um 9 Uhr Zürcher Zeit (Mitternacht Pazifikzeit) zurück.", file=sys.stderr)
+            return 1
         if not gefunden:
             print("Keine Treffer gefunden, youtube/aktuell.json bleibt unverändert.", file=sys.stderr)
             return 1
@@ -340,12 +396,16 @@ def main():
         "methode": METHODE.format(tage=tage, kurz=kurz_max),
         "items": items,
     }
+    if cfg.get("schwerpunkte"):
+        ausgabe["schwerpunkte"] = {sid: c["label"] for sid, c in cfg["schwerpunkte"].items()}
     if hinweis:
         ausgabe["hinweis"] = hinweis
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(ausgabe, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
     je = collections.Counter((i["kat"], i["format"]) for i in items)
+    for sid in cfg.get("schwerpunkte", {}):
+        print(f"  Schwerpunkt {sid}: {sum(1 for i in items if i.get('schwerpunkt') == sid)} Einträge")
     print(f"{len(items)} Einträge geschrieben (etwa {suchen_n * 100 + 1 + len(gefunden) // 50} Quota-Einheiten)")
     for kat in cfg["rubriken"]:
         print(f"  {kat:10s} {je[(kat, 'video')]} Videos, {je[(kat, 'short')]} Shorts")

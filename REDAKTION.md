@@ -107,8 +107,19 @@ montags 05:30 UTC, also vor der Ausgabe um 9 Uhr).
 
 - **Quelle:** YouTube Data API v3, Schlüssel im Repository-Secret `YOUTUBE_API_KEY`. Der Schlüssel steht nie im Code oder im Chat.
 - **Auswahl:** `feed/youtube_fetch.py` sucht je Rubrik mit den Begriffen aus `feed/youtube_config.json`, sortiert nach Aufrufen und
-  wertet die Treffer nach Aufrufen pro Tag aus. Je Rubrik bleiben 6 Videos und 4 Shorts. Als Short gilt ein Video bis 180 Sekunden.
-- **Anpassen:** Suchbegriffe, Zeitraum (`tage`), Grenzwerte und Trefferzahl stehen in `feed/youtube_config.json`, nicht im Code.
+  wertet die Treffer nach Aufrufen pro Tag aus. Je Rubrik bleiben 6 Videos und 4 Shorts, bei Broadcast nur 3 und 2, weil das Thema
+  auf YouTube nur beiläufig interessiert. Als Short gilt ein Video bis 180 Sekunden.
+- **Aussortiert** wird, was nicht zur Rubrik passt: falsche YouTube-Kategorie (z. B. Musik), andere Sprache als Englisch, Deutsch,
+  Französisch oder Italienisch, fehlende Stichwörter im Titel (bei Videos auch in den Tags), Spam-Hashtags und Fan-Edits.
+  Je Kanal erscheinen höchstens 2 Einträge je Rubrik und Format.
+- **Schwerpunkt „MCP & KI-Anbindung“:** Videos über MCP-Anbindungen von KI an Schnitt- und Creator-Programme (DaVinci Resolve,
+  Lightroom, Premiere, Photoshop, Blender u. a.) stehen in einer eigenen Gruppe ganz oben, tragen die Marke MCP und lassen sich
+  mit dem Schalter „Nur MCP & KI-Anbindung“ einzeln anzeigen. Dafür gelten niedrigere Mindestaufrufe, damit auch kleine Fachvideos erscheinen.
+- **Anpassen:** Suchbegriffe, Zeitraum (`tage`), Stichwörter, Ausschlüsse, Grenzwerte und Trefferzahl stehen in
+  `feed/youtube_config.json`, nicht im Code. Neu bewerten ohne neue API-Abrufe: Workflow mit „dump“ starten, das Artefakt
+  `youtube-roh` laden und `python3 feed/youtube_fetch.py --aus-dump roh.json` ausführen.
+- **Kontingent:** Ein Lauf kostet etwa 4 500 von 10 000 Einheiten pro Tag. Ist das Tageslimit erschöpft, bricht der Lauf ab und
+  lässt `youtube/aktuell.json` unverändert. Das Limit setzt sich täglich um 9 Uhr Zürcher Zeit zurück.
 - **Nur der aktuelle Stand:** `youtube/aktuell.json` wird jede Woche überschrieben. Es werden keine älteren Stände archiviert,
   weil die YouTube-Bedingungen das Aufbewahren von API-Daten zeitlich begrenzen.
 - **Inhalte:** Es erscheinen nur Titel, Kanal, Kennzahlen und der Link, keine Beschreibungen und keine eigenen Zusammenfassungen.

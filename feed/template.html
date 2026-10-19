@@ -362,6 +362,19 @@ details[open] > summary .chev { transform: rotate(-135deg); margin-top: 11px; }
 .vcard .vk { font-size: 13px; color: var(--ink2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .vcard .vs { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink2); line-height: 1.5; }
 .vcard .vs b { color: var(--ink); font-weight: 500; }
+.vcard .tagm {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  padding: 0 5px;
+  border-radius: 3px;
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  line-height: 18px;
+  letter-spacing: .06em;
+  background: var(--ink);
+  color: var(--bg);
+}
 .ynote { margin: 14px 0 0; padding: 8px 12px; border: 1px solid var(--line); border-radius: 4px; font-size: 13.5px; background: var(--surface); }
 </style>
 
@@ -453,6 +466,7 @@ details[open] > summary .chev { transform: rotate(-135deg); margin-top: 11px; }
             <div class="seg" id="y-fmt" role="group" aria-label="Format"></div>
             <div class="seg" id="y-sort" role="group" aria-label="Sortierung"></div>
             <div class="seg" id="y-view" role="group" aria-label="Ansicht"></div>
+            <label class="chk" id="y-schw-wrap" for="y-schw" hidden><input type="checkbox" id="y-schw"> <span id="y-schw-label"></span></label>
           </div>
         </div>
         <p class="count" id="y-count" aria-live="polite"></p>
@@ -776,13 +790,13 @@ details[open] > summary .chev { transform: rotate(-135deg); margin-top: 11px; }
   if (!YT || !YT.items || !YT.items.length) return;
 
   var CATS = [
-    { id: 'broadcast', label: 'Broadcast' },
     { id: 'kamera', label: 'Kameras & Audio' },
     { id: 'licht', label: 'Licht & Beleuchtung' },
     { id: 'drohnen', label: 'Drohnen & FPV' },
     { id: 'schnitt', label: 'Schnitt' },
     { id: 'ki', label: 'KI & Automation' },
-    { id: 'foto', label: 'Foto' }
+    { id: 'foto', label: 'Foto' },
+    { id: 'broadcast', label: 'Broadcast' }
   ];
   var CAT = {};
   CATS.forEach(function (c) { CAT[c.id] = c; });
@@ -790,6 +804,8 @@ details[open] > summary .chev { transform: rotate(-135deg); margin-top: 11px; }
   var ITEMS = YT.items.filter(function (it) { return ID_OK.test(it.id) && CAT[it.kat]; });
   if (!ITEMS.length) return;
   var T0 = Date.parse(YT.erzeugt) || Date.now();
+  var SCHW = YT.schwerpunkte || {};
+  var SCHW_ID = Object.keys(SCHW)[0] || null;
 
   function $(id) { return document.getElementById(id); }
   function h(tag, props, kids) {
@@ -839,7 +855,7 @@ details[open] > summary .chev { transform: rotate(-135deg); margin-top: 11px; }
   var FMT_OPTS = [['alle', 'Alle'], ['video', 'Videos'], ['short', 'Shorts']];
   var SORT_OPTS = [['trend', 'Trend'], ['aufrufe', 'Aufrufe'], ['likes', 'Likes'], ['neu', 'Neueste']];
   var VIEW_OPTS = [['thema', 'Nach Rubrik'], ['gesamt', 'Gesamtranking']];
-  var state = { cats: {}, fmt: 'alle', sort: 'trend', q: '', view: 'thema' };
+  var state = { cats: {}, fmt: 'alle', sort: 'trend', q: '', view: 'thema', schw: false };
 
   function catActive() { return Object.keys(state.cats).length > 0; }
   function visible() {
@@ -847,6 +863,7 @@ details[open] > summary .chev { transform: rotate(-135deg); margin-top: 11px; }
     return ITEMS.filter(function (it) {
       if (catActive() && !state.cats[it.kat]) return false;
       if (state.fmt !== 'alle' && it.format !== state.fmt) return false;
+      if (state.schw && it.schwerpunkt !== SCHW_ID) return false;
       if (q && (it.titel + ' ' + it.kanal + ' ' + CAT[it.kat].label).toLowerCase().indexOf(q) < 0) return false;
       return true;
     });
@@ -929,6 +946,7 @@ details[open] > summary .chev { transform: rotate(-135deg); margin-top: 11px; }
     var thumb = h('span', { class: 'thumb' }, [
       img,
       it.format === 'short' ? h('span', { class: 'fmt', text: 'Short' }) : null,
+      it.schwerpunkt && SCHW[it.schwerpunkt] ? h('span', { class: 'tagm', text: it.schwerpunkt.toUpperCase() }) : null,
       h('span', { class: 'dur', text: dauer(it.dauer_s) })
     ]);
     var s1 = h('span', { class: 'vs' }, [
@@ -951,7 +969,7 @@ details[open] > summary .chev { transform: rotate(-135deg); margin-top: 11px; }
     if (!items.length) {
       var reset = h('button', { type: 'button', class: 'linkbtn', text: 'Filter zurücksetzen' });
       reset.addEventListener('click', function () {
-        state.cats = {}; state.fmt = 'alle'; state.q = ''; $('y-q').value = '';
+        state.cats = {}; state.fmt = 'alle'; state.q = ''; state.schw = false; $('y-q').value = ''; $('y-schw').checked = false;
         renderBar(); renderChips(); renderSeg('y-fmt', FMT_OPTS, 'fmt'); renderList();
       });
       box.appendChild(h('div', { class: 'empty' }, [h('p', { text: 'Kein Eintrag passt zu diesen Filtern.' }), reset]));
@@ -963,8 +981,17 @@ details[open] > summary .chev { transform: rotate(-135deg); margin-top: 11px; }
       box.appendChild(g);
       return;
     }
+    var schwList = SCHW_ID ? items.filter(function (it) { return it.schwerpunkt === SCHW_ID; }) : [];
+    if (schwList.length) {
+      var sh = h('div', { class: 'ghead' }, [h('h3', { text: SCHW[SCHW_ID] }), h('span', { class: 'gn', text: String(schwList.length) })]);
+      var sg = h('div', { class: 'vgrid' });
+      schwList.forEach(function (it) { sg.appendChild(card(it)); });
+      var ss = h('section', { class: 'group schw' }, [sh, sg]);
+      ss.style.setProperty('--cc', 'var(--accent)');
+      box.appendChild(ss);
+    }
     CATS.forEach(function (cat) {
-      var list = items.filter(function (it) { return it.kat === cat.id; });
+      var list = items.filter(function (it) { return it.kat === cat.id && !(SCHW_ID && it.schwerpunkt === SCHW_ID); });
       if (!list.length) return;
       var head = h('div', { class: 'ghead' }, [h('h3', { text: cat.label }), h('span', { class: 'gn', text: String(list.length) })]);
       var grid = h('div', { class: 'vgrid' });
@@ -979,6 +1006,11 @@ details[open] > summary .chev { transform: rotate(-135deg); margin-top: 11px; }
   $('y-method').textContent = YT.methode || '';
   if (YT.hinweis) { $('y-note').textContent = YT.hinweis; $('y-note').hidden = false; }
   $('y-q').addEventListener('input', function (ev) { state.q = ev.target.value; renderList(); });
+  if (SCHW_ID) {
+    $('y-schw-label').textContent = 'Nur ' + SCHW[SCHW_ID];
+    $('y-schw-wrap').hidden = false;
+    $('y-schw').addEventListener('change', function (ev) { state.schw = ev.target.checked; renderList(); });
+  }
   renderBar(); renderChips();
   renderSeg('y-fmt', FMT_OPTS, 'fmt');
   renderSeg('y-sort', SORT_OPTS, 'sort');
