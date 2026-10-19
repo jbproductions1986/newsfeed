@@ -308,14 +308,15 @@ def bewerten(cfg, gefunden, info, jetzt):
 
 # ---------------------------------------------------------------- Ablauf
 
-def sammeln(cfg, key, seit):
-    """Alle Suchen ausführen. Gibt (gefunden, Anzahl Suchen, Hinweis) zurück."""
+def sammeln(cfg, key, seit, nur=None):
+    """Alle Suchen ausführen (mit nur: nur die genannten Rubriken und Schwerpunkte).
+    Gibt (gefunden, Anzahl Suchen, Hinweis) zurück."""
     pro_suche = int(cfg.get("ergebnisse_pro_suche", 25))
     gefunden = collections.OrderedDict()
     n = 0
     hinweis = None
-    quellen = [(kat, c) for kat, c in cfg["rubriken"].items()]
-    quellen += [(c.get("rubrik", "ki"), c) for c in cfg.get("schwerpunkte", {}).values()]
+    quellen = [(kat, c) for kat, c in cfg["rubriken"].items() if not nur or kat in nur]
+    quellen += [(c.get("rubrik", "ki"), c) for sid, c in cfg.get("schwerpunkte", {}).items() if not nur or sid in nur]
     try:
         for kat, c in quellen:
             for kurz, liste in ((False, c.get("suchen", [])), (True, c.get("shorts_suchen", []))):
@@ -340,6 +341,8 @@ def main():
     ap.add_argument("--config", type=pathlib.Path, default=CONFIG)
     ap.add_argument("--dump", type=pathlib.Path, help="Rohdaten der API-Abrufe zusätzlich in diese Datei schreiben")
     ap.add_argument("--aus-dump", type=pathlib.Path, help="Rohdaten aus dieser Datei lesen statt die API abzurufen")
+    ap.add_argument("--nur", help="Nur diese Rubriken/Schwerpunkte neu abrufen, kommagetrennt (z. B. broadcast,mcp). "
+                                  "Der Rest der bestehenden Datei bleibt erhalten. Spart Kontingent.")
     args = ap.parse_args()
 
     cfg = json.loads(args.config.read_text(encoding="utf-8"))
@@ -347,6 +350,15 @@ def main():
     kurz_max = int(cfg.get("short_max_sekunden", 180))
     hinweis = None
     suchen_n = 0
+    nur = {x.strip() for x in args.nur.split(",") if x.strip()} if args.nur else None
+    if nur:
+        bekannt = set(cfg["rubriken"]) | set(cfg.get("schwerpunkte", {}))
+        if nur - bekannt:
+            print(f"Unbekannt in --nur: {', '.join(sorted(nur - bekannt))}. Möglich: {', '.join(sorted(bekannt))}", file=sys.stderr)
+            return 1
+        if args.aus_dump or not args.out.exists():
+            print("--nur braucht eine bestehende Zieldatei und keinen Dump.", file=sys.stderr)
+            return 1
 
     if args.aus_dump:
         roh = json.loads(args.aus_dump.read_text(encoding="utf-8"))
@@ -361,7 +373,7 @@ def main():
             return 1
         jetzt = dt.datetime.now(dt.timezone.utc).replace(microsecond=0)
         seit = (jetzt - dt.timedelta(days=tage)).strftime(ISO_ZEIT)
-        gefunden, suchen_n, hinweis = sammeln(cfg, key, seit)
+        gefunden, suchen_n, hinweis = sammeln(cfg, key, seit, nur)
         if hinweis:
             print("Abbruch: unvollständige Daten werden nicht veröffentlicht, youtube/aktuell.json bleibt unverändert. "
                   "Das Tageslimit setzt sich täglich um 9 Uhr Zürcher Zeit (Mitternacht Pazifikzeit) zurück.", file=sys.stderr)
@@ -384,13 +396,29 @@ def main():
     items, grund = bewerten(cfg, gefunden, info, jetzt)
     print(f"{len(gefunden)} Kandidaten aus {suchen_n} Suchen. Aussortiert: " +
           (", ".join(f"{k} {n}" for k, n in grund.most_common()) or "nichts"))
+    erzeugt = jetzt
+    if nur:
+        # Neue Treffer nur für die genannten Rubriken/Schwerpunkte übernehmen, der Rest bleibt wie er war
+        alt = json.loads(args.out.read_text(encoding="utf-8"))
+        neu = [i for i in items if i["kat"] in nur or i.get("schwerpunkt") in nur]
+        if not neu:
+            print("Keine neuen Treffer für die genannten Bereiche, youtube/aktuell.json bleibt unverändert.", file=sys.stderr)
+            return 1
+        # Rubriken werden ersetzt, bestehende Schwerpunkt-Treffer bleiben erhalten und bekommen neue dazu
+        rest = [i for i in alt["items"] if i["kat"] not in nur]
+        titel = {re.sub(r"\W+", " ", i["titel"].lower()).strip() for i in rest}
+        ids = {i["id"] for i in rest}
+        neu = [i for i in neu if i["id"] not in ids and re.sub(r"\W+", " ", i["titel"].lower()).strip() not in titel]
+        print(f"Teilaktualisierung ({', '.join(sorted(nur))}): {len(neu)} neue Einträge, {len(rest)} unverändert")
+        items = rest + neu
+        erzeugt = dt.datetime.strptime(alt["erzeugt"], ISO_ZEIT).replace(tzinfo=dt.timezone.utc)
     if not items:
         print("Nach dem Filtern blieb kein Video übrig, youtube/aktuell.json bleibt unverändert.", file=sys.stderr)
         return 1
 
     ausgabe = {
         "stand": jetzt.astimezone(ZEIT).strftime("%Y-%m-%d"),
-        "erzeugt": jetzt.strftime(ISO_ZEIT),
+        "erzeugt": erzeugt.strftime(ISO_ZEIT),
         "tage": tage,
         "quelle": "YouTube Data API v3",
         "methode": METHODE.format(tage=tage, kurz=kurz_max),

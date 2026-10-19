@@ -11,6 +11,10 @@ on:
         description: "Rohdaten der API-Abrufe als Artefakt sichern (zum Testen der Filter)"
         type: boolean
         default: false
+      nur:
+        description: "Nur diese Bereiche neu abrufen, z. B. broadcast,mcp (leer = alles). Spart Kontingent."
+        type: string
+        default: ""
 
 permissions:
   contents: write
@@ -29,12 +33,13 @@ jobs:
       - name: YouTube-Daten holen
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          NUR: ${{ inputs.nur }}
+          DUMP: ${{ inputs.dump }}
         run: |
-          if [ "${{ inputs.dump }}" = "true" ]; then
-            python3 feed/youtube_fetch.py --dump "$RUNNER_TEMP/roh.json"
-          else
-            python3 feed/youtube_fetch.py
-          fi
+          args=()
+          if [ "$DUMP" = "true" ]; then args+=(--dump "$RUNNER_TEMP/roh.json"); fi
+          if [ -n "$NUR" ]; then args+=(--nur "$NUR"); fi
+          python3 feed/youtube_fetch.py "${args[@]}"
 
       - name: Rohdaten sichern
         if: ${{ inputs.dump }}
