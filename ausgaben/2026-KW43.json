@@ -4,17 +4,48 @@
   "von": "2026-10-14",
   "bis": "2026-10-19",
   "stand": "2026-10-19",
-  "intro": "Vor der NAB Show New York (21.–22. Oktober) kommen die IP-Themen in Fahrt: ein ST-2110-Neubau an einer US-Universität, eine Cloud-Plattform auf Basis des offenen TAMS-Standards und eine IP-Intercom ohne Zentralmatrix. Bei Drohnen startet DJI die erste Dockingstation mit automatischem Akkuwechsel, bei der KI geht es um automatisierte Clips für Newsrooms und um schnelleres Rendering in Adobe-Programmen.",
-  "hinweis": "Kleinere Ausgabe: Der Berichtszeitraum ist mit sechs Tagen kurz, und mehrere Quellen (u. a. Nikon Rumors, Sony Alpha Rumors, Canon Rumors, GitHub) waren im automatischen Lauf nicht abrufbar. Meldungen, bei denen nur Überschrift oder Anreißer gelesen wurden, sind entsprechend knapp gehalten. Korrektur zur Vorwoche: Die NAB Show New York findet am 21. und 22. Oktober statt, nicht am 20. und 21. Oktober. Zu jeder Meldung gibt die Zeile „Relevanz“ eine kurze Einschätzung für eine Broadcast-Firma mit Schwerpunkt Automatisierung und IP-Technik.",
+  "intro": "Vor der NAB Show New York (21.–22. Oktober) kommen die IP-Themen in Fahrt: ein ST-2110-Neubau an einer US-Universität, eine Cloud-Plattform auf Basis des offenen TAMS-Standards und eine IP-Intercom ohne Zentralmatrix. Neu in dieser aktualisierten Ausgabe sind UniFi Network 11 von Ubiquiti, Hintergründe zu Bitfocus Companion und Stream Deck sowie MCP-Anbindungen und KI-Nachbauten bei Creator-Programmen von Resolve 21.1 bis ArtCraft.",
+  "hinweis": "Aktualisiert am 19. Oktober nachmittags: Broadcast liegt jetzt auf IP-Technik und Automatisierung und umfasst Steuerung (Bitfocus Companion, Stream Deck) und Netzwerk (Ubiquiti UniFi). Meldungen mit der Marke Hintergrund sind älter als der Berichtszeitraum. Mehrere Quellen (u. a. Nikon Rumors, Sony Alpha Rumors, Canon Rumors) waren im automatischen Lauf nicht abrufbar, Meldungen mit nur gelesener Überschrift sind knapp gehalten. Korrektur zur Vorwoche: Die NAB Show New York findet am 21. und 22. Oktober statt, nicht am 20. und 21. Oktober.",
   "termine": [
-    { "datum": "2026-10-20", "text": "DJI Osmo Pocket 4P in Pearl White, Teaser-Launch 12 Uhr GMT (nicht in den USA)" },
-    { "datum": "2026-10-21", "label": "21.–22.10.", "text": "NAB Show New York, Javits Center (u. a. ENCO, Pliant, MultiDyne, Cerberus Tech/Matrox, Imagine Communications)" },
-    { "datum": "2026-10-24", "text": "Sigma Produktevent, mögliches Objektiv: 65 mm f/1.1 oder f/1.0", "geruecht": true },
-    { "datum": "2026-10-29", "text": "FCC-Abstimmung über chinesische Prüflabore" },
-    { "datum": "2026-10-30", "label": "Ende Okt.", "text": "Nikkor Z 120-300 mm f/2.8 TC VR S erwartet", "geruecht": true },
-    { "datum": "2026-10-31", "text": "DJI beendet Reparaturen der Phantom 4 Pro V2" },
-    { "datum": "2026-11-01", "label": "Nov.", "text": "Nikon Z70 erwartet", "geruecht": true },
-    { "datum": "2026-11-10", "label": "10.–12.11.", "text": "Adobe MAX, Miami Beach (auch online)" }
+    {
+      "datum": "2026-10-20",
+      "text": "DJI Osmo Pocket 4P in Pearl White, Teaser-Launch 12 Uhr GMT (nicht in den USA)"
+    },
+    {
+      "datum": "2026-10-21",
+      "label": "21.–22.10.",
+      "text": "NAB Show New York, Javits Center (u. a. ENCO, Pliant, MultiDyne, Cerberus Tech/Matrox, Imagine Communications)"
+    },
+    {
+      "datum": "2026-10-24",
+      "text": "Sigma Produktevent, mögliches Objektiv: 65 mm f/1.1 oder f/1.0",
+      "geruecht": true
+    },
+    {
+      "datum": "2026-10-29",
+      "text": "FCC-Abstimmung über chinesische Prüflabore"
+    },
+    {
+      "datum": "2026-10-30",
+      "label": "Ende Okt.",
+      "text": "Nikkor Z 120-300 mm f/2.8 TC VR S erwartet",
+      "geruecht": true
+    },
+    {
+      "datum": "2026-10-31",
+      "text": "DJI beendet Reparaturen der Phantom 4 Pro V2"
+    },
+    {
+      "datum": "2026-11-01",
+      "label": "Nov.",
+      "text": "Nikon Z70 erwartet",
+      "geruecht": true
+    },
+    {
+      "datum": "2026-11-10",
+      "label": "10.–12.11.",
+      "text": "Adobe MAX, Miami Beach (auch online)"
+    }
   ],
   "items": [
     {
@@ -33,7 +64,6 @@
       "id": "bmg-media-command",
       "kat": "broadcast",
       "typ": "news",
-      "schlagzeile": true,
       "titel": "BMG Media Command: Private Cloud für Aufnahme, MAM, Playout und Archiv",
       "kurz": "Broadcast Management Group bündelt Aufnahme, Medienverwaltung, Playout, Archiv und Compliance in einer Plattform, die BMG als Managed Service aus der eigenen Leitstelle betreibt. Technisch basiert sie auf dem offenen TAMS-Standard (Time Addressable Media Store, ursprünglich BBC R&D), bei dem Medien als kurze Segmente referenziert statt kopiert werden. Eingespeist wird über ST 2110, SRT, RTMP, JPEG XS und SDI; Plug-ins für Premiere und DaVinci Resolve erlauben das Schneiden, während noch aufgenommen wird.",
       "warum": "Relevanz hoch: Zeigt, wie sich Ingest, Schnitt und Playout über offene APIs automatisieren lassen; ein konkretes Anwendungsgebiet wären Near-Live-Highlights aus einem laufenden Event, die der Editor direkt aus dem Aufnahmestrom zieht.",
@@ -95,6 +125,54 @@
       "quelle": "TV Technology",
       "url": "https://www.tvtechnology.com/events/2026-nab-show-new-york-exhibitor-insight-imagine-communications",
       "datum": "2026-10-16"
+    },
+    {
+      "id": "unifi-network-11",
+      "kat": "broadcast",
+      "typ": "update",
+      "schlagzeile": true,
+      "titel": "Ubiquiti stellt UniFi Network 11 vor: WiFi-WAN, SD-WAN-Failover und Zonen-Firewall",
+      "kurz": "Ubiquiti hat UniFi Network 11 vorgestellt. Neu sind ein überarbeitetes Telemetrie-Backend, mehr VLANs und einfachere Routing-Richtlinien, WiFi-WAN als Haupt- oder Ersatzzugang, SD-WAN-Richtlinien mit eigenen Failover-Regeln sowie Matter- und Thread-Geräte in der Topologie. Laut einem Test von DongKnows mit einem Release Candidate setzt das Update UniFi OS 6 voraus, setzt die bisherige Statistik-Historie zurück und stellt alle Standorte automatisch auf die Zonen-Firewall um. Gateways der Reihe USG werden nicht mehr unterstützt.",
+      "warum": "Relevanz hoch: Für ein Studionetz mit NDI- oder Dante-Verkehr sind Zonen-Firewall und Failover-Regeln die entscheidenden Punkte, zu Multicast und QoS äußert sich Ubiquiti im Ankündigungstext nicht.",
+      "quelle": "Ubiquiti Blog",
+      "url": "https://blog.ui.com/article/introducing-unifi-network-11",
+      "datum": "2026-10-12"
+    },
+    {
+      "id": "appear-nab-ny-ip",
+      "kat": "broadcast",
+      "typ": "news",
+      "hintergrund": true,
+      "titel": "Appear zeigt auf der NAB New York IP-Contribution mit SRT, JPEG XS und ST 2110",
+      "kurz": "Appear stellt am Stand 129 der NAB Show New York (21.–22. Oktober) vor, wie die Hardware X Platform und die Software VX zusammenspielen. VX verlängert Zuspielungen in die Cloud und kann Verarbeitung in Software übernehmen, die X Platform erledigt die latenzarme Verarbeitung vor Ort. Unterstützt werden SRT mit Hardwarebeschleunigung, JPEG XS und ST 2110, damit Sender von Satellit, Standleitungen und SDI wegkommen. Der Artikel nennt außerdem die Konzepte DMF und MXL sowie die für Juli 2027 geplante C-Band-Auktion als Treiber. Zu Automatisierung oder Orchestrierung steht dort nichts.",
+      "warum": "Relevanz mittel: Die Richtung IP-Zuspielung plus Cloud-Verlängerung ist klar, konkrete Funktionen und Preise gibt es erst auf der Messe.",
+      "quelle": "TV Technology",
+      "url": "https://www.tvtechnology.com/platform/broadcast/2026-nab-show-new-york-exhibitor-insight-appear",
+      "datum": "2026-10-06"
+    },
+    {
+      "id": "corsair-bitfocus-beteiligung",
+      "kat": "broadcast",
+      "typ": "news",
+      "hintergrund": true,
+      "titel": "Corsair beteiligt sich an Bitfocus, dem Hersteller von Companion",
+      "kurz": "Corsair hat nach eigener Mitteilung vom 31. Juli eine Minderheitsbeteiligung an Bitfocus übernommen, der Firma aus Oslo hinter der Open-Source-Steuerung Companion und der Profi-Variante Buttons. Die Partnerschaft besteht seit fast zehn Jahren und führte 2024 zum Stream Deck Studio. Geplant sind gemeinsame Entwicklung und gemeinsamer Vertrieb. Companion soll offen bleiben, die Stream-Deck-Produkte sollen stärker auf Broadcast, Live-Produktion und AV zielen.",
+      "warum": "Relevanz hoch: Wer Regie und Studio über Companion und Stream Deck steuert, bekommt einen Hersteller mit Kapital im Rücken und eine Hardware-Linie, die stärker auf Profis ausgerichtet wird.",
+      "quelle": "Corsair (Pressemitteilung)",
+      "url": "https://ir.corsair.com/news-releases/news-release-details/corsair-deepens-strategic-relationship-bitfocus-extending",
+      "datum": "2026-07-31"
+    },
+    {
+      "id": "companion-5-0-5",
+      "kat": "broadcast",
+      "typ": "update",
+      "hintergrund": true,
+      "titel": "Bitfocus Companion: Version 5.0.5 bleibt die aktuelle Fassung",
+      "kurz": "Keine neue Version in dieser Woche. Laut Release-Seite ist 5.0.5 vom 3. September die aktuelle Version. Sie behebt Fehler bei Variablen in Feedbacks und Presets, nicht aktualisierte ausgeblendete Elemente und einen Absturz in Texteingabefeldern. Die Vorgänger 5.0.4 und 5.0.3 korrigierten unter anderem das Laden von Modulen, den Grafikeditor und Probleme unter Docker und macOS.",
+      "warum": "Relevanz mittel: Reine Fehlerkorrekturen, aber wer Regie-Buttons mit Variablen und Feedbacks baut, sollte mindestens auf 5.0.5 sein.",
+      "quelle": "GitHub (Bitfocus)",
+      "url": "https://github.com/bitfocus/companion/releases",
+      "datum": "2026-09-03"
     },
     {
       "id": "wooden-camera-fx6",
@@ -204,7 +282,6 @@
       "id": "enco-encue-spotai",
       "kat": "ki",
       "typ": "news",
-      "schlagzeile": true,
       "titel": "ENCO bringt enCue und SPOTai für Newsrooms nach Nordamerika",
       "kurz": "enCue ist ein browserbasiertes Cloud-Tool, das in langen Sendungen Schlüsselmomente findet und daraus Social-Clips mit Titeln, Untertiteln und Hochformat-Umsetzung sowie 15-Sekunden-Teaser erzeugt. Es kann auch Skript oder Sprechertext mit Rohmaterial abgleichen und fertige Beiträge für den Editor vorbereiten. SPOTai erzeugt aus Markeninfos und Text-Prompt Werbespots in 1080p. Beide debütieren auf der NAB Show New York an Stand 539.",
       "warum": "Relevanz hoch: Automatisches Clip-Farming aus Livesendungen ist ein direkter Hebel für Newsrooms, ein Anwendungsgebiet wäre die Social-Aufbereitung einer Live-Sendung noch während der Ausstrahlung.",
@@ -222,6 +299,42 @@
       "quelle": "ProVideo Coalition",
       "url": "https://www.provideocoalition.com/audiobooks-with-multiple-voices-for-dialog-using-human-actors-or-cloned-with-elevenlabs/",
       "datum": "2026-10-14"
+    },
+    {
+      "id": "artcraft-adobe-klone",
+      "kat": "ki",
+      "typ": "news",
+      "schlagzeile": true,
+      "titel": "ArtCraft: Entwickler baut mit Claude und Rust freie Nachbauten von Adobe-Programmen",
+      "kurz": "Der Entwickler Brandon Thomas aus Atlanta hat mit Claude und der Sprache Rust das Open-Source-Projekt ArtCraft gebaut. Dazu gehören PhotoCraft (Photoshop-artig), FilmCraft (Premiere-artig), LightCraft (Lightroom-artig) und weitere Programme, später kamen laut Al Jazeera auch Office-Gegenstücke hinzu. Er beruft sich auf einen Clean-Room-Ansatz aus öffentlichen Dateiformat-Spezifikationen, ein Rechtsprofessor hält offen, ob das trägt. Gizmodo beschreibt die Programme als frühe Alpha-Software, PhotoCraft sei für einfache Compositings brauchbar, aber nicht stabil.",
+      "warum": "Relevanz mittel: Zeigt, wie schnell sich mit KI-Agenten Programmfunktionen nachbauen lassen, für Produktionsarbeit taugt es nach Aussage des Entwicklers noch nicht.",
+      "quelle": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/10/14/how-ai-apps-are-offering-free-substitutes-for-big-tech-software",
+      "datum": "2026-10-14"
+    },
+    {
+      "id": "resolve-21-1-mcp-grenzen",
+      "kat": "ki",
+      "typ": "news",
+      "hintergrund": true,
+      "titel": "Resolve 21.1 und MCP: Nur in Studio, Sicherheitsfragen noch offen",
+      "kurz": "Der native MCP-Server steckt in DaVinci Resolve Studio 21.1 vom 8. September, nicht in der kostenlosen Version. Unterstützt werden Claude, Claude Code und ChatGPT Codex, die Verbindung wird über das Datei-Menü eingerichtet. Blackmagic nennt als Beispiel einen Highlight-Schnitt von drei Minuten mit Entfernen kurzer Segmente und H.265-Render. Digital Production bemängelt, dass Berechtigungen, Schutz vor zerstörenden Aktionen und Protokollierung nicht erklärt sind. Projekte aus 21.1 lassen sich in Resolve 20.3 nicht öffnen.",
+      "warum": "Relevanz hoch: Vor dem Einsatz an echten Projekten gilt: Backup anlegen und Aufträge eng fassen, bis klar ist, was der Assistent ändern darf.",
+      "quelle": "Digital Production",
+      "url": "https://digitalproduction.com/2026/09/08/resolve-21-1-adds-mcp-and-finally-gets-presets/",
+      "datum": "2026-09-08"
+    },
+    {
+      "id": "claude-creative-connectors",
+      "kat": "ki",
+      "typ": "news",
+      "hintergrund": true,
+      "titel": "Anthropic bindet Claude an Adobe, Blender, Affinity und weitere Kreativprogramme an",
+      "kurz": "Nach Angaben von Anthropic vom 28. April gibt es Konnektoren für Adobe (mehr als 50 Werkzeuge in Creative Cloud, darunter Photoshop, Premiere und Express), Blender, Affinity, Autodesk Fusion, Resolume, SketchUp, Ableton und Splice. Der Blender-Konnektor baut ausdrücklich auf MCP auf und gibt per Sprache Zugriff auf die Python-API. Für die anderen Konnektoren nennt die Seite MCP nicht. Lightroom und DaVinci Resolve stehen nicht in der Liste, welche Tarife die Konnektoren enthalten, ist dort nicht angegeben. Das sind Herstellerangaben.",
+      "warum": "Relevanz hoch: Der Trend geht von Skripten zur Steuerung per Chat, Resolve hat dafür einen eigenen MCP-Server und Lightroom bislang nur Adobes eigene Prompt-Funktion.",
+      "quelle": "Anthropic",
+      "url": "https://www.anthropic.com/news/claude-for-creative-work",
+      "datum": "2026-04-28"
     },
     {
       "id": "instax-square-2",
