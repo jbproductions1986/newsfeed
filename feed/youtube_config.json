@@ -1,0 +1,37 @@
+{
+  "tage": 14,
+  "short_max_sekunden": 180,
+  "ergebnisse_pro_suche": 25,
+  "min_aufrufe": { "video": 500, "short": 1000 },
+  "treffer_pro_rubrik": { "video": 6, "short": 4 },
+  "rubriken": {
+    "broadcast": {
+      "suchen": ["broadcast live production", "SMPTE ST 2110 IP workflow", "NDI ATEM vMix live production"],
+      "shorts_suchen": ["live production broadcast", "ATEM switcher"]
+    },
+    "kamera": {
+      "suchen": ["new cinema camera review", "mirrorless camera firmware update", "camera rumors new release", "microphone wireless audio recorder review"],
+      "shorts_suchen": ["new camera", "cinema camera"]
+    },
+    "licht": {
+      "suchen": ["Aputure Nanlite light", "LED video light review", "film lighting ARRI Astera Creamsource"],
+      "shorts_suchen": ["Aputure", "film lighting"]
+    },
+    "drohnen": {
+      "suchen": ["DJI drone review", "FPV drone cinematic", "new drone leak DJI"],
+      "shorts_suchen": ["DJI drone", "FPV drone"]
+    },
+    "schnitt": {
+      "suchen": ["DaVinci Resolve", "Premiere Pro", "video editing workflow"],
+      "shorts_suchen": ["DaVinci Resolve", "Premiere Pro"]
+    },
+    "ki": {
+      "suchen": ["AI video editing", "AI camera autofocus tracking", "AI rough cut automation video"],
+      "shorts_suchen": ["AI video editing", "AI video tool"]
+    },
+    "foto": {
+      "suchen": ["Lightroom Photoshop", "AI photo editing", "photography gear review"],
+      "shorts_suchen": ["Lightroom", "photography tips"]
+    }
+  }
+}

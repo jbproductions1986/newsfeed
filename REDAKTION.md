@@ -98,3 +98,19 @@ Dann Kategorieseiten oder die Websuche nutzen und das Datum jedes Beitrags prüf
 
 `sicherheit` ist nur bei `geruecht` Pflicht. Die Seite zeigt die letzten 12 Ausgaben in einem
 Auswahlfeld; ältere Dateien bleiben im Repo erhalten.
+
+## Reiter „Best of YouTube“
+
+Der zweite Reiter der Seite zeigt, was in denselben sieben Rubriken auf YouTube am meisten läuft. Er entsteht
+nicht im Montagslauf der Redaktion, sondern automatisch in GitHub Actions (`.github/workflows/best-of-youtube.yml`,
+montags 05:30 UTC, also vor der Ausgabe um 9 Uhr).
+
+- **Quelle:** YouTube Data API v3, Schlüssel im Repository-Secret `YOUTUBE_API_KEY`. Der Schlüssel steht nie im Code oder im Chat.
+- **Auswahl:** `feed/youtube_fetch.py` sucht je Rubrik mit den Begriffen aus `feed/youtube_config.json`, sortiert nach Aufrufen und
+  wertet die Treffer nach Aufrufen pro Tag aus. Je Rubrik bleiben 6 Videos und 4 Shorts. Als Short gilt ein Video bis 180 Sekunden.
+- **Anpassen:** Suchbegriffe, Zeitraum (`tage`), Grenzwerte und Trefferzahl stehen in `feed/youtube_config.json`, nicht im Code.
+- **Nur der aktuelle Stand:** `youtube/aktuell.json` wird jede Woche überschrieben. Es werden keine älteren Stände archiviert,
+  weil die YouTube-Bedingungen das Aufbewahren von API-Daten zeitlich begrenzen.
+- **Inhalte:** Es erscheinen nur Titel, Kanal, Kennzahlen und der Link, keine Beschreibungen und keine eigenen Zusammenfassungen.
+- **Montagslauf der Redaktion:** Nichts zu tun. `python3 feed/build.py` übernimmt `youtube/aktuell.json` automatisch in die Seite.
+  Fehlt die Datei, zeigt die Seite nur den Wochenblick.

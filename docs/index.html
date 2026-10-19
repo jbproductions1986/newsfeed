@@ -289,10 +289,97 @@ details[open] > summary .chev { transform: rotate(-135deg); margin-top: 11px; }
 @media (prefers-reduced-motion: reduce) {
   .chev, .bar button { transition: none; }
 }
+
+/* Reiter */
+.tabs { display: flex; gap: 4px; margin: 0 0 20px; border-bottom: 2px solid var(--ink); }
+.tabs button {
+  flex: 0 1 auto;
+  background: none;
+  border: 0;
+  padding: 8px 18px 6px;
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--ink2);
+}
+.tabs button:hover { color: var(--ink); }
+.tabs button[aria-selected="true"] { background: var(--ink); color: var(--bg); }
+@media (max-width: 480px) { .tabs button { flex: 1 1 0; padding-inline: 6px; font-size: 17px; letter-spacing: .03em; white-space: nowrap; } }
+
+/* Best of YouTube */
+.topn { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); counter-reset: rang; }
+.topn li { border-bottom: 1px solid var(--line); counter-increment: rang; }
+.topn a {
+  display: grid;
+  grid-template-columns: 2.2ch minmax(0, 1fr);
+  gap: 10px;
+  padding: 10px 2px;
+  text-decoration: none;
+}
+.topn a::before { content: counter(rang); font-family: var(--f-display); font-weight: 700; font-size: 22px; line-height: 1.1; color: var(--cc, var(--ink2)); }
+.topn a:hover .tt { text-decoration: underline; text-underline-offset: 3px; }
+.topn .tt { display: block; font-weight: 600; line-height: 1.35; }
+.topn .ts { display: block; margin-top: 2px; font-family: var(--f-mono); font-size: 11.5px; color: var(--ink2); }
+.meth summary {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  cursor: pointer;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: 21px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.meth summary::-webkit-details-marker { display: none; }
+.meth summary::after { content: "+"; font-family: var(--f-mono); font-weight: 400; }
+.meth[open] summary::after { content: "\2013"; }
+.method { margin: 10px 0 0; font-size: 13px; line-height: 1.5; color: var(--ink2); max-width: 60ch; }
+.vgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 18px 14px; margin-top: 12px; }
+.vcard { display: flex; flex-direction: column; gap: 3px; min-width: 0; text-decoration: none; }
+.vcard .thumb {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  background: var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  border-bottom: 3px solid var(--cc, var(--ink));
+}
+.vcard .thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.vcard .dur, .vcard .fmt {
+  position: absolute;
+  bottom: 6px;
+  padding: 0 5px;
+  border-radius: 3px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  line-height: 18px;
+  background: rgba(0, 0, 0, .78);
+  color: #fff;
+}
+.vcard .dur { right: 6px; }
+.vcard .fmt { left: 6px; background: var(--accent); color: var(--accent-ink); text-transform: uppercase; letter-spacing: .06em; font-size: 10.5px; }
+.vcard .vt { margin-top: 4px; font-weight: 600; line-height: 1.35; text-wrap: pretty; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.vcard:hover .vt { text-decoration: underline; text-underline-offset: 3px; }
+.vcard .vk { font-size: 13px; color: var(--ink2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.vcard .vs { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink2); line-height: 1.5; }
+.vcard .vs b { color: var(--ink); font-weight: 500; }
+.ynote { margin: 14px 0 0; padding: 8px 12px; border: 1px solid var(--line); border-radius: 4px; font-size: 13.5px; background: var(--surface); }
 </style>
 
 <div class="wrap">
   <noscript><p>Diese Seite braucht JavaScript, um die Meldungen anzuzeigen.</p></noscript>
+  <nav class="tabs" id="tabs" role="tablist" aria-label="Bereiche" hidden>
+    <button type="button" role="tab" id="tab-news" aria-controls="view-news" aria-selected="true" data-view="news">Wochenblick</button>
+    <button type="button" role="tab" id="tab-yt" aria-controls="view-yt" aria-selected="false" data-view="youtube" tabindex="-1">Best of YouTube</button>
+  </nav>
+  <div id="view-news" role="tabpanel" aria-labelledby="tab-news">
   <header class="masthead">
     <div class="brand">
       <h1>Wochenblick <span>Bild &amp; Ton</span></h1>
@@ -338,6 +425,48 @@ details[open] > summary .chev { transform: rotate(-135deg); margin-top: 11px; }
       <p class="count" id="count" aria-live="polite"></p>
       <div id="list"></div>
     </main>
+  </div>
+  </div>
+
+  <div id="view-yt" role="tabpanel" aria-labelledby="tab-yt" hidden>
+    <header class="masthead">
+      <div class="brand">
+        <h1>Best of <span>YouTube</span></h1>
+        <p class="edmeta" id="y-meta"></p>
+      </div>
+    </header>
+    <div class="bar" id="y-bar" role="group" aria-label="Rubriken nach Anzahl der Videos"></div>
+    <p class="ynote" id="y-note" hidden></p>
+
+    <div class="grid">
+      <aside class="rail">
+        <section aria-labelledby="y-h-top">
+          <h2 class="sec" id="y-h-top">Top 5 gesamt</h2>
+          <ol class="topn" id="y-top"></ol>
+        </section>
+        <details class="meth">
+          <summary>So wird gewertet</summary>
+          <p class="method" id="y-method"></p>
+        </details>
+      </aside>
+
+      <main class="main">
+        <div class="controls">
+          <div>
+            <label class="lbl" for="y-q">Suche</label>
+            <input class="search" id="y-q" type="search" placeholder="Titel oder Kanal" autocomplete="off">
+          </div>
+          <div class="chips" id="y-chips" role="group" aria-label="Rubriken filtern"></div>
+          <div class="row2">
+            <div class="seg" id="y-fmt" role="group" aria-label="Format"></div>
+            <div class="seg" id="y-sort" role="group" aria-label="Sortierung"></div>
+            <div class="seg" id="y-view" role="group" aria-label="Ansicht"></div>
+          </div>
+        </div>
+        <p class="count" id="y-count" aria-live="polite"></p>
+        <div id="y-list"></div>
+      </main>
+    </div>
   </div>
 </div>
 
@@ -643,6 +772,256 @@ details[open] > summary .chev { transform: rotate(-135deg); margin-top: 11px; }
   });
 
   renderAll();
+})();
+</script>
+
+<script>
+/* Reiter "Best of YouTube". Die Daten kommen aus youtube/aktuell.json (feed/youtube_fetch.py).
+   Gibt es keine Daten, bleibt die Reiterleiste versteckt und die Seite zeigt nur den Wochenblick. */
+(function () {
+  'use strict';
+  var YT = null;
+  if (!YT || !YT.items || !YT.items.length) return;
+
+  var CATS = [
+    { id: 'broadcast', label: 'Broadcast' },
+    { id: 'kamera', label: 'Kameras & Audio' },
+    { id: 'licht', label: 'Licht & Beleuchtung' },
+    { id: 'drohnen', label: 'Drohnen & FPV' },
+    { id: 'schnitt', label: 'Schnitt' },
+    { id: 'ki', label: 'KI & Automation' },
+    { id: 'foto', label: 'Foto' }
+  ];
+  var CAT = {};
+  CATS.forEach(function (c) { CAT[c.id] = c; });
+  var ID_OK = /^[A-Za-z0-9_-]{11}$/;
+  var ITEMS = YT.items.filter(function (it) { return ID_OK.test(it.id) && CAT[it.kat]; });
+  if (!ITEMS.length) return;
+  var T0 = Date.parse(YT.erzeugt) || Date.now();
+
+  function $(id) { return document.getElementById(id); }
+  function h(tag, props, kids) {
+    var n = document.createElement(tag);
+    if (props) {
+      Object.keys(props).forEach(function (k) {
+        if (k === 'class') n.className = props[k];
+        else if (k === 'text') n.textContent = props[k];
+        else n.setAttribute(k, props[k]);
+      });
+    }
+    (kids || []).forEach(function (c) {
+      if (c == null) return;
+      n.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+    });
+    return n;
+  }
+  function dmy(iso) { var p = iso.split('-'); return p[2] + '.' + p[1] + '.' + p[0]; }
+  function catColor(id) { return 'var(--c-' + id + ')'; }
+  function kompakt(n) {
+    if (n == null) return '–';
+    var d = function (x) { return String(Math.round(x * 10) / 10).replace('.', ','); };
+    if (n >= 1e6) return d(n / 1e6) + ' Mio.';
+    if (n >= 1e4) return Math.round(n / 1e3) + ' Tsd.';
+    try { return n.toLocaleString('de-CH'); } catch (e) { return String(n); }
+  }
+  function dauer(s) {
+    var hh = Math.floor(s / 3600), mm = Math.floor((s % 3600) / 60), ss = s % 60;
+    var z = function (x) { return (x < 10 ? '0' : '') + x; };
+    return hh ? hh + ':' + z(mm) + ':' + z(ss) : mm + ':' + z(ss);
+  }
+  function alter(iso) {
+    var std = (T0 - Date.parse(iso)) / 36e5;
+    if (std < 1) return 'vor weniger als 1 Std.';
+    if (std < 24) return 'vor ' + Math.floor(std) + ' Std.';
+    var d = Math.floor(std / 24);
+    return d === 1 ? 'vor 1 Tag' : 'vor ' + d + ' Tagen';
+  }
+  function url(it) { return 'https://www.youtube.com/watch?v=' + it.id; }
+
+  var SORT = {
+    trend: function (a, b) { return b.trend - a.trend; },
+    aufrufe: function (a, b) { return b.aufrufe - a.aufrufe; },
+    likes: function (a, b) { return (b.likes == null ? -1 : b.likes) - (a.likes == null ? -1 : a.likes); },
+    neu: function (a, b) { return Date.parse(b.veroeffentlicht) - Date.parse(a.veroeffentlicht); }
+  };
+  var FMT_OPTS = [['alle', 'Alle'], ['video', 'Videos'], ['short', 'Shorts']];
+  var SORT_OPTS = [['trend', 'Trend'], ['aufrufe', 'Aufrufe'], ['likes', 'Likes'], ['neu', 'Neueste']];
+  var VIEW_OPTS = [['thema', 'Nach Rubrik'], ['gesamt', 'Gesamtranking']];
+  var state = { cats: {}, fmt: 'alle', sort: 'trend', q: '', view: 'thema' };
+
+  function catActive() { return Object.keys(state.cats).length > 0; }
+  function visible() {
+    var q = state.q.trim().toLowerCase();
+    return ITEMS.filter(function (it) {
+      if (catActive() && !state.cats[it.kat]) return false;
+      if (state.fmt !== 'alle' && it.format !== state.fmt) return false;
+      if (q && (it.titel + ' ' + it.kanal + ' ' + CAT[it.kat].label).toLowerCase().indexOf(q) < 0) return false;
+      return true;
+    });
+  }
+  function counts() {
+    var c = {};
+    ITEMS.forEach(function (it) { c[it.kat] = (c[it.kat] || 0) + 1; });
+    return c;
+  }
+  function toggleCat(id) {
+    if (state.cats[id]) delete state.cats[id]; else state.cats[id] = true;
+    renderBar(); renderChips(); renderList();
+  }
+
+  function renderBar() {
+    var bar = $('y-bar'), c = counts();
+    bar.textContent = '';
+    bar.className = 'bar' + (catActive() ? ' filtered' : '');
+    CATS.forEach(function (cat) {
+      if (!c[cat.id]) return;
+      var b = h('button', {
+        type: 'button',
+        'aria-pressed': state.cats[cat.id] ? 'true' : 'false',
+        'aria-label': cat.label + ', ' + c[cat.id] + ' Videos',
+        title: cat.label + ' (' + c[cat.id] + ')'
+      });
+      b.style.background = catColor(cat.id);
+      b.style.flexGrow = String(c[cat.id]);
+      b.addEventListener('click', function () { toggleCat(cat.id); });
+      bar.appendChild(b);
+    });
+  }
+
+  function renderChips() {
+    var box = $('y-chips'), c = counts();
+    box.textContent = '';
+    CATS.forEach(function (cat) {
+      if (!c[cat.id]) return;
+      var dot = h('span', { class: 'dot' });
+      dot.style.setProperty('--cc', catColor(cat.id));
+      dot.style.marginTop = '0';
+      var b = h('button', { type: 'button', class: 'chip', 'aria-pressed': state.cats[cat.id] ? 'true' : 'false' },
+        [dot, cat.label, h('span', { class: 'n', text: String(c[cat.id]) })]);
+      b.addEventListener('click', function () { toggleCat(cat.id); });
+      box.appendChild(b);
+    });
+  }
+
+  function renderSeg(id, opts, key) {
+    var box = $(id);
+    box.textContent = '';
+    opts.forEach(function (o) {
+      var b = h('button', { type: 'button', 'aria-pressed': state[key] === o[0] ? 'true' : 'false', text: o[1] });
+      b.addEventListener('click', function () { state[key] = o[0]; renderSeg(id, opts, key); renderList(); });
+      box.appendChild(b);
+    });
+  }
+
+  function renderTop() {
+    var ol = $('y-top');
+    ol.textContent = '';
+    ITEMS.slice().sort(SORT.trend).slice(0, 5).forEach(function (it) {
+      var a = h('a', { href: url(it), target: '_blank', rel: 'noopener noreferrer' }, [
+        h('span', {}, [
+          h('span', { class: 'tt', text: it.titel }),
+          h('span', { class: 'ts', text: CAT[it.kat].label + ' · ' + (it.format === 'short' ? 'Short' : 'Video') + ' · ' + kompakt(Math.round(it.trend)) + ' Aufrufe/Tag' })
+        ])
+      ]);
+      a.style.setProperty('--cc', catColor(it.kat));
+      ol.appendChild(h('li', {}, [a]));
+    });
+  }
+
+  function card(it) {
+    var img = h('img', {
+      src: 'https://i.ytimg.com/vi/' + it.id + '/mqdefault.jpg',
+      alt: '', width: '320', height: '180', loading: 'lazy', decoding: 'async', referrerpolicy: 'no-referrer'
+    });
+    img.addEventListener('error', function () { img.style.display = 'none'; });
+    var thumb = h('span', { class: 'thumb' }, [
+      img,
+      it.format === 'short' ? h('span', { class: 'fmt', text: 'Short' }) : null,
+      h('span', { class: 'dur', text: dauer(it.dauer_s) })
+    ]);
+    var s1 = h('span', { class: 'vs' }, [
+      h('b', { text: kompakt(it.aufrufe) }), ' Aufrufe',
+      it.likes != null ? ' · ' : null, it.likes != null ? h('b', { text: kompakt(it.likes) }) : null, it.likes != null ? ' Likes' : null
+    ]);
+    var s2 = h('span', { class: 'vs', text: alter(it.veroeffentlicht) + ' · ' + kompakt(Math.round(it.trend)) + '/Tag' });
+    var a = h('a', {
+      class: 'vcard', href: url(it), target: '_blank', rel: 'noopener noreferrer',
+      'aria-label': it.titel + ' von ' + it.kanal + ' auf YouTube'
+    }, [thumb, h('span', { class: 'vt', text: it.titel }), h('span', { class: 'vk', text: it.kanal }), s1, s2]);
+    a.style.setProperty('--cc', catColor(it.kat));
+    return a;
+  }
+
+  function renderList() {
+    var items = visible().sort(SORT[state.sort]), box = $('y-list');
+    box.textContent = '';
+    $('y-count').textContent = items.length + ' von ' + ITEMS.length + ' Einträgen';
+    if (!items.length) {
+      var reset = h('button', { type: 'button', class: 'linkbtn', text: 'Filter zurücksetzen' });
+      reset.addEventListener('click', function () {
+        state.cats = {}; state.fmt = 'alle'; state.q = ''; $('y-q').value = '';
+        renderBar(); renderChips(); renderSeg('y-fmt', FMT_OPTS, 'fmt'); renderList();
+      });
+      box.appendChild(h('div', { class: 'empty' }, [h('p', { text: 'Kein Eintrag passt zu diesen Filtern.' }), reset]));
+      return;
+    }
+    if (state.view === 'gesamt') {
+      var g = h('div', { class: 'vgrid' });
+      items.forEach(function (it) { g.appendChild(card(it)); });
+      box.appendChild(g);
+      return;
+    }
+    CATS.forEach(function (cat) {
+      var list = items.filter(function (it) { return it.kat === cat.id; });
+      if (!list.length) return;
+      var head = h('div', { class: 'ghead' }, [h('h3', { text: cat.label }), h('span', { class: 'gn', text: String(list.length) })]);
+      var grid = h('div', { class: 'vgrid' });
+      list.forEach(function (it) { grid.appendChild(card(it)); });
+      var sec = h('section', { class: 'group' }, [head, grid]);
+      sec.style.setProperty('--cc', catColor(cat.id));
+      box.appendChild(sec);
+    });
+  }
+
+  $('y-meta').textContent = 'Stand ' + dmy(YT.stand) + ' · letzte ' + YT.tage + ' Tage · ' + ITEMS.length + ' Einträge';
+  $('y-method').textContent = YT.methode || '';
+  if (YT.hinweis) { $('y-note').textContent = YT.hinweis; $('y-note').hidden = false; }
+  $('y-q').addEventListener('input', function (ev) { state.q = ev.target.value; renderList(); });
+  renderBar(); renderChips();
+  renderSeg('y-fmt', FMT_OPTS, 'fmt');
+  renderSeg('y-sort', SORT_OPTS, 'sort');
+  renderSeg('y-view', VIEW_OPTS, 'view');
+  renderTop(); renderList();
+
+  /* Reiter: #youtube in der Adresse öffnet den Bereich direkt */
+  var tabs = $('tabs'), viewNews = $('view-news'), viewYt = $('view-yt');
+  var tabBtns = Array.prototype.slice.call(tabs.querySelectorAll('button'));
+  function show(view, push) {
+    var yt = view === 'youtube';
+    viewNews.hidden = yt;
+    viewYt.hidden = !yt;
+    tabBtns.forEach(function (b) {
+      var on = b.getAttribute('data-view') === view;
+      b.setAttribute('aria-selected', on ? 'true' : 'false');
+      b.tabIndex = on ? 0 : -1;
+    });
+    if (push) {
+      try { history.replaceState(null, '', yt ? '#youtube' : location.pathname + location.search); } catch (e) {}
+    }
+  }
+  tabBtns.forEach(function (b, i) {
+    b.addEventListener('click', function () { show(b.getAttribute('data-view'), true); });
+    b.addEventListener('keydown', function (ev) {
+      if (ev.key !== 'ArrowRight' && ev.key !== 'ArrowLeft') return;
+      var n = tabBtns[(i + (ev.key === 'ArrowRight' ? 1 : tabBtns.length - 1)) % tabBtns.length];
+      show(n.getAttribute('data-view'), true);
+      n.focus();
+      ev.preventDefault();
+    });
+  });
+  window.addEventListener('hashchange', function () { show(location.hash === '#youtube' ? 'youtube' : 'news', false); });
+  tabs.hidden = false;
+  show(location.hash === '#youtube' ? 'youtube' : 'news', false);
 })();
 </script>
 

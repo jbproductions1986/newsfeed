@@ -1,0 +1,54 @@
+name: Best of YouTube
+
+# Jeden Montag früh (vor dem Wochenblick-Lauf um 8:53 Uhr Zürcher Zeit) und auf Knopfdruck.
+# 05:30 UTC entspricht 07:30 Uhr in der Sommerzeit und 06:30 Uhr in der Winterzeit.
+on:
+  schedule:
+    - cron: "30 5 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: best-of-youtube
+  cancel-in-progress: false
+
+jobs:
+  aktualisieren:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: YouTube-Daten holen
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: python3 feed/youtube_fetch.py
+
+      - name: Seite bauen
+        run: python3 feed/build.py
+
+      - name: Änderungen nach main schreiben
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          cp youtube/aktuell.json "$RUNNER_TEMP/aktuell.json"
+          for versuch in 1 2 3; do
+            git add youtube docs
+            if git diff --cached --quiet; then
+              echo "Keine Änderungen."
+              exit 0
+            fi
+            git commit -q -m "Best of YouTube $(date -u +%Y-%m-%d)"
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Push abgelehnt (Versuch $versuch), hole den neuesten Stand und baue neu."
+            git fetch origin main
+            git reset -q --hard origin/main
+            cp "$RUNNER_TEMP/aktuell.json" youtube/aktuell.json
+            python3 feed/build.py
+          done
+          echo "Push nach drei Versuchen fehlgeschlagen." >&2
+          exit 1
