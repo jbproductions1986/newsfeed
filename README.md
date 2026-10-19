@@ -1,6 +1,6 @@
 # Wochenblick Bild & Ton
 
-Wöchentlicher, interaktiver Newsfeed zu Broadcast, Kameras und Audio (inklusive Gerüchte), Drohnen und FPV
+Wöchentlicher, interaktiver Newsfeed zu Broadcast (Schwerpunkt IP-Technik und Automatisierung, dazu Stream Deck, Companion und Ubiquiti), Kameras und Audio (inklusive Gerüchte), Drohnen und FPV
 (Gyroflow bei Relevanz), Schnitt mit DaVinci Resolve und Premiere, KI-Vereinfachung in Kamera und Schnitt sowie Foto.
 
 **Online:** https://jbproductions1986.github.io/newsfeed/

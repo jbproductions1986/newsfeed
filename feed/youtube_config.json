@@ -15,15 +15,15 @@
   "ausschliessen": ["unboxing", "vivo", "oppo", "realme", "redmi", "oneplus", "poco", "hindi", "kaise", "banaye", "reels", "wallpaper", "ringtone", "prank", "asmr", "giveaway", "lookbook", "instagram", "viral", "viralvideo", "viralshorts", "shortsfeed", "fyp", "trending", "montagem", "slowed", "kdrama", "anime", "spiderman", "spider-man", "galaxy", "couple"],
   "rubriken": {
     "broadcast": {
-      "suchen": ["ATEM Mini live production", "SMPTE ST 2110 IP broadcast"],
-      "shorts_suchen": ["ATEM live production"],
-      "muss_enthalten": ["broadcast*", "atem", "ndi", "st 2110", "st2110", "smpte", "vmix", "live production", "live-produktion", "switcher", "tricaster", "grass valley", "ptz", "ob van", "ip workflow", "sdi", "nab", "ibc", "obs", "blackmagic", "multicam", "multi-cam", "teleprompter", "vision mixer", "bildmischer", "newsroom", "studio production"],
+      "suchen": ["Bitfocus Companion Stream Deck", "UniFi network setup studio", "NDI SMPTE ST 2110 IPMX IP workflow", "live production automation ATEM"],
+      "shorts_suchen": ["Stream Deck Companion", "ATEM automation"],
+      "muss_enthalten": ["stream deck", "streamdeck", "companion", "bitfocus", "unifi", "ubiquiti", "ndi", "st 2110", "st2110", "ipmx", "smpte", "ip workflow", "ip video", "automation", "automat*", "atem", "vmix", "tricaster", "live production", "live-produktion", "broadcast*", "switcher", "ptz", "ob van", "sdi", "nab", "ibc", "obs", "blackmagic", "multicam", "multi-cam", "vision mixer", "bildmischer", "newsroom", "teleprompter"],
       "min_aufrufe": {
         "video": 50,
         "short": 150
       },
       "treffer": {
-        "video": 3,
+        "video": 4,
         "short": 2
       }
     },

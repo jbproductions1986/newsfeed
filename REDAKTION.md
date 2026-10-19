@@ -8,7 +8,7 @@ Struktur gleich bleibt.
 
 | id          | Thema             | Inhalt                                                                                     |
 |-------------|-------------------|--------------------------------------------------------------------------------------------|
-| `broadcast` | Broadcast         | Broadcast-Technik, Live-Produktion, IP-Workflows (ST 2110, IPMX, NDI), Messen (NAB, IBC)   |
+| `broadcast` | Broadcast | **Schwerpunkt:** IP-Technik und Automatisierung in Broadcast und Live-Produktion (ST 2110, IPMX, NDI), Steuerung und Automatisierung (Bitfocus Companion, Stream Deck, ATEM, vMix), Netzwerk im Studio (Ubiquiti UniFi), Messen (NAB, IBC) |
 | `kamera`    | Kameras & Audio   | Kameras, Objektive, Firmware, Tests, **Gerüchte zu neuen Kameras**, Audio (Mikrofone, Recorder, Tontechnik) |
 | `licht`     | Licht & Beleuchtung | Beleuchtung für Film, Fernsehen und Video: neue Produkte und Firmware von Aputure, Nanlite, ARRI, Creamsource, Godox, Astera, Litepanels, Kino Flo u. a., Lichtsteuerung (DMX, CRMX, App), Lichtformer, Beleuchtung bei Produktionen, Tests und Gerüchte zu neuen Leuchten |
 | `drohnen`   | Drohnen & FPV     | DJI und Konkurrenz, FPV, Regulierung mit Einfluss auf Filmer, **Gerüchte zu neuen Drohnen**; Gyroflow nur, wenn es etwas Relevantes gibt (Release, Neuerung) |
@@ -55,7 +55,7 @@ Audio-Meldungen erscheinen unter `kamera`.
 - Gerüchte: Nikon Rumors, Sony Alpha Rumors, Canon Rumors, Fuji Rumors, Photo Rumors (DJI-Gerüchte), Notebookcheck
 - Licht und Beleuchtung: Herstellerseiten und Pressemitteilungen (Aputure, Nanlite, ARRI, Creamsource), CineD, Newsshooter, No Film School, ProVideo Coalition; Neuheiten kommen oft rund um NAB, IBC und Cine Gear
 - Drohnen und FPV: DroneXL, DroneDJ, Oscar Liang
-- Broadcast: TV Technology, NewscastStudio, TVBEurope
+- Broadcast: TV Technology, NewscastStudio, TVBEurope; für Companion und Stream Deck bitfocus.io und github.com/bitfocus/companion/releases, für Ubiquiti die UniFi-Releases und community.ui.com
 - Schnitt und KI: ProVideo Coalition, Blackmagic-Pressemitteilungen, Adobe-Blog
 - Gyroflow (nur bei Relevanz, Thema Drohnen & FPV): github.com/gyroflow/gyroflow/releases
 
@@ -107,8 +107,8 @@ montags 05:30 UTC, also vor der Ausgabe um 9 Uhr).
 
 - **Quelle:** YouTube Data API v3, Schlüssel im Repository-Secret `YOUTUBE_API_KEY`. Der Schlüssel steht nie im Code oder im Chat.
 - **Auswahl:** `feed/youtube_fetch.py` sucht je Rubrik mit den Begriffen aus `feed/youtube_config.json`, sortiert nach Aufrufen und
-  wertet die Treffer nach Aufrufen pro Tag aus. Je Rubrik bleiben 6 Videos und 4 Shorts, bei Broadcast nur 3 und 2, weil das Thema
-  auf YouTube nur beiläufig interessiert. Als Short gilt ein Video bis 180 Sekunden.
+  wertet die Treffer nach Aufrufen pro Tag aus. Je Rubrik bleiben 6 Videos und 4 Shorts, bei Broadcast 4 und 2, weil das Thema
+  auf YouTube eher beiläufig interessiert. Als Short gilt ein Video bis 180 Sekunden.
 - **Aussortiert** wird, was nicht zur Rubrik passt: falsche YouTube-Kategorie (z. B. Musik), andere Sprache als Englisch, Deutsch,
   Französisch oder Italienisch, fehlende Stichwörter im Titel (bei Videos auch in den Tags), Spam-Hashtags und Fan-Edits.
   Je Kanal erscheinen höchstens 2 Einträge je Rubrik und Format.
