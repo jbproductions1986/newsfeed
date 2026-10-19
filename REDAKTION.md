@@ -10,6 +10,7 @@ Struktur gleich bleibt.
 |-------------|-------------------|--------------------------------------------------------------------------------------------|
 | `broadcast` | Broadcast         | Broadcast-Technik, Live-Produktion, IP-Workflows (ST 2110, IPMX, NDI), Messen (NAB, IBC)   |
 | `kamera`    | Kameras & Audio   | Kameras, Objektive, Firmware, Tests, **Gerüchte zu neuen Kameras**, Audio (Mikrofone, Recorder, Tontechnik) |
+| `licht`     | Licht & Beleuchtung | Beleuchtung für Film, Fernsehen und Video: neue Produkte und Firmware von Aputure, Nanlite, ARRI, Creamsource, Godox, Astera, Litepanels, Kino Flo u. a., Lichtsteuerung (DMX, CRMX, App), Lichtformer, Beleuchtung bei Produktionen, Tests und Gerüchte zu neuen Leuchten |
 | `drohnen`   | Drohnen & FPV     | DJI und Konkurrenz, FPV, Regulierung mit Einfluss auf Filmer, **Gerüchte zu neuen Drohnen**; Gyroflow nur, wenn es etwas Relevantes gibt (Release, Neuerung) |
 | `schnitt`   | Schnitt           | DaVinci Resolve (inkl. Blackmagic Design, Fusion, Fairlight) und Adobe Premiere (inkl. After Effects, Firefly im Videokontext), allgemeine Schnitt-Tools und -Branche |
 | `ki`        | KI & Automation   | **Schwerpunkt:** Kamera und Video vereinfachen per KI (Assistenten, Rohschnitt, Automatisierung) |
@@ -52,6 +53,7 @@ Audio-Meldungen erscheinen unter `kamera`.
 
 - Kameras und Video: CineD, Newsshooter, No Film School
 - Gerüchte: Nikon Rumors, Sony Alpha Rumors, Canon Rumors, Fuji Rumors, Photo Rumors (DJI-Gerüchte), Notebookcheck
+- Licht und Beleuchtung: Herstellerseiten und Pressemitteilungen (Aputure, Nanlite, ARRI, Creamsource), CineD, Newsshooter, No Film School, ProVideo Coalition; Neuheiten kommen oft rund um NAB, IBC und Cine Gear
 - Drohnen und FPV: DroneXL, DroneDJ, Oscar Liang
 - Broadcast: TV Technology, NewscastStudio, TVBEurope
 - Schnitt und KI: ProVideo Coalition, Blackmagic-Pressemitteilungen, Adobe-Blog
