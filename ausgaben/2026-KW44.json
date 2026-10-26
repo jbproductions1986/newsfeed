@@ -1,0 +1,365 @@
+{
+  "jahr": 2026,
+  "kw": 44,
+  "von": "2026-10-20",
+  "bis": "2026-10-25",
+  "stand": "2026-10-26",
+  "intro": "Die Woche nach der NAB Show New York bringt viel IP- und Automatisierungsstoff: Bridge schliesst sich der offenen MXL-Schicht an, Blackmagic verbessert NMOS und ST 2110 in der Kamera, und Bitfocus Companion 5.1 bekommt eine REST-API. Dazu kommen die Sigma fp II mit 6K Open Gate und ProRes RAW, eine Firmware-Welle bei DJI und ein KI-Werkzeug für Wetterredaktionen.",
+  "hinweis": "Jede Meldung enthält eine kurze Einschätzung für eine Broadcast-Firma mit Fokus auf Automatisierung und IP-Technik (Relevanz und konkretes Einsatzgebiet). Mehrere Quellen (u. a. CineD, Sony Alpha Rumors, Canon Rumors, Adobe-Blog) waren im automatischen Lauf nicht oder nur über Suchergebnisse erreichbar, Meldungen mit nur gelesener Überschrift sind knapp gehalten. Zu Adobe Creative Cloud und Gyroflow gab es keine neue Version im Berichtszeitraum. Der Bitfocus-Eintrag stützt sich auf die GitHub-Seiten, auf denen das Jahr nicht angezeigt wird.",
+  "termine": [
+    {
+      "datum": "2026-10-29",
+      "text": "FCC-Abstimmung über chinesische Prüflabore"
+    },
+    {
+      "datum": "2026-10-31",
+      "text": "DJI beendet den Support der Phantom 4 Pro V2"
+    },
+    {
+      "datum": "2026-11-01",
+      "label": "Nov.",
+      "text": "Fujifilm X-T6 und XF 50-140 mm f/2.8 II erwartet",
+      "geruecht": true
+    },
+    {
+      "datum": "2026-11-05",
+      "text": "Nikon Quartalszahlen (Q2 GJ 2027)"
+    },
+    {
+      "datum": "2026-11-10",
+      "label": "10.–12.11.",
+      "text": "Adobe MAX, Miami Beach (auch online)"
+    },
+    {
+      "datum": "2026-11-18",
+      "text": "China: Exportlizenzpflicht für grosse Drohnenmotoren, Regler und Propeller"
+    },
+    {
+      "datum": "2027-09-28",
+      "label": "28.–30.9.2027",
+      "text": "SMPTE-Summit und NAB Show New York (29.–30.9.), Javits Center"
+    }
+  ],
+  "items": [
+    {
+      "id": "mxl-bridge-grassvalley",
+      "kat": "broadcast",
+      "typ": "news",
+      "titel": "Bridge Technologies tritt MXL bei: Monitoring-Scopes laufen als Container in Grass Valley AMPP",
+      "kurz": "Bridge Technologies hat sich am 22. Oktober der MXL-Initiative angeschlossen. MXL ist eine offene Schicht für IP-native, softwaredefinierte Produktion, an der unter anderem EBU und Linux Foundation beteiligt sind. Bridges Video- und Audio-Scopes laufen als Container ohne Spezialhardware und lassen sich in AMPP bei Bedarf zuschalten, etwa bei grossen Live-Events.",
+      "warum": "Relevanz hoch: offene Schnittstellen und Container-Monitoring sind der Weg zu hardwareunabhängiger IP-Produktion – Einsatz: Signalkontrolle in einem Software-Studio-Stack, der sich per Skript oder Companion starten lässt.",
+      "quelle": "TV Technology",
+      "url": "https://www.tvtechnology.com/business/partnerships/bridge-building-mxl-links-with-grass-valley-ampp-integration",
+      "datum": "2026-10-22",
+      "schlagzeile": true
+    },
+    {
+      "id": "blackmagic-camera-10-3-2",
+      "kat": "broadcast",
+      "typ": "update",
+      "titel": "Blackmagic Camera 10.3.2 für URSA Cine 12K LF: NMOS-Steuerung und ST-2110-Umschaltung verbessert",
+      "kurz": "Das Update für die URSA Cine 12K LF verbessert die REST-Steuerung von NMOS am 10G-Port und das Umschalten zwischen SMPTE 2110 und Blackmagic RAW. Dazu kommt ein besseres Verhalten der LUT-Symbole. Konkrete Fehlerlisten nennt der Bericht nicht.",
+      "warum": "Relevanz hoch: eine Kamera, die sich per NMOS im IP-Netz anmelden und steuern lässt, passt direkt zu automatisierten Studios – Einsatz: Kameraanbindung an ein NMOS-Registry und Steuerung per API statt per Hand.",
+      "quelle": "Newsshooter",
+      "url": "https://www.newsshooter.com/2026/10/20/blackmagic-camera-10-3-2-update/",
+      "datum": "2026-10-20",
+      "schlagzeile": true
+    },
+    {
+      "id": "clear-com-mentrix",
+      "kat": "broadcast",
+      "typ": "news",
+      "titel": "Clear-Com stellt Mentrix-Panel vor: Touch, PoE und Audio over IP",
+      "kurz": "Das Intercom-Panel hat 16 Tastenfelder aus acht Hebeltasten und acht oder 16 Drehtasten, dazu Touchbedienung, ein dynamisches Display, USB und Stromversorgung per PoE. Es ist VESA-kompatibel und für IP-basierte Produktionsumgebungen gedacht. ST 2110 oder Dante nennt der Bericht nicht.",
+      "warum": "Relevanz mittel: Intercom über das normale Netzwerk spart Verkabelung – Einsatz: Regie-Kommunikation in Studio oder Ü-Wagen mit PoE-Switch, ohne extra Netzteile.",
+      "quelle": "TV Technology",
+      "url": "https://www.tvtechnology.com/production/clear-com-unveils-mentrix-panel-at-nab-show-new-york",
+      "datum": "2026-10-21"
+    },
+    {
+      "id": "cbc-dalet-pyramid",
+      "kat": "broadcast",
+      "typ": "news",
+      "titel": "CBC/Radio-Canada führt Dalet Pyramid für die gesamte Nachrichtenproduktion ein",
+      "kurz": "Die Plattform arbeitet story-zentriert und im Browser, sodass Tausende Nutzer gleichzeitig an verschiedenen Standorten und im Feld arbeiten können. Dalet Brio übernimmt Aufnahme und Ingest, Dalet Cut den Schnitt. Betrieb ist lokal, in der Cloud oder hybrid möglich.",
+      "warum": "Relevanz mittel: zeigt, wie grosse Sender Ingest, Schnitt und Verteilung in einer Oberfläche bündeln – Einsatz: Vorbild für einen automatisierten News-Workflow mit Ingest-Regeln und Browser-Schnitt.",
+      "quelle": "TV Technology",
+      "url": "https://www.tvtechnology.com/production/live-production/cbc-radio-canada-taps-dalet-to-modernize-news-operations",
+      "datum": "2026-10-22"
+    },
+    {
+      "id": "smpte-nab-ny-2027",
+      "kat": "broadcast",
+      "typ": "news",
+      "titel": "SMPTE-Summit zieht 2027 zur NAB Show New York; NAB NY 2026 mit rund 6 700 Besuchern",
+      "kurz": "Der SMPTE-Summit findet ab 2027 am Javits Center parallel zur NAB Show New York statt, geplant vom 28. bis 30. September, die Messe selbst am 29. und 30. September. Die diesjährige NAB New York zählte laut Bericht rund 6 700 Besucher nach 11 500 im Vorjahr, mit etwa 250 Ausstellern.",
+      "warum": "Relevanz mittel: SMPTE und NAB am selben Ort bündeln Normung und Produkte – Einsatz: Terminplanung für Weiterbildung zu ST 2110 und IPMX an einem Ort.",
+      "quelle": "TV Technology",
+      "url": "https://www.tvtechnology.com/events/smpte-to-hold-its-annual-tech-summit-in-conjunction-with-nab-show-new-york-starting-in-2027",
+      "datum": "2026-10-23"
+    },
+    {
+      "id": "fox-world-series-technik",
+      "kat": "broadcast",
+      "typ": "news",
+      "titel": "Fox rüstet die World Series mit 4K-Nucleus-Kameras, AR und zwei Drohnen auf",
+      "kurz": "Neu sind drei 4K-Nucleus-Kameras und ein erweiterter AR-Einsatz, der mit MLB-Daten 18 Feeds nutzt. Hinzu kommen elf Zeitlupenkameras, zwei Drohnen, 27 Sony-Kameras der 5500-Serie, acht Robotik-Köpfe und etwa 70 Mikrofone.",
+      "warum": "Relevanz niedrig bis mittel: ein Blick auf die Grössenordnung einer Grossproduktion – Einsatz: Ideen für Robotik-Köpfe und datengetriebene Grafiken in kleineren Sportübertragungen.",
+      "quelle": "TV Technology",
+      "url": "https://www.tvtechnology.com/production/sports-production/fox-sports-to-add-4k-8k-nucleus-cameras-to-world-series-production-tech-lineup",
+      "datum": "2026-10-23"
+    },
+    {
+      "id": "becktv-beam-providius",
+      "kat": "broadcast",
+      "typ": "news",
+      "titel": "BeckTV, Beam Dynamics und Providius kooperieren bei Systemdesign, Asset-Analyse und Live-Monitoring",
+      "kurz": "Gelesen wurde nur die Überschrift: Drei Firmen arbeiten bei Broadcast-Systemdesign, Asset-Intelligenz und Live-Überwachung zusammen. Details liegen nicht vor.",
+      "warum": "Relevanz niedrig: Details fehlen – Einsatz: erst bewerten, wenn Produktinfos zu Monitoring und Asset-Analyse vorliegen.",
+      "quelle": "TV Technology",
+      "url": "https://www.tvtechnology.com/business/partnerships/becktv-beam-dynamics-and-providius-partner-on-broadcast-system-design-asset-intelligence-and-live-monitoring",
+      "datum": "2026-10-21"
+    },
+    {
+      "id": "companion-5-1",
+      "kat": "broadcast",
+      "typ": "update",
+      "titel": "Bitfocus Companion 5.1: REST-API-Prototyp, lokale Seiten-Variablen und Prometheus-Metriken; 5.1.1 folgt am 21. Oktober",
+      "kurz": "Version 5.1.0 vom 11. Oktober bringt einen Prototyp einer vollständigen System-REST-API, Token-Verwaltung, Variablen auf Seitenebene, neue Mathefunktionen und Prometheus-Metriken. Auch die Grafik-Werkzeuge wachsen, etwa mit Symbolleiste für Tastenstile. Das Update 5.1.1 vom 21. Oktober enthält nur Fehlerkorrekturen bei Ausdrücken, Variablen und Emulator.",
+      "warum": "Relevanz hoch: API und Metriken machen Companion zum steuerbaren, überwachbaren Baustein – Einsatz: Tasten per Skript oder Claude anlegen und den Zustand der Regie in Grafana überwachen.",
+      "quelle": "GitHub (Bitfocus)",
+      "url": "https://github.com/bitfocus/companion/releases/tag/v5.1.0",
+      "datum": "2026-10-11",
+      "schlagzeile": true
+    },
+    {
+      "id": "sigma-fp-ii",
+      "kat": "kamera",
+      "typ": "news",
+      "titel": "Sigma fp II: 24-MP-Vollformat mit 6K Open Gate, ProRes RAW und HDMI in voller Grösse",
+      "kurz": "Die modulare Kompaktkamera hat einen teilweise gestapelten 24-MP-Sensor, bis zu 20 Bilder pro Sekunde und im CINE-Modus 6K Open Gate, ProRes RAW und L-Log. Dazu gibt es einen 3,15-Zoll-Kippmonitor, zwei USB-C-Anschlüsse und 70 GB internen Speicher. Parallel erschien ein 50 mm f/1.4 CL DG Contemporary. Vorbestellungen laufen, einen Preis nennt der Bericht nicht.",
+      "warum": "Relevanz mittel: kleine Kamera mit RAW und vollem HDMI – Einsatz: Zweitkamera oder ferngesteuerte Kamera im Studio, per HDMI in ein NDI-Gateway.",
+      "quelle": "Photo Rumors",
+      "url": "https://photorumors.com/2026/10/23/announced-sigma-fp-ii-camera-50mm-f-1-4-cl-dg-contemporary-lens-and-new-accessories/",
+      "datum": "2026-10-23",
+      "schlagzeile": true
+    },
+    {
+      "id": "thypoch-simera-c-100",
+      "kat": "kamera",
+      "typ": "news",
+      "titel": "Thypoch Simera-C 100 mm T1.9: letztes Objektiv der Cine-Serie, ab 879 US-Dollar",
+      "kurz": "Der siebte und letzte Vollformat-Cine-Prime der Serie hat T1.9, 16 Blendenlamellen und 0,85 m Naheinstellgrenze. Er erscheint für Sony E und Leica M und kostet 879 US-Dollar (E) beziehungsweise 959 US-Dollar (M). Die Auslieferung soll Ende Oktober beginnen.",
+      "warum": "Relevanz niedrig: günstige Cine-Optik – Einsatz: Look-Objektiv für Interviews oder Imagefilme an einer E-Mount-Kamera.",
+      "quelle": "Photo Rumors",
+      "url": "https://photorumors.com/2026/10/24/thypoch-simera-c-100mm-t1-9-lens-for-sony-e-leica-m-mount-announced/",
+      "datum": "2026-10-24"
+    },
+    {
+      "id": "osmo-pocket-4p-firmware",
+      "kat": "kamera",
+      "typ": "news",
+      "titel": "Osmo Pocket 4P: Launch-Video nennt ActiveTrack 9.0 und 18-fach-Zoom, die Pressemitteilung 8.0 und 12-fach",
+      "kurz": "DJI hat die Pearl-White-Version verkauft, das UK-Standardpaket kostet 529 Pfund. Das Launch-Video verweist auf die Firmware 01.02.12.01 mit ActiveTrack 9.0 und 18-fach-Zoom, die Pressemitteilung dagegen auf 8.0 und 12-fach. Öffentliche Versionshinweise gibt es laut Bericht noch nicht, in den USA ist das Gerät nicht erhältlich.",
+      "warum": "Relevanz niedrig bis mittel: automatische Motivverfolgung vereinfacht Aufnahmen – Einsatz: unbemannte Zusatzperspektive bei Interviews oder Events.",
+      "quelle": "DroneXL",
+      "url": "https://dronexl.co/2026/10/20/dji-osmo-pocket-4p-pearl-white-on-sale-activetrack-9-firmware",
+      "datum": "2026-10-20"
+    },
+    {
+      "id": "fuji-x-t6-geruecht",
+      "kat": "kamera",
+      "typ": "geruecht",
+      "titel": "Gerücht: Fujifilm X-T6 mit 40 MP, 8K/30p und ProRes RAW, Start im November",
+      "kurz": "Photo Rumors fasst unbenannte Berichte zusammen: Die Ankündigung rutscht von September auf November, zusammen mit einem XF 50-140 mm f/2.8 II. Genannt werden 40 MP, X-Processor 6, 8K/30p 10 Bit, 4K/120p, 12-Bit-ProRes sowie Blackmagic-RAW-Ausgabe, ein grösserer Akku und Preise um 1 999 bis 2 199 Euro. Die Berichte widersprechen sich bei der Beweglichkeit des Monitors.",
+      "warum": "Relevanz niedrig: Fotokamera mit starken Videofunktionen – Einsatz: kompakte B-Kamera mit RAW-Ausgabe, falls das Gerücht stimmt.",
+      "quelle": "Photo Rumors",
+      "url": "https://photorumors.com/2026/10/22/upcoming-fujifilm-announcements-x-t6-camera-and-xf-50-140mm-f-2-8-ii-lens/",
+      "datum": "2026-10-22",
+      "sicherheit": 1
+    },
+    {
+      "id": "insta360-ace-pro-3-fcc",
+      "kat": "kamera",
+      "typ": "geruecht",
+      "titel": "Gerücht: Insta360 Ace Pro 3 taucht bei der FCC auf",
+      "kurz": "Laut Photo-Rumors-Überschrift wurde eine Insta360 Ace Pro 3 bei der FCC zur Prüfung registriert, ein üblicher Schritt vor dem Marktstart. Mehr ist aus der verfügbaren Überschrift nicht ableitbar.",
+      "warum": "Relevanz niedrig: Action-Kamera – Einsatz: Zweitperspektive, sobald Daten vorliegen.",
+      "quelle": "Photo Rumors",
+      "url": "https://photorumors.com/2026/10/21/the-next-insta360-ace-pro-3-camera-lands-at-the-fcc/",
+      "datum": "2026-10-21",
+      "sicherheit": 2
+    },
+    {
+      "id": "primetime-duo-stream",
+      "kat": "licht",
+      "typ": "news",
+      "titel": "PrimeTime Lighting: Duo Stream, Beleuchtung mit Strom und Daten über ein Kabel",
+      "kurz": "Kompatible Leuchten werden in Reihe verkettet, Strom und Steuerung laufen über eine einzige Leitung, je nach Aufbau bis zu 28 Lampen. Das System hat hohe CRI- und TLCI-Werte und einen Abstrahlwinkel von 60 bis 80 Grad. Es richtet sich an Podcaster, kleine Studios und Schulen und wird in den USA gefertigt.",
+      "warum": "Relevanz mittel: vereinfachte Verkabelung für Studiolicht – Einsatz: fest verbautes Licht in einem kleinen Studio, das sich später in eine Steuerungsebene einbinden lässt.",
+      "quelle": "TV Technology",
+      "url": "https://www.tvtechnology.com/production/primetime-lighting-systems-unveils-duo-stream-plug-and-play-lighting",
+      "datum": "2026-10-20"
+    },
+    {
+      "id": "dji-neo-3-geruecht",
+      "kat": "drohnen",
+      "typ": "geruecht",
+      "titel": "Gerücht: DJI Neo 3 mit 1/1,1-Zoll-Sensor, 193 g und Mini-Fernsteuerung",
+      "kurz": "Laut DroneXL kursieren seit Anfang Oktober Fotos und Videos eines Geräts mit quadratischem 1/1,1-Zoll-Sensor, drei Zellen im Akku und geschützten Propellern. Preis und Termin sind offen, die Beweise gelten als gemischt. In den USA gilt ein Verkauf als unwahrscheinlich.",
+      "warum": "Relevanz niedrig bis mittel: kleine Drohne mit Verfolgungsfunktionen – Einsatz: einfache Luftaufnahmen, falls sie in Europa erscheint.",
+      "quelle": "DroneXL",
+      "url": "https://dronexl.co/drone-companies/dji/dji-rumors/",
+      "datum": "2026-10-19",
+      "sicherheit": 2
+    },
+    {
+      "id": "matrice-5-faltbar",
+      "kat": "drohnen",
+      "typ": "geruecht",
+      "titel": "Gerücht: Faltbare Matrice 5 in einem Händlerbeitrag, Bild möglicherweise KI-generiert",
+      "kurz": "Auf einem Beitrag eines polnischen Händlers zur Dock 4 ist eine faltbare Matrice 5 zu sehen, Facebook kennzeichnet das Bild als KI-generiert. Ein Datum gibt es nicht. Im Juli hatte ein Leak integriertes LiDAR und ein Fünf-Fenster-Gimbal genannt.",
+      "warum": "Relevanz niedrig: Enterprise-Drohne – Einsatz: Inspektion; der Hinweis ist unsicher.",
+      "quelle": "DroneXL",
+      "url": "https://dronexl.co/2026/10/19/dji-matrice-5-foldable-image-polish-dealer-dock-4/",
+      "datum": "2026-10-19",
+      "sicherheit": 1
+    },
+    {
+      "id": "avata-360-firmware",
+      "kat": "drohnen",
+      "typ": "update",
+      "titel": "Avata 360 Firmware 1.00.0800: RC Pro 2, Wegpunktflug und automatische Ansichtswechsel",
+      "kurz": "Das Update bringt Unterstützung für die RC Pro 2, Wegpunktmissionen mit Fortschrittsanzeige, Zoom beim Focus Track und eine automatische Umschaltung der Vision-Assist-Ansicht. Drohne und Fernsteuerung müssen beide aktualisiert werden. Der Bericht beruht auf einem einzigen kurzen Testflug.",
+      "warum": "Relevanz niedrig bis mittel: Wegpunktflüge machen Aufnahmen wiederholbar – Einsatz: immer gleiche Fahrten über ein Gelände, die sich später im Schnitt ausrichten lassen.",
+      "quelle": "DroneXL",
+      "url": "https://dronexl.co/2026/10/21/dji-avata-360-firmware-rc-pro-2-waypoints/",
+      "datum": "2026-10-21"
+    },
+    {
+      "id": "dji-firmware-welle",
+      "kat": "drohnen",
+      "typ": "update",
+      "titel": "DJI verteilt Firmware an viele Geräte, darunter Mavic Air 2, Mini 2, Mini 3 Pro, Mini 5 Pro und FPV-Brillen",
+      "kurz": "Laut DroneDJ-Überschriften erhielten zwischen dem 21. und 23. Oktober unter anderem Mavic Air 2 und Air 2S, Mini 2, Mini 3 Pro, Mini 5 Pro, Air 3S, Mavic 4 Pro, Neo und Neo 2, vier FPV-Brillen und die Fernsteuerungen RC, RC 2 und RC Pro 2 neue Software. Zu den Inhalten liegen nur teils Angaben vor.",
+      "warum": "Relevanz niedrig: Pflegearbeit – Einsatz: Update-Check vor dem nächsten Drehtag.",
+      "quelle": "DroneDJ",
+      "url": "https://dronedj.com/2026/10/21/dji-firmware-mavic-air-2s/",
+      "datum": "2026-10-21"
+    },
+    {
+      "id": "dji-regulierung-us",
+      "kat": "drohnen",
+      "typ": "news",
+      "titel": "US-Regulierung: Pentagon-Briefe zu DJI, Ende der Phantom-4-Pro-V2-Betreuung am 31. Oktober",
+      "kurz": "Die FCC hat am 14. Oktober Briefe des Verteidigungsministeriums zu DJI und Autel zu den Akten genommen, laut FCC ohne sie bei der Aufnahme in die Covered List verwendet zu haben. Öffentlich sind nur geschwärzte Deckblätter. DJI beendet am 31. Oktober den Support der Phantom 4 Pro V2; die Drohne fliegt weiter.",
+      "warum": "Relevanz niedrig für den Schweizer Betrieb: betrifft vor allem US-Käufer – Einsatz: Lieferketten- und Ersatzteilplanung beobachten.",
+      "quelle": "DroneXL",
+      "url": "https://dronexl.co/2026/10/23/spray-drone-fcc-carve-out-pentagon-letters-phantom-4-pro-v2-westborough/",
+      "datum": "2026-10-23"
+    },
+    {
+      "id": "china-exportlizenz",
+      "kat": "drohnen",
+      "typ": "news",
+      "titel": "China verlangt ab 18. November Exportlizenzen für grosse Drohnenmotoren und Propeller",
+      "kurz": "Gelesen wurde nur die Überschrift: Laut DroneXL gilt ab dem 18. November eine Lizenzpflicht für grosse Drohnenmotoren, Fahrtregler und Propeller. Details sind nicht bekannt.",
+      "warum": "Relevanz niedrig: betrifft Zubehör für grosse Drohnen – Einsatz: Preise für Ersatzteile im Auge behalten.",
+      "quelle": "DroneXL",
+      "url": "https://dronexl.co/2026/10/19/china-drone-export-controls-motors-props-november-18/",
+      "datum": "2026-10-19"
+    },
+    {
+      "id": "resolve-keine-neue-version",
+      "kat": "schnitt",
+      "typ": "update",
+      "titel": "DaVinci Resolve: keine neue Version in dieser Woche",
+      "kurz": "Zum Stand dieser Ausgabe war Version 21.1 mit MCP-Anbindung die jüngste Meldung. In den gelesenen Quellen tauchte kein weiteres Resolve-Update auf.",
+      "warum": "Relevanz hoch: Resolve bleibt der Automatisierungs-Kandidat – Einsatz: MCP-Anbindung für Rohschnitt und Export testen.",
+      "quelle": "Newsshooter",
+      "url": "https://www.newsshooter.com/2026/09/07/blackmagic-design-davinci-resolve-21-1/",
+      "datum": "2026-09-07",
+      "hintergrund": true
+    },
+    {
+      "id": "adobe-max-2026",
+      "kat": "schnitt",
+      "typ": "news",
+      "titel": "Adobe MAX 2026: Miami Beach, 10. bis 12. November, mit KI-Schwerpunkt",
+      "kurz": "Adobe hat 208 Sessions veröffentlicht, darunter 25 im KI-Track. Creative Bloq liest die Programmplanung so, dass Adobe die Funktionen vor allem an Unternehmen vermarktet. Es gibt auch Sessions ohne KI, etwa zu Lightroom-Masken und InDesign.",
+      "warum": "Relevanz mittel: Premiere- und After-Effects-Neuheiten sind oft Thema – Einsatz: Keynote verfolgen, bevor Workflows angepasst werden.",
+      "quelle": "Creative Bloq",
+      "url": "https://www.creativebloq.com/design/design-software/adobe-max-2026s-lineup-tells-us-a-lot-about-the-companys-ai-priorities-right-now",
+      "datum": "2026-09-26",
+      "hintergrund": true
+    },
+    {
+      "id": "weather-story-assist",
+      "kat": "ki",
+      "typ": "news",
+      "titel": "The Weather Company: Weather Story Assist erstellt lokale Geschichten aus einer Prognose",
+      "kurz": "Das KI-Werkzeug sucht in der privaten Max-Cloud-Bibliothek einer Sendergruppe passendes Archivmaterial, Grafiken und Themenwinkel. Meteorologen behalten die redaktionelle Kontrolle, nichts geht ohne Freigabe auf Sendung. Das System lernt nur aus den Daten der jeweiligen Gruppe. Drei weitere Funktionen sind angekündigt, darunter automatische Anpassung an Formate.",
+      "warum": "Relevanz hoch: KI schlägt vor, der Mensch gibt frei – Einsatz: Archivsuche und Themenvorschläge für Nachrichtensendungen.",
+      "quelle": "TV Technology",
+      "url": "https://www.tvtechnology.com/platform/broadcast/the-weather-company-unveils-weather-story-assist",
+      "datum": "2026-10-20",
+      "schlagzeile": true
+    },
+    {
+      "id": "fox-agentic-ai",
+      "kat": "ki",
+      "typ": "news",
+      "titel": "Fox Advertising erweitert agentische KI auf Live und Linear",
+      "kurz": "Gelesen wurde nur die Überschrift: Fox Advertising bringt KI-Agenten auch in den Bereich Live- und lineares Fernsehen. Weitere Angaben liegen nicht vor.",
+      "warum": "Relevanz niedrig: Werbevermarktung, wenig Technik – Einsatz: erst bei Details bewerten.",
+      "quelle": "TV Technology",
+      "url": "https://www.tvtechnology.com/business/fox-advertising-expands-agentic-ai-capabilities-to-live-linear",
+      "datum": "2026-10-19"
+    },
+    {
+      "id": "eddie-ai-mcp",
+      "kat": "ki",
+      "typ": "news",
+      "titel": "Eddie AI läuft als MCP-Server in Claude oder ChatGPT und rechnet nutzungsbasiert ab",
+      "kurz": "Der KI-Assistent für Rohschnitte kann als MCP-Server in Claude oder ChatGPT genutzt werden und bietet laut Bericht rund hundert Werkzeuge, etwa Transkripte, Soundbites, B-Roll und Multicam. Die Abrechnung ist nutzungsbasiert, dazu gibt es eine iPhone-App. Die Meldung ist älter als der Berichtszeitraum.",
+      "warum": "Relevanz hoch: KI-Rohschnitt per Chat – Einsatz: Interviews und Multicam-Aufnahmen automatisch sortieren und für Resolve oder Premiere vorbereiten.",
+      "quelle": "No Film School",
+      "url": "https://nofilmschool.com/eddie-ai-updates-pricing",
+      "datum": "2026-08-27",
+      "hintergrund": true
+    },
+    {
+      "id": "dxo-viewpoint-6",
+      "kat": "foto",
+      "typ": "news",
+      "titel": "DxO ViewPoint 6 korrigiert Perspektive mit KI-Masken, PhotoLab 10.2 erscheint parallel",
+      "kurz": "ViewPoint 6 korrigiert Perspektiven gezielt in Bildbereichen, ohne den Ausschnitt zu beschneiden, und bearbeitet RAW-Dateien jetzt direkt. ReShape Fusion nutzt KI-Masken für einzelne Objekte oder Personen. Die Bearbeitung ist nicht destruktiv.",
+      "warum": "Relevanz niedrig: Fototool – Einsatz: Architekturfotos oder Standbilder für Produktionen entzerren.",
+      "quelle": "Photo Rumors",
+      "url": "https://photorumors.com/2026/10/21/the-latest-updates-and-offers-from-topaz-dxo-luminar-and-aftershoot/",
+      "datum": "2026-10-21"
+    },
+    {
+      "id": "luminar-web",
+      "kat": "foto",
+      "typ": "news",
+      "titel": "Luminar Web startet im Browser; die Lifetime-Lizenz umfasst Desktop, Mobil und Web",
+      "kurz": "Der Browser-Editor bietet Light Depth, Himmelsersatz und Presets samt LUTs. Mit dem Start deckt die Lifetime-Lizenz alle drei Plattformen ab. Der Start war am 15. Oktober.",
+      "warum": "Relevanz niedrig: Konkurrenz zu Adobe – Einsatz: schnelle Bildkorrektur ohne Installation.",
+      "quelle": "Photo Rumors",
+      "url": "https://photorumors.com/2026/10/21/the-latest-updates-and-offers-from-topaz-dxo-luminar-and-aftershoot/",
+      "datum": "2026-10-21"
+    },
+    {
+      "id": "pearla-revela",
+      "kat": "foto",
+      "typ": "news",
+      "titel": "Pearla Revela bearbeitet RAW-Fotos und -Videos mit einem gemeinsamen Werkzeugsatz",
+      "kurz": "Gelesen wurde nur die Überschrift (die Seite liess sich nicht abrufen): Das Programm soll RAW-Fotos und -Videos mit denselben Werkzeugen bearbeiten. Weitere Angaben liegen nicht vor.",
+      "warum": "Relevanz niedrig bis mittel: einheitliche Bearbeitung von Foto und Video – Einsatz: erst bei Details bewerten.",
+      "quelle": "PetaPixel",
+      "url": "https://petapixel.com/2026/10/20/pearla-revela-edits-raw-photos-and-videos-with-a-single-set-of-tools/",
+      "datum": "2026-10-20"
+    }
+  ]
+}
