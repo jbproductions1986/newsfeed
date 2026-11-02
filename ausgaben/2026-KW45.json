@@ -1,0 +1,344 @@
+{
+  "jahr": 2026,
+  "kw": 45,
+  "von": "2026-10-26",
+  "bis": "2026-11-01",
+  "stand": "2026-11-02",
+  "intro": "Die Woche gehört der IP-Audioregie bei RTL News und einer skriptbaren Resolve-Version: Resolve 21.1.2 erweitert die Studio-Scripting-API für automatisierten Schnitt. Sony zeigt mit dem RIALTO 65 einen 65-mm-Kopf für die VENICE 2 und verschiebt die FX5 auf den 20. November. Bei den Drohnen öffnet die FCC ein Funkband, und DJI teasert für den 5. November eine faltbare Wärmebilddrohne.",
+  "hinweis": "Jede Meldung enthält eine kurze Einschätzung für eine Broadcast-Firma mit Fokus auf Automatisierung und IP-Technik. Mehrere Seiten (u. a. TVBEurope, Newsshooter-Detailseiten, PetaPixel) waren im automatischen Lauf nicht abrufbar; Meldungen, bei denen nur die Überschrift gelesen wurde, sind knapp gehalten. Zu Gyroflow, Bitfocus Companion (nur 5.1.1 vom 21. Oktober, bereits in der Vorwoche erwähnt) und Adobe Creative Cloud fand sich keine neue Version; die KI-Rubrik enthält diese Woche nur Hintergrund-Einträge.",
+  "termine": [
+    {
+      "datum": "2026-11-05",
+      "text": "DJI Enterprise: Produktenthüllung (Teaser zeigt faltbare Wärmebilddrohne)"
+    },
+    {
+      "datum": "2026-11-05",
+      "text": "Nikon Quartalszahlen (Q2 GJ 2027)"
+    },
+    {
+      "datum": "2026-11-10",
+      "label": "10.–12.11.",
+      "text": "Adobe MAX, Miami Beach (auch online)"
+    },
+    {
+      "datum": "2026-11-17",
+      "text": "Panasonic Lumix Collective, Auftakt in Manchester (Jubiläumsveranstaltungen)",
+      "geruecht": true
+    },
+    {
+      "datum": "2026-11-18",
+      "text": "China: Exportlizenzpflicht für grosse Drohnenmotoren, Regler und Propeller"
+    },
+    {
+      "datum": "2026-11-19",
+      "text": "FCC-Abstimmung zu 450-MHz-Steuerverbindungen und 24-GHz-Radar zur Drohnenerkennung"
+    },
+    {
+      "datum": "2026-11-20",
+      "text": "Sony FX5: Marktstart in Japan, USA laut B&H Mitte November"
+    },
+    {
+      "datum": "2026-11-30",
+      "label": "Nov.",
+      "text": "Fujifilm X-T6 und XF 50-140 mm f/2.8 II erwartet",
+      "geruecht": true
+    },
+    {
+      "datum": "2026-12-07",
+      "text": "Gesetzliche Frist für die FAA-Regel Part 108 (Flüge ausser Sicht)"
+    },
+    {
+      "datum": "2027-09-28",
+      "label": "28.–30.9.2027",
+      "text": "SMPTE-Summit und NAB Show New York (29.–30.9.), Javits Center"
+    }
+  ],
+  "items": [
+    {
+      "id": "rtl-lawo-ip",
+      "kat": "broadcast",
+      "typ": "news",
+      "titel": "RTL News Köln: neuer Audio-Regieraum mit Lawo mc²96 und IP-Transport",
+      "kurz": "RTL News hat den Hauptaudioraum TR 1 mit einer Lawo-Konsole mc²96, A__stage-I/O und der Orchestrierung HOME neu aufgebaut. Die Konsole spricht nativ ST 2110, AES67, RAVENNA und Dante. Bei Grossproduktionen sind bis zu 600 Audiosignale inklusive Interkom möglich; der Raum läuft seit August im Sendebetrieb.",
+      "warum": "Relevanz hoch: ein Praxisbeispiel für den Schritt von Baseband zu IP-Audio – Einsatz: Vorlage für den Umbau einer Audioregie auf AES67/ST 2110 mit zentraler Orchestrierung und Fernsteuerung.",
+      "quelle": "TV Technology",
+      "url": "https://www.tvtechnology.com/production/rtl-news-rebuilds-audio-control-room-with-5-1-surround-ip-stream-support",
+      "datum": "2026-10-30",
+      "schlagzeile": true
+    },
+    {
+      "id": "ultrastudio-express-hd",
+      "kat": "broadcast",
+      "typ": "news",
+      "titel": "Blackmagic UltraStudio Express HD: erste UltraStudio mit USB4/Thunderbolt 4, 639 US-Dollar",
+      "kurz": "Die kompakte Capture-/Playback-Box bietet 3G-SDI, HDMI sowie analoge Video- und Audioanschlüsse und wird über USB4 mit Strom versorgt. Sie verarbeitet ProRes, DNxHD und 10-Bit-unkomprimiert und ist laut Bericht bereits erhältlich.",
+      "warum": "Relevanz mittel: kein IP-Gerät, aber eine günstige Brücke zwischen SDI-/Analoggeräten und dem Schnittrechner – Einsatz: Archiv-Digitalisierung von Bandmaterial und Einspielung in Resolve.",
+      "quelle": "Newsshooter",
+      "url": "https://www.newsshooter.com/2026/10/29/blackmagic-design-ultrastudio-express-hd/",
+      "datum": "2026-10-29"
+    },
+    {
+      "id": "quicklink-studioedge-mtv",
+      "kat": "broadcast",
+      "typ": "news",
+      "titel": "MTV Oy setzt QuickLink StudioEdge für Remote-Gäste ein",
+      "kurz": "Der finnische Sender holt Interviewgäste damit über Zoom, Teams und andere Plattformen ohne App-Installation ins Programm. Produzenten sehen das Programmsignal und hören einen Mix-Minus; eine KI-Verbesserung von Audio und Video (NVIDIA) soll die Qualität sichern. Der Artikel erwähnt weder IP-Transport noch Automatisierung.",
+      "warum": "Relevanz mittel: Gäste-Zuschaltung ist ein Dauerbrenner im Newsstudio – Einsatz: Remote-Interviews, die sich per Companion-Button in den Mischer holen lassen (Integration nicht im Artikel belegt).",
+      "quelle": "TV Technology",
+      "url": "https://www.tvtechnology.com/production/finlands-mtv-oy-connects-to-remote-guests-with-quicklink-studioedge",
+      "datum": "2026-10-28"
+    },
+    {
+      "id": "sony-rialto-65",
+      "kat": "kamera",
+      "typ": "news",
+      "titel": "Sony RIALTO 65: 65-mm-Erweiterung für die VENICE 2 mit 9,6K Open Gate",
+      "kurz": "Der abgesetzte Kamerakopf nutzt einen 65-mm-Sensor, nimmt 16-Bit-X-OCN auf und lässt sich als Extension oder direkt an der VENICE 2 betreiben. Er ist rund 1,5 kg schwer, hat elf Drop-in-ND-Filter mit elektronischer Erkennung und liefert Objektiv- und Lagemetadaten. Preis und Liefertermin nennen die gelesenen Berichte nicht.",
+      "warum": "Relevanz niedrig bis mittel: Kinoformat, aber die Metadaten pro Bild zeigen, wohin sich Kamera-Automatisierung bewegt – Einsatz: Virtual Production oder VFX mit automatischer Objektivdaten-Übergabe.",
+      "quelle": "TV Technology",
+      "url": "https://www.tvtechnology.com/production/sony-debuts-rialto-65-camera-extension-system",
+      "datum": "2026-10-30",
+      "schlagzeile": true
+    },
+    {
+      "id": "sony-fx5-termin",
+      "kat": "kamera",
+      "typ": "update",
+      "titel": "Sony FX5: Japan-Start am 20. November, 4 898 US-Dollar bei B&H",
+      "kurz": "Sony hat den Start nach 13 Wochen Verzögerung auf den 20. November in Japan gelegt, Zubehör wie XLR-Griff und OLED-Sucher folgt am selben Tag. Die Kamera hat einen gestapelten Vollformatsensor, 5K/60p Open Gate, internes X-OCN und einen KI-fähigen Prozessor. In Europa sind Auslieferungen teils erst im Januar 2027 gemeldet.",
+      "warum": "Relevanz mittel: kompakte Kinokamera mit Timecode-Zubehör für Mehrkamera-Setups – Einsatz: B-Kamera im Studio oder bei Live-Events.",
+      "quelle": "Y.M.Cinema",
+      "url": "https://ymcinema.com/2026/10/29/sony-fx5-release-date-13-week-delay/",
+      "datum": "2026-10-29"
+    },
+    {
+      "id": "nikon-120-300",
+      "kat": "kamera",
+      "typ": "news",
+      "titel": "Nikon Nikkor Z 120-300 mm f/2.8 TC VR S mit eingebautem 1,4-fach-Konverter",
+      "kurz": "Mit Konverter reicht das Objektiv bis 420 mm bei f/4, der Bildstabilisator wird mit 6,5 Stufen angegeben, das Gewicht mit 2 735 g. Der Preis liegt bei 13 999,95 US-Dollar, ein Liefertermin steht im gelesenen Bericht nicht.",
+      "warum": "Relevanz niedrig: Sport- und Wildlife-Optik, für ein Broadcast-Haus nur als Fotoausrüstung interessant – Einsatz: Aussenreportage mit Nikon-Fotokameras.",
+      "quelle": "CineD",
+      "url": "https://www.cined.com/nikon-nikkor-z-120-300mm-f-2-8-tc-vr-s-finalized-420mm-f-4-reach-6-5-stop-vr-and-a-lighter-body/",
+      "datum": "2026-10-30"
+    },
+    {
+      "id": "smallhd-focus-504",
+      "kat": "kamera",
+      "typ": "news",
+      "titel": "SmallHD Focus 504: 5-Zoll-Monitor mit 1 000 Nit, 3G-SDI und WLAN-Kamerasteuerung",
+      "kurz": "Laut Überschrift bietet der neue Feldmonitor 1 000 Nit, 3G-SDI, HDMI 2.0 und Kamerasteuerung per WLAN. Weitere Details wurden nicht gelesen.",
+      "warum": "Relevanz niedrig bis mittel: Kamerasteuerung per Funk ist ein Baustein für ferngesteuerte Kamera-Setups – Einsatz: Kontrollmonitor an PTZ- oder Kinokamera mit Fernbedienung.",
+      "quelle": "CineD",
+      "url": "https://www.cined.com/smallhd-focus-504-announced-5-inch-1000-nit-monitor-with-3g-sdi-hdmi-2-0-and-wi-fi-camera-control/",
+      "datum": "2026-10-28"
+    },
+    {
+      "id": "aes-dialog",
+      "kat": "kamera",
+      "typ": "news",
+      "titel": "AES erweitert Loudness-Website um Dialogverständlichkeit",
+      "kurz": "Das AES-Komitee für Broadcast und Online-Auslieferung bündelt Berichte und Standards zur Verständlichkeit von Dialogen. Rund die Hälfte der Inhalte wird laut AES mit Untertiteln gesehen, und Lautheitsregeln greifen zunehmend auch bei Online-Inhalten.",
+      "warum": "Relevanz mittel: Lautheits- und Verständlichkeitsvorgaben gelten bald auch für Online-Ausspielung – Einsatz: automatische Loudness-Kontrolle im Playout und im Streaming-Encoder.",
+      "quelle": "TV Technology",
+      "url": "https://www.tvtechnology.com/standards/aes-dials-in-on-dialogue-intelligibility",
+      "datum": "2026-10-29"
+    },
+    {
+      "id": "fuji-ff260004",
+      "kat": "kamera",
+      "typ": "geruecht",
+      "titel": "Gerücht: Fujifilm registriert im Ausland eine neue Kamera mit der Kennung FF260004",
+      "kurz": "Photo Rumors nennt X-H3, X-T6, X-Pro4 oder GFX180 als mögliche Modelle, welches es ist, bleibt offen. Der Beitrag ist eine Sammlung von Hinweisen und keine Bestätigung.",
+      "warum": "Relevanz niedrig: Fotokamera-Gerücht – Einsatz: allenfalls Planung der B-Kamera-Ausstattung, falls die X-T6 mit 8K/ProRes RAW kommt.",
+      "quelle": "Photo Rumors",
+      "url": "https://photorumors.com/2026/11/01/the-latest-fujifilm-news-4",
+      "datum": "2026-11-01",
+      "sicherheit": 2
+    },
+    {
+      "id": "panasonic-lumix-25",
+      "kat": "kamera",
+      "typ": "geruecht",
+      "titel": "Gerücht: Panasonic könnte zum 25. Lumix-Jubiläum eine L-Mount-Cine-Kamera zeigen",
+      "kurz": "Als wahrscheinlich gilt ein S1H-Nachfolger oder ein kantiges Kinogehäuse; alternativ werden S9II oder eine Micro-Four-Thirds-Kamera genannt. Panasonic hat Jubiläumsveranstaltungen ab Mitte November angekündigt, Auftakt in Manchester am 17. November. Die Meldung stammt vom 19. Oktober und ist noch offen.",
+      "warum": "Relevanz mittel: eine neue Kino-Kamera mit L-Mount wäre für Studio- und Eventproduktion interessant – Einsatz: kompakte Studiokamera mit Netzwerksteuerung, falls sie kommt.",
+      "quelle": "Photo Rumors",
+      "url": "https://photorumors.com/2026/10/19/panasonic-and-sigma-rumored-to-announce-new-l-mount-cameras-in-the-coming-weeks/",
+      "datum": "2026-10-19",
+      "sicherheit": 1,
+      "hintergrund": true
+    },
+    {
+      "id": "amaran-cam",
+      "kat": "licht",
+      "typ": "news",
+      "titel": "amaran Cam: 4K60-Webcam stellt verbundene amaran-Leuchten automatisch ein",
+      "kurz": "Die Webcam misst die Belichtung im Gesicht und regelt per Desktop-App die Leuchten innerhalb von rund 10 Sekunden. Preis und Verfügbarkeit nennt der Bericht nicht, die Angaben stammen vom Hersteller.",
+      "warum": "Relevanz mittel: Kamera und Licht regeln sich gegenseitig – Einsatz: automatisch ausgeleuchtete Interview- und Remote-Plätze im Studio.",
+      "quelle": "TV Technology",
+      "url": "https://www.tvtechnology.com/production/amaran-debuts-first-of-its-kind-4k-auto-lighting-webcam-for-live-streamers",
+      "datum": "2026-10-28"
+    },
+    {
+      "id": "obsidian-nx3",
+      "kat": "licht",
+      "typ": "news",
+      "titel": "Obsidian Control NX3: neues Lichtstellpult",
+      "kurz": "Newsshooter meldet das Pult am 28. Oktober; gelesen wurde nur die Überschrift, Funktionen und Preis sind nicht bekannt.",
+      "warum": "Relevanz mittel: Lichtsteuerung ist im Studio ein Automatisierungsthema – Einsatz: Anbindung an Show-Control, sobald Protokolle bekannt sind.",
+      "quelle": "Newsshooter",
+      "url": "https://www.newsshooter.com/2026/10/28/obsidian-control-nx3-lighting-console/",
+      "datum": "2026-10-28"
+    },
+    {
+      "id": "zhiyun-molus-b300",
+      "kat": "licht",
+      "typ": "news",
+      "titel": "Zhiyun Molus B300: Bi-Color-LED-Monolight für 249 US-Dollar",
+      "kurz": "Laut Überschrift ist das Bi-Color-Monolight für 249 US-Dollar erhältlich. Weitere Details wurden nicht gelesen.",
+      "warum": "Relevanz niedrig: Einstiegslicht – Einsatz: günstige Zusatzleuchte für Aussenreportage oder Interviewplätze.",
+      "quelle": "Newsshooter",
+      "url": "https://www.newsshooter.com/2026/10/28/zhiyun-molus-b300-bi-color-led-monolight-on-sale-for-249-usd/",
+      "datum": "2026-10-28"
+    },
+    {
+      "id": "fcc-800mhz",
+      "kat": "drohnen",
+      "typ": "news",
+      "titel": "FCC öffnet 800-MHz-Band für Drohnen-Funkverbindungen",
+      "kurz": "Die US-Behörde hat am 29. Oktober mit 3:0 beschlossen, das Verbot von 1991 für Drohnen in diesem Mobilfunkband aufzuheben. Erlaubt werden Steuer-, Kommunikations- und Nutzlastverbindungen. Das Flugrecht ändert sich nicht, reguläre Flüge ausser Sicht hängen weiter an der FAA-Regel Part 108 (gesetzliche Frist 7. Dezember).",
+      "warum": "Relevanz niedrig bis mittel: zeigt, wohin sich Drohnen-Datenstrecken über Mobilfunk entwickeln – Einsatz: Live-Videozuspielung per Drohne über Mobilnetz bei Grossanlässen, vorerst nur US-Regelung.",
+      "quelle": "DroneXL",
+      "url": "https://dronexl.co/2026/10/29/fcc-800-mhz-drones-adopted-part-108-deadline/",
+      "datum": "2026-10-29",
+      "schlagzeile": true
+    },
+    {
+      "id": "dji-enterprise-teaser",
+      "kat": "drohnen",
+      "typ": "geruecht",
+      "titel": "Gerücht: DJI Enterprise kündigt für 5. November eine faltbare Wärmebilddrohne an",
+      "kurz": "DJI hat für den 5. November einen Teaser veröffentlicht, der Wärmebildsensor und Gimbal unter einer Drohne mit klappbaren Armen zeigt. Das Produkt ist offiziell nicht benannt, DroneXL vermutet eine faltbare Matrice 5 mit der Gimbal der 5TD. Ein US-Verkauf gilt wegen der FCC-Lage als unwahrscheinlich.",
+      "warum": "Relevanz niedrig: Unternehmensdrohne für Inspektion – Einsatz: Wärmebild-Aufnahmen für Dokumentationen, nicht für Standard-Broadcast.",
+      "quelle": "DroneXL",
+      "url": "https://dronexl.co/2026/10/29/dji-enterprise-teaser-foldable-matrice-5-thermal-november-5/",
+      "datum": "2026-10-29",
+      "sicherheit": 3,
+      "schlagzeile": true
+    },
+    {
+      "id": "dji-tokyo-store",
+      "kat": "drohnen",
+      "typ": "news",
+      "titel": "DJI eröffnet in Tokio einen Concept Store zusammen mit Hasselblad",
+      "kurz": "Im Erdgeschoss stehen DJI-Drohnen und Kameras mit Indoor-Flugkäfig, oben Hasselblad. Beworben werden Mavic 4 Pro und Osmo Pocket 4P, die es in den USA nicht offiziell gibt; Reparaturen nimmt der Laden nicht an.",
+      "warum": "Relevanz niedrig: Marktnachricht – Einsatz: Hinweis, wo Modelle ohne US-Start erhältlich sind.",
+      "quelle": "DroneXL",
+      "url": "https://dronexl.co/2026/10/30/dji-hasselblad-tokyo-omotesando-concept-store-japan-first/",
+      "datum": "2026-10-30"
+    },
+    {
+      "id": "matrice-5td-thermal",
+      "kat": "drohnen",
+      "typ": "news",
+      "titel": "Matrice 5TD: natives 1280×1024-Wärmebild, aber keine Mavic-Grösse",
+      "kurz": "Eine Behauptung eines US-Herstellers über Mavic-grosse Drohnen mit 1280er-Wärmebild stimmt laut DroneXL nicht: Die Matrice 5TD wiegt 2,6 kg, ist eine Dock-Drohne, und die kleinere Matrice 4T hat nativ 640×512. Preis für USA und Europa fehlt.",
+      "warum": "Relevanz niedrig: Einordnung statt Neuheit – Einsatz: Wärmebild für Inspektion und Suchaktionen.",
+      "quelle": "DroneXL",
+      "url": "https://dronexl.co/2026/10/26/dji-matrice-5td-native-1280-thermal-us-drone-maker-alarm/",
+      "datum": "2026-10-26"
+    },
+    {
+      "id": "china-gegenmassnahmen-fcc",
+      "kat": "drohnen",
+      "typ": "news",
+      "titel": "China kündigt Gegenmassnahmen gegen das FCC-Verbot chinesischer Prüflabore an",
+      "kurz": "Gelesen wurde nur die Überschrift vom 30. Oktober; Inhalt und Art der Massnahmen sind nicht bekannt.",
+      "warum": "Relevanz niedrig: kann Zulassungen für Funkgeräte aus China verzögern – Einsatz: Lieferzeiten für Drohnen und Funkstrecken im Blick behalten.",
+      "quelle": "DroneXL",
+      "url": "https://dronexl.co/2026/10/30/china-countermeasures-fcc-test-lab-ban/",
+      "datum": "2026-10-30"
+    },
+    {
+      "id": "antigravity-a1",
+      "kat": "drohnen",
+      "typ": "news",
+      "titel": "Antigravity A1: Follow-me-Bundle mit Uhr und Ring, neue Fernsteuerung nicht in den USA",
+      "kurz": "Laut Überschrift gibt es ein Bundle mit Uhr und Ring zur Steuerung und eine neue Fernsteuerung, die in den USA fehlt. Weitere Angaben wurden nicht gelesen.",
+      "warum": "Relevanz niedrig: Consumer-Drohne – Einsatz: einfache Folge-Aufnahmen ohne Piloten.",
+      "quelle": "DroneXL",
+      "url": "https://dronexl.co/2026/10/26/antigravity-a1-follow-me-bundle-watch-ring-51-drones/",
+      "datum": "2026-10-26"
+    },
+    {
+      "id": "resolve-21-1-2",
+      "kat": "schnitt",
+      "typ": "update",
+      "titel": "DaVinci Resolve 21.1.2: erweiterte Studio-Scripting-API, schnellere IntelliSearch",
+      "kurz": "Skripte können in Resolve Studio nun Clips trimmen und verschieben, Lücken und Stille entfernen sowie Grading-Parameter verwalten; auch Photo-Alben lassen sich skripten. Die KI-Suche IntelliSearch läuft laut Hersteller auf Apple M6 mit macOS 27 bis zu 14-mal schneller, OGraf-Wiedergabe bis zu 4-mal. Projekte, die in 21.1.2 angelegt wurden, sind nicht mit 20.3.2 kompatibel, vorher sichern.",
+      "warum": "Relevanz hoch: Skriptbarer Schnitt ist ein Hebel für Automatisierung – Einsatz: automatischer Rohschnitt, Stille-Entfernung und Export aus dem Ingest, ausgelöst durch Companion oder Dateiüberwachung.",
+      "quelle": "VP Land",
+      "url": "https://www.vp-land.com/stories/blackmagic-releases-davinci-resolve-21-1-2-with-studio-scripting-for-timeline-trims-silenc",
+      "datum": "2026-10-29",
+      "schlagzeile": true
+    },
+    {
+      "id": "macbook-pro-touch",
+      "kat": "schnitt",
+      "typ": "news",
+      "titel": "Apple MacBook Pro mit Touchscreen, PROLED-XDR-Tandem-OLED und Genlock",
+      "kurz": "Laut CineD-Überschrift kommt das Gerät mit M5 Pro oder M5 Max, Genlock wird erwähnt; der Preis beginnt bei 2 899 US-Dollar. Zur Genlock-Umsetzung wurde der Artikeltext nicht gelesen.",
+      "warum": "Relevanz mittel: Genlock am Laptop könnte mobile Schnitt- und Wiedergabelösungen im Sync mit Studiotakt erlauben – Einsatz: Vor-Ort-Schnitt und Playout, Details noch offen.",
+      "quelle": "CineD",
+      "url": "https://www.cined.com/apple-touch-screen-macbook-pro-announced-proled-xdr-tandem-oled-display-m5-pro-and-m5-max-genlock/",
+      "datum": "2026-10-28"
+    },
+    {
+      "id": "firefly-assistant",
+      "kat": "ki",
+      "typ": "update",
+      "titel": "Adobe weitet den Firefly AI Assistant auf Creative-Cloud-Abos aus",
+      "kurz": "Der Assistent ist ein Beta-Dienst im Web, einzelne Aktionen kosten nun KI-Credits, Adobe nennt die Sätze Einführungspreise. In den Desktop-Apps ist er noch nicht verfügbar; optimiert ist er für Englisch, Französisch, Deutsch und Japanisch. Die Meldung stammt vom 1. Oktober.",
+      "warum": "Relevanz mittel: ein Assistent, der Schritte in Adobe-Programmen auslöst, zeigt die Richtung der Workflow-Automatisierung – Einsatz: Stapelaufgaben wie Formatwechsel für Social-Media-Ausspielung.",
+      "quelle": "Banner (uabanner.com)",
+      "url": "https://uabanner.com/en/digital-en/adobe-firefly-ai-assistant-access-credits-october-2026/",
+      "datum": "2026-10-01",
+      "hintergrund": true
+    },
+    {
+      "id": "imagen-video",
+      "kat": "ki",
+      "typ": "news",
+      "titel": "Imagen Video: KI-Farbkorrektur für Premiere Pro und Resolve ist aus der Beta",
+      "kurz": "Das Tool analysiert Clip für Clip Lichtwechsel, Weissabgleich, Hauttöne und Sensorunterschiede und legt eine Basiskorrektur an, laut Hersteller zehnmal schneller als von Hand. Der Beitrag stammt vom 21. April, den Wegfall der Beta nennt er ohne Datum; Preis fehlt.",
+      "warum": "Relevanz mittel: automatische Grundkorrektur spart bei Mehrkamera-Material Zeit – Einsatz: Angleichen von Kameras in Magazinbeiträgen vor dem Schnitt.",
+      "quelle": "No Film School",
+      "url": "https://nofilmschool.com/imagen-video-release",
+      "datum": "2026-04-21",
+      "hintergrund": true
+    },
+    {
+      "id": "instax-mini-evo-2",
+      "kat": "foto",
+      "typ": "news",
+      "titel": "Fujifilm Instax Mini Evo 2: Hybrid-Sofortbildkamera mit Touchscreen und Videoaufnahme",
+      "kurz": "Laut Überschrift vom 27. Oktober hat die Kamera einen Touchscreen und nimmt auch Video auf. Weitere Details wurden nicht gelesen.",
+      "warum": "Relevanz niedrig: Consumer-Foto – Einsatz: kaum, höchstens Give-aways oder Making-of.",
+      "quelle": "Photo Rumors",
+      "url": "https://photorumors.com/2026/10/27/fujifilm-announced-a-new-instax-mini-evo-2-hybrid-instant-camera-with-touchscreen-and-video-recording/",
+      "datum": "2026-10-27"
+    },
+    {
+      "id": "viltrox-35-pro",
+      "kat": "foto",
+      "typ": "news",
+      "titel": "Viltrox AF 35 mm f/1.4 Pro für Nikon Z und Sony E angekündigt",
+      "kurz": "Die Ankündigung erfolgte am 29. Oktober; gelesen wurde nur die Überschrift mit Hinweis auf einen Gutscheincode. Details zu Preis und Optik sind nicht bekannt.",
+      "warum": "Relevanz niedrig: Foto-Objektiv – Einsatz: lichtstarke Festbrennweite für Fotoaufgaben.",
+      "quelle": "Photo Rumors",
+      "url": "https://photorumors.com/2026/10/29/viltrox-af-35mm-f-1-4-pro-full-frame-z-e-lens-announced-coupon-code-included/",
+      "datum": "2026-10-29"
+    }
+  ]
+}
