@@ -12,7 +12,7 @@
   },
   "kategorien_erlaubt": ["1", "22", "24", "26", "27", "28"],
   "sprachen": ["en", "de", "fr", "it", "zxx"],
-  "ausschliessen": ["unboxing", "vivo", "oppo", "realme", "redmi", "oneplus", "poco", "hindi", "kaise", "banaye", "reels", "wallpaper", "ringtone", "prank", "asmr", "giveaway", "lookbook", "instagram", "viral", "viralvideo", "viralshorts", "shortsfeed", "fyp", "trending", "montagem", "slowed", "kdrama", "anime", "spiderman", "spider-man", "galaxy", "couple"],
+  "ausschliessen": ["unboxing", "vivo", "oppo", "realme", "redmi", "oneplus", "poco", "hindi", "kaise", "banaye", "reels", "wallpaper", "ringtone", "prank", "asmr", "giveaway", "lookbook", "instagram", "viral", "viralvideo", "viralshorts", "shortsfeed", "fyp", "trending", "montagem", "slowed", "kdrama", "anime", "spiderman", "spider-man", "galaxy", "couple", "nude*", "nudes", "naked", "nackt*", "nsfw", "18+", "topless", "boudoir", "lingerie", "erotic*", "erotik", "sexy", "porn*", "onlyfans", "aktfoto*", "aktfotografie", "bikini"],
   "rubriken": {
     "broadcast": {
       "suchen": ["Bitfocus Companion Stream Deck", "UniFi network setup studio", "NDI SMPTE ST 2110 IPMX IP workflow", "live production automation ATEM"],
