@@ -1,0 +1,356 @@
+{
+  "jahr": 2026,
+  "kw": 46,
+  "von": "2026-11-02",
+  "bis": "2026-11-08",
+  "stand": "2026-11-09",
+  "intro": "Die Woche dreht sich um Steuerung und Vernetzung: Canon bündelt PTZ- und Mehrkamera-Verwaltung in einer Plattform, NEP und RTÉ zeigen IP-Praxis, und Avid bringt KI-Tontrennung in Pro Tools. DJI stellt die faltbare Wärmebilddrohne Matrice 5T vor, während die US-Regulierung für Drohnen offen bleibt. Ab morgen steht Adobe MAX an.",
+  "hinweis": "Jede Meldung enthält eine kurze Einschätzung für eine Broadcast-Firma mit Fokus auf Automatisierung und IP-Technik. Viele Seiten (TV Technology und Newsshooter-Detailseiten, CineD, No Film School, GitHub) waren im automatischen Lauf nicht abrufbar; wo nur die Überschrift oder Kurzfassung gelesen wurde, ist die Meldung knapp gehalten. Zu DaVinci Resolve, Gyroflow, Bitfocus Companion und Ubiquiti fand sich in der Woche keine belegbare Neuheit; Termine wurden teils aus der Vorwoche übernommen.",
+  "termine": [
+    {
+      "datum": "2026-11-10",
+      "label": "10.–12.11.",
+      "text": "Adobe MAX, Miami Beach (auch online); Keynote 10.11., 9 Uhr Ortszeit"
+    },
+    {
+      "datum": "2026-11-17",
+      "text": "Panasonic Lumix Collective, Auftakt in Manchester (Jubiläumsveranstaltungen)",
+      "geruecht": true
+    },
+    {
+      "datum": "2026-11-18",
+      "text": "China: Exportlizenzpflicht für grosse Drohnenmotoren, Regler und Propeller"
+    },
+    {
+      "datum": "2026-11-19",
+      "text": "FCC-Abstimmung zu 450-MHz-Steuerverbindungen und 24-GHz-Radar zur Drohnenerkennung"
+    },
+    {
+      "datum": "2026-11-20",
+      "text": "Sony FX5: Marktstart in Japan, USA laut B&H Mitte November"
+    },
+    {
+      "datum": "2026-11-23",
+      "label": "Woche ab 23.11.",
+      "text": "DJI Matrice 5T: erste Lieferung beim britischen Händler Heliguy erwartet"
+    },
+    {
+      "datum": "2026-11-30",
+      "label": "Nov.",
+      "text": "Fujifilm X-T6 und XF 50-140 mm f/2.8 II erwartet",
+      "geruecht": true
+    },
+    {
+      "datum": "2026-12-01",
+      "label": "Anfang Dez.",
+      "text": "Leica Q3 43 Monochrom erwartet",
+      "geruecht": true
+    },
+    {
+      "datum": "2026-12-07",
+      "text": "Gesetzliche Frist für die FAA-Regel Part 108 (Flüge ausser Sicht)"
+    },
+    {
+      "datum": "2027-09-28",
+      "label": "28.–30.9.2027",
+      "text": "SMPTE-Summit und NAB Show New York (29.–30.9.), Javits Center"
+    }
+  ],
+  "items": [
+    {
+      "id": "canon-camera-control-centre",
+      "kat": "broadcast",
+      "typ": "news",
+      "titel": "Canon Camera Control Centre: PTZ und Mehrkamera-Setup in einer Plattform",
+      "kurz": "Canon bündelt Einrichtung, Steuerung und Verwaltung von PTZ- und Mehrkamera-Systemen in einem Werkzeug. Laut TV Technology lassen sich bis zu 200 kompatible Geräte verwalten; Ziel sind einheitliche Abläufe und ein einheitliches Bild. Nur die Zusammenfassung der Startseite war lesbar, Details zu Protokollen und Preis sind offen.",
+      "warum": "Relevanz hoch: zentrale Steuerung vieler Kameras ist genau der Automatisierungshebel – Einsatz: Studio mit mehreren PTZ-Kameras oder Aussenproduktion, bei der Bildabgleich und Presets zentral per Netzwerk laufen statt Kamera für Kamera.",
+      "quelle": "TV Technology",
+      "url": "https://www.tvtechnology.com/production/live-production/canon-brings-ptz-and-multicamera-setup-control-and-management-into-a-single-platform",
+      "datum": "2026-11-04",
+      "schlagzeile": true
+    },
+    {
+      "id": "nep-ip-flypacks",
+      "kat": "broadcast",
+      "typ": "news",
+      "titel": "NEP Americas ergänzt IP-basierte Flypack-Kits für Remote-Produktion",
+      "kurz": "NEP Americas erweitert das Angebot für Remote-Produktion um IP-basierte Flypack-Kits. Ein Flypack bietet laut Zusammenfassung die Fähigkeiten eines Übertragungswagens in transportablerer Form. Mehr war im automatischen Lauf nicht lesbar.",
+      "warum": "Relevanz hoch: zeigt, dass IP-Transport die Standardlösung für mobile Produktion wird – Einsatz: kleines Fly-Away-Kit für Aussenübertragungen mit Anbindung an die Regie im Haus über das Netzwerk.",
+      "quelle": "TV Technology",
+      "url": "https://www.tvtechnology.com/production/remote-production/nep-americas-adds-ip-based-flypack-kits-to-production-lineup",
+      "datum": "2026-11-05"
+    },
+    {
+      "id": "rte-calrec-st2110",
+      "kat": "broadcast",
+      "typ": "news",
+      "titel": "RTÉ nutzt Calrec Type R mit ST 2110 für WM-Kommentatorplätze",
+      "kurz": "Der irische Sender RTÉ hat für die Kommentierung der Fussball-WM ein Calrec-Type-R-Pult mit SMPTE ST 2110 kombiniert und berichtet von deutlichen Produktivitätsgewinnen. Nur die Kurzfassung war lesbar.",
+      "warum": "Relevanz mittel bis hoch: Praxisbericht zu ST 2110 im Audiobereich – Einsatz: Kommentatoren- und Reportagetonplätze, die sich über IP flexibel auf Pulte und Standorte verteilen lassen.",
+      "quelle": "TV Technology",
+      "url": "https://www.tvtechnology.com/production/sports-production/rte-combines-calrec-type-r-smpte-st-2110-for-world-cup-commentary",
+      "datum": "2026-11-04"
+    },
+    {
+      "id": "director-mode-app",
+      "kat": "broadcast",
+      "typ": "news",
+      "titel": "Director Mode: Mehrkamera-App für iPhone und iPad ist im App Store",
+      "kurz": "Die App zeigt bis zu vier Kamerabilder mit geringer Latenz, steuert Einstellungen und löst per REC ALL die Aufnahme an allen Kameras gemeinsam aus. Unterstützt werden ausgewählte Canon- und Sony-Kameras per USB-C, WLAN und bei Canon Cinema EOS per LAN. Die Basisversion ist gratis, die Pro-Version kostet zum Start 29,99 US-Dollar.",
+      "warum": "Relevanz mittel: günstige Fernsteuerung für kleine Mehrkamera-Produktionen – Einsatz: Interviews, Events oder Podcasts mit zwei bis vier Kameras, die ohne Regiepult gemeinsam gestartet und kontrolliert werden.",
+      "quelle": "Newsshooter",
+      "url": "https://www.newsshooter.com/2026/11/07/director-mode-multicamera-production-app-is-now-available-on-the-apple-app-store/",
+      "datum": "2026-11-07",
+      "schlagzeile": true
+    },
+    {
+      "id": "nomono-speech",
+      "kat": "broadcast",
+      "typ": "news",
+      "titel": "Nomono bringt Sprachverbesserungs-Pipeline zu Sendern",
+      "kurz": "Nomono bietet eine Lösung, die Stereo- und Binauralmischungen sowie ADM-Master in Dolby-Atmos-, EBU- und IAMF-Profilen erzeugt. Nur die Kurzfassung der Startseite war lesbar.",
+      "warum": "Relevanz mittel: automatisierte Tonaufbereitung spart Regiezeit – Einsatz: Sprachmischungen und Verständlichkeit bei Sport- oder Eventübertragungen teilautomatisch erzeugen.",
+      "quelle": "TV Technology",
+      "url": "https://www.tvtechnology.com/platform/broadcast/nomono-brings-speech-enhancement-pipeline-to-broadcasters",
+      "datum": "2026-11-05"
+    },
+    {
+      "id": "sony-fx6-fw602",
+      "kat": "kamera",
+      "typ": "update",
+      "titel": "Sony FX6: Firmware 6.02",
+      "kurz": "Sony hat die Firmware 6.02 für die FX6 veröffentlicht. Inhalte der Änderungen waren im automatischen Lauf nicht lesbar.",
+      "warum": "Relevanz gering bis mittel: Pflege für vorhandene Geräte – Einsatz: Flottenupdate bei Kameras in Studio und Aussenproduktion einplanen.",
+      "quelle": "Newsshooter",
+      "url": "https://www.newsshooter.com/2026/11/05/sony-fx6-firmware-update-ver-6-02/",
+      "datum": "2026-11-05"
+    },
+    {
+      "id": "nikon-zr-fw2",
+      "kat": "kamera",
+      "typ": "update",
+      "titel": "Nikon ZR: Firmware 2.00",
+      "kurz": "Nikon hat für die ZR die Firmware-Version 2.00 veröffentlicht, ein grösserer Versionssprung. Einzelheiten waren nicht lesbar.",
+      "warum": "Relevanz gering bis mittel: nur wichtig, falls eine ZR im Park ist – Einsatz: Prüfen, ob neue Funktionen die Cine-Workflows der Kamera erweitern.",
+      "quelle": "Newsshooter",
+      "url": "https://www.newsshooter.com/2026/11/03/nikon-zr-firmware-version-2-00/",
+      "datum": "2026-11-03"
+    },
+    {
+      "id": "canon-cinema-fw",
+      "kat": "kamera",
+      "typ": "update",
+      "titel": "Canon EOS C400, C80 und C50: neue Firmware",
+      "kurz": "Canon hat Firmware-Updates für die drei Cinema-EOS-Modelle C400, C80 und C50 veröffentlicht. Die Änderungen im Einzelnen waren nicht lesbar.",
+      "warum": "Relevanz mittel: Canon-Cinema-Kameras sind in Mehrkamera- und Broadcast-Setups verbreitet – Einsatz: Firmwarestand im Park angleichen, damit Netzwerksteuerung und Bildabgleich konsistent bleiben.",
+      "quelle": "Newsshooter",
+      "url": "https://www.newsshooter.com/2026/11/03/canon-eos-c400-eos-c80-eos-c50-firmware-updates-2/",
+      "datum": "2026-11-03"
+    },
+    {
+      "id": "canon-dm-e10d",
+      "kat": "kamera",
+      "typ": "news",
+      "titel": "Canon DM-E10D: kompaktes Supernieren-Mikrofon für Kameras mit Multi-Shoe",
+      "kurz": "Canon bringt mit dem DM-E10D ein kompaktes Richtmikrofon für Kameras mit Multi-Shoe-Anschluss. Weitere Daten waren nicht lesbar.",
+      "warum": "Relevanz gering: Zubehör für Reportage und Interview – Einsatz: sauberer Kameraton bei Einmann-Drehs.",
+      "quelle": "Newsshooter",
+      "url": "https://www.newsshooter.com/2026/11/04/canon-dm-e10d-compact-supercardioid-microphone-for-multi-shoe-cameras/",
+      "datum": "2026-11-04"
+    },
+    {
+      "id": "osmo-pocket-4p-fw",
+      "kat": "kamera",
+      "typ": "update",
+      "titel": "DJI Osmo Pocket 4P: Firmware bringt 18-fach-Zoom und neue Presets",
+      "kurz": "Die Firmware V01.02.1149 erweitert die Osmo Pocket 4P laut Überschrift um 18-fach-Zoom, weicheres Umschalten der Objektive sowie Stage- und Sunset-Presets.",
+      "warum": "Relevanz gering bis mittel: kleine Zweitkamera mit mehr Reichweite – Einsatz: Backstage-, Making-of- oder Social-Material neben der Hauptproduktion.",
+      "quelle": "Newsshooter",
+      "url": "https://www.newsshooter.com/2026/11/05/dji-osmo-pocket-4p-firmware-v01-02-1149-adds-18x-zoom-smoother-lens-switching-and-stage-and-sunset-presets/",
+      "datum": "2026-11-05"
+    },
+    {
+      "id": "panasonic-p2502a",
+      "kat": "kamera",
+      "typ": "geruecht",
+      "titel": "Gerücht: Panasonic registriert in China eine neue Kamera P2502A",
+      "kurz": "Eine Kamera mit der Kennung P2502A taucht in einer chinesischen Registrierung auf, laut Eintrag ohne Wi-Fi 6. Die Quelle ist ein Weibo-Beitrag; ob es die Lumix S9II ist, bleibt reine Vermutung. Ein Datum gibt es nicht.",
+      "warum": "Relevanz gering: Consumer-Vollformat – Einsatz: allenfalls als kompakte B-Kamera, abzuwarten bis zur Ankündigung.",
+      "quelle": "Photo Rumors",
+      "url": "https://photorumors.com/2026/11/08/panasonic-registered-a-new-p2502a-camera-in-china-lumix-s9ii/",
+      "datum": "2026-11-08",
+      "sicherheit": 1
+    },
+    {
+      "id": "panasonic-s9-titanium",
+      "kat": "kamera",
+      "typ": "geruecht",
+      "titel": "Gerücht: Panasonic zum Lumix-Jubiläum mit S9 „Titanium Black“ und MFT-Sensor?",
+      "kurz": "Ein Händlereintrag bei Kamera Express nennt eine Panasonic Lumix S9 „Titanium Black“ mit Micro-Four-Thirds-Sensor, was wohl auf einen Fehler oder ein neues Modell hindeutet. Der Autor kann nicht sagen, ob das Bild KI-generiert ist; Kamera Express hat aber schon früher Kameras vorab gelistet.",
+      "warum": "Relevanz gering: Einzelquelle mit unklarem Bild – Einsatz: nichts planen, nur beobachten, ob das Jubiläumsevent am 17. November eine MFT-Kamera bringt.",
+      "quelle": "Photo Rumors",
+      "url": "https://photorumors.com/2026/11/04/what-panasonic-lumix-mft-camera-is-that/",
+      "datum": "2026-11-04",
+      "sicherheit": 1
+    },
+    {
+      "id": "leica-q3-43-mono",
+      "kat": "kamera",
+      "typ": "geruecht",
+      "titel": "Gerücht: Leica Q3 43 Monochrom Anfang Dezember",
+      "kurz": "Laut Leica Rumors soll die Q3 43 Monochrom Anfang Dezember 2026 vorgestellt werden. Die Seite stützt sich auf eine Leserumfrage vom Februar und die Verkaufsstärke der Q-Reihe, nicht auf konkrete Belege.",
+      "warum": "Relevanz gering: reine Fotokamera – Einsatz: kein Broadcast-Bezug, für Standbild-Porträts allenfalls interessant.",
+      "quelle": "Photo Rumors",
+      "url": "https://leicarumors.com/2026/11/05/new-leica-q3-43-monochrom-camera-rumored-to-be-announced-in-early-december-2026.aspx/",
+      "datum": "2026-11-05",
+      "sicherheit": 1
+    },
+    {
+      "id": "nanlite-fc1200c-review",
+      "kat": "licht",
+      "typ": "news",
+      "titel": "Nanlite FC-1200C im Test",
+      "kurz": "Newsshooter hat die Nanlite FC-1200C getestet, eine Allround-Leuchte mit mehr Leistung als die FC-720B und FC-720C. Die Testergebnisse waren im automatischen Lauf nicht lesbar.",
+      "warum": "Relevanz mittel: grosse, farbige LED-Leuchten für Studio-Hintergründe und Greenscreen – Einsatz: Studiolicht mit Fernsteuerung per App oder DMX.",
+      "quelle": "Newsshooter",
+      "url": "https://www.newsshooter.com/2026/11/02/nanlite-fc-1200c-review/",
+      "datum": "2026-11-02"
+    },
+    {
+      "id": "matrice-5t",
+      "kat": "drohnen",
+      "typ": "news",
+      "titel": "DJI Matrice 5T: faltbare Wärmebilddrohne mit 59 Minuten Flugzeit, aber ohne FCC-Wert",
+      "kurz": "DJI Enterprise hat die Matrice 5T vorgestellt: 59 Minuten Flugzeit, IP55, Wärmebildsensor mit 1280×1024, drei 50-MP-Kameras, Laser-Entfernungsmesser und Lidar. Einen Preis nennt DJI nicht; ein britischer Händler listet rund 8 655 US-Dollar vor Steuern. Die Funkdaten nennen Kanada, EU, China und Japan, aber keinen FCC-Wert, sodass ein US-Verkauf offen ist.",
+      "warum": "Relevanz gering: Industrie- und Rettungsdrohne – Einsatz: Anlageninspektion oder Suche bei Nacht, im Rundfunk nur für Spezialdokus.",
+      "quelle": "DroneXL",
+      "url": "https://dronexl.co/2026/11/05/dji-matrice-5t-launch-folding-1k-thermal-no-fcc/",
+      "datum": "2026-11-05",
+      "schlagzeile": true
+    },
+    {
+      "id": "fcc-ban-military-grade",
+      "kat": "drohnen",
+      "typ": "news",
+      "titel": "FCC: Verbot für Drohnen der „Militärklasse“ weiter möglich, DJI-Entscheid offen",
+      "kurz": "Die FCC hält ein Verbot für importierte Drohnen mit Wärmebild, Lidar, Sprüh- oder Docking-Funktion für möglich; geplant ist eine Übergangsfrist von 180 Tagen nach Veröffentlichung im Federal Register, die noch nicht läuft. DJIs Antrag auf Neuprüfung ist nicht entschieden; bereits gekaufte Drohnen wären nicht betroffen.",
+      "warum": "Relevanz mittel: betrifft die Ersatzteil- und Modellverfügbarkeit für US-Produktionen – Einsatz: Bei Einsätzen mit US-Bezug Drohnenflotte und Ausweichmodelle früh planen.",
+      "quelle": "DroneXL",
+      "url": "https://dronexl.co/2026/11/06/fcc-ban-still-alive-rick-scott-dji-westborough-says-no/",
+      "datum": "2026-11-06",
+      "schlagzeile": true
+    },
+    {
+      "id": "axon-skydio",
+      "kat": "drohnen",
+      "typ": "news",
+      "titel": "Axon steckt 1,2 Milliarden Dollar in Skydio und wird US-Exklusivvertrieb für Behörden",
+      "kurz": "Axon will bei einer Bewertung von 5,2 Milliarden Dollar sein Skydio-Paket auf rund 37 Prozent erhöhen und wird exklusiver Vertrieb für Behörden in den USA und Kanada. Bisher ist nur ein Teil von 254,9 Millionen Dollar an Skydio selbst geflossen.",
+      "warum": "Relevanz gering: Behördenmarkt – Einsatz: zeigt, wohin sich Nicht-DJI-Anbieter orientieren, falls US-Aufträge nötig werden.",
+      "quelle": "DroneXL",
+      "url": "https://dronexl.co/2026/11/06/axon-skydio-1-2-billion-exclusive-police-distributor/",
+      "datum": "2026-11-06"
+    },
+    {
+      "id": "viture-mini5pro",
+      "kat": "drohnen",
+      "typ": "news",
+      "titel": "Viture Pro 2 XR: Datenbrille als Goggles für die DJI Mini 5 Pro",
+      "kurz": "Ein Pilot koppelt die DJI Mini 5 Pro mit der Viture Pro 2 und nennt 146 Zoll virtuellen Bildschirm, 1 600 Nit und 63 Gramm Gewicht. Es ist ein Erfahrungsbericht, kein Labortest.",
+      "warum": "Relevanz gering: FPV-Hobby-Zubehör – Einsatz: Sichtflugkontrolle bei Kamerafahrten mit kleiner Drohne.",
+      "quelle": "DroneXL",
+      "url": "https://dronexl.co/2026/11/04/viture-pro-2-xr-glasses-dji-mini-5-pro-air-photography/",
+      "datum": "2026-11-04"
+    },
+    {
+      "id": "adobe-max-vorschau",
+      "kat": "schnitt",
+      "typ": "news",
+      "titel": "Adobe MAX 2026: Vorschau auf Premiere, After Effects und Firefly",
+      "kurz": "Adobe MAX läuft vom 10. bis 12. November in Miami Beach, auch online. Laut Vorschau kommen ein Generativ-Werkzeug für Timeline-Lücken in Premiere, ein After-Effects-KI-Assistent in der öffentlichen Beta und KI-Audiotrennung auf die Agenda; die Keynote ist am Dienstag um 9 Uhr Ortszeit.",
+      "warum": "Relevanz mittel: wirkt auf Schnittabläufe – Einsatz: Rohschnitt-Lücken und Tontrennung automatisiert füllen, bevor ein Beitrag in die Sendung geht.",
+      "quelle": "RedShark News",
+      "url": "https://www.redsharknews.com/adobe-max-2026-preview-miami-beach",
+      "datum": "2026-10-31",
+      "hintergrund": true
+    },
+    {
+      "id": "premiere-mobile-musik",
+      "kat": "schnitt",
+      "typ": "news",
+      "titel": "Adobe ergänzt Premiere Mobile um lizenzierte UMG- und Warner-Titel",
+      "kurz": "Adobe hat Premiere Mobile laut Überschrift um lizenzierte Musik von UMG und Warner Music erweitert. Weitere Angaben waren nicht lesbar.",
+      "warum": "Relevanz gering bis mittel: lizenzfreie Musik im Social-Schnitt – Einsatz: Clips für Social Media direkt am Smartphone, ohne separate Rechteklärung.",
+      "quelle": "Newsshooter",
+      "url": "https://www.newsshooter.com/2026/11/03/adobe-adds-licensed-umg-and-warner-music-tracks-to-premiere-mobile/",
+      "datum": "2026-11-03"
+    },
+    {
+      "id": "video-village-mirage",
+      "kat": "schnitt",
+      "typ": "news",
+      "titel": "Video Village Mirage: Raytracing-Glaseffekte als Plugin",
+      "kurz": "Video Village hat das Plugin Mirage veröffentlicht, das Glaseffekte per Raytracing erzeugt. Unterstützte Programme waren nicht lesbar.",
+      "warum": "Relevanz gering: Gestaltung – Einsatz: Grafikelemente und Titel mit Glasoptik.",
+      "quelle": "Newsshooter",
+      "url": "https://www.newsshooter.com/2026/11/07/video-village-mirage-raytraced-glass-effects-plugin/",
+      "datum": "2026-11-07"
+    },
+    {
+      "id": "protools-ki-stems",
+      "kat": "ki",
+      "typ": "news",
+      "titel": "Avid Pro Tools: KI-Erweiterung trennt Audio in bis zu sechs Stems",
+      "kurz": "Avid hat Pro Tools um eine KI-Erweiterung ergänzt, die Aufnahmen in bis zu sechs einzelne Elemente zerlegt. Laut Avid dient das Schnitt, Sounddesign und der Wiederverwendung vorhandenen Materials. Preis und Verfügbarkeit waren nicht lesbar.",
+      "warum": "Relevanz mittel: Tonreparatur und Archivnutzung beschleunigen – Einsatz: Sprache von Hintergrundmusik trennen, um Archivmaterial schneller sendefähig zu machen.",
+      "quelle": "TV Technology",
+      "url": "https://www.tvtechnology.com/platform/broadcast/pro-tools-adds-new-ai-powered-extension-for-separating-audio-into-individual-elements",
+      "datum": "2026-11-06",
+      "schlagzeile": true
+    },
+    {
+      "id": "fujifilm-gfx-fw",
+      "kat": "foto",
+      "typ": "update",
+      "titel": "Fujifilm: Firmware für GFX100II, GFX100SII und GFX100RF",
+      "kurz": "Fujifilm hat Firmware-Updates für die drei Mittelformat-Modelle GFX100II, GFX100SII und GFX100RF veröffentlicht. Änderungen waren nicht lesbar.",
+      "warum": "Relevanz gering: Mittelformat-Foto – Einsatz: Standbilder für Studio und Werbung.",
+      "quelle": "Photo Rumors",
+      "url": "https://fujiaddict.com/2026/11/04/fujifilm-gfx100ii-gfx100sii-and-gfx100rf-firmware-updates-released/",
+      "datum": "2026-11-04"
+    },
+    {
+      "id": "sony-50mp-mobil",
+      "kat": "foto",
+      "typ": "news",
+      "titel": "Sony veröffentlicht neuen 50-Megapixel-CMOS-Sensor für Mobilgeräte",
+      "kurz": "Sony hat einen neuen Bildsensor mit rund 50 effektiven Megapixeln für mobile Anwendungen veröffentlicht. Technische Einzelheiten waren nicht lesbar.",
+      "warum": "Relevanz gering: Smartphone-Technik – Einsatz: erklärt die Bildqualität künftiger Smartphones, die als Zweitkamera dienen.",
+      "quelle": "Photo Rumors",
+      "url": "https://sonyaddict.com/2026/11/05/sony-released-an-approx-50-effective-megapixel-cmos-image-sensor-for-mobile-applications/",
+      "datum": "2026-11-05"
+    },
+    {
+      "id": "laowa-24-tiltshift",
+      "kat": "foto",
+      "typ": "news",
+      "titel": "Laowa 24 mm f/2 Zero-D Tilt-Shift ist erhältlich",
+      "kurz": "Das Laowa 24 mm f/2 Zero-D Tilt-Shift ist für mehrere Mounts erhältlich, darunter E, Z, RF, L, GFX und XCD. Newsshooter meldete die Ankündigung am 5. November.",
+      "warum": "Relevanz gering: Spezialobjektiv – Einsatz: Architektur und Produktfotos, Perspektivkorrektur direkt in der Aufnahme.",
+      "quelle": "Photo Rumors",
+      "url": "https://photorumors.com/2026/11/06/now-available-venus-optics-laowa-24mm-f-2-zero-d-tilt-shift-lens-for-e-z-rf-l-gfx-xcd-mount/",
+      "datum": "2026-11-06"
+    },
+    {
+      "id": "nextorage-nxf2ae",
+      "kat": "foto",
+      "typ": "news",
+      "titel": "Nextorage NX-F2AE: SDXC-UHS-II-Karten für professionelle Videoproduktion",
+      "kurz": "Nextorage hat SDXC-UHS-II-Karten vorgestellt, die laut Überschrift für professionelle Videoproduktion entwickelt sind. Daten wie Kapazität oder Preis waren nicht lesbar.",
+      "warum": "Relevanz gering bis mittel: Speicherkarten für Kameras mit SD-Slot – Einsatz: Ersatzkarten für Mehrkamera-Dreh.",
+      "quelle": "Photo Rumors",
+      "url": "https://photorumors.com/2026/11/05/nextorage-launched-new-nx-f2ae-sdxc-uhs-ii-memory-cards-developed-specifically-for-professional-video-production/",
+      "datum": "2026-11-05"
+    }
+  ]
+}
