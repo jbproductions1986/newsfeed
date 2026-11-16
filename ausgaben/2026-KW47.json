@@ -1,0 +1,303 @@
+{
+  "jahr": 2026,
+  "kw": 47,
+  "von": "2026-11-09",
+  "bis": "2026-11-15",
+  "stand": "2026-11-16",
+  "intro": "Adobe MAX bestimmt die Woche: Premiere bekommt einen KI-Assistenten, der Mehrkamera-Material auf Zuruf synchronisiert, und Adobe öffnet seine Programme per MCP für Fremd-KI wie Claude und ChatGPT. Yamaha kauft den Virtual-Production-Spezialisten Disguise, und Blackmagic kündigt ein 7.-Ordnung-Ambisonic-Mikrofon an. Bei Kameras und Drohnen dominieren Gerüchte und eine DJI-Firmwarewelle.",
+  "hinweis": "Jede Meldung enthält eine kurze Einschätzung für eine Broadcast-Firma mit Fokus auf Automatisierung und IP-Technik. In dieser Woche waren mehrere Seiten im automatischen Lauf nicht oder nur teilweise abrufbar (u. a. Teile von CineD, Newsshooter-Detailseiten, GitHub, TVBEurope); die TV-Technology-Übersichtsseiten zeigten nur Beiträge bis Ende Oktober. Die Rubrik Broadcast ist deshalb dünn besetzt. Zu Bitfocus Companion, Ubiquiti, Gyroflow, ST 2110 und IPMX fand sich keine belegbare Neuheit im Berichtszeitraum. Einige Termine wurden aus der Vorwoche übernommen.",
+  "termine": [
+    {
+      "datum": "2026-11-17",
+      "text": "Panasonic Lumix Collective, Auftakt in Manchester (Jubiläum 25 Jahre Lumix); weitere Stationen: 20.11. Sydney, 21.11. Berlin, 24.11. São Paulo, 25.11. Mailand, 4.12. Paris"
+    },
+    {
+      "datum": "2026-11-18",
+      "text": "China: Exportlizenzpflicht für grosse Drohnenmotoren, Regler und Propeller (Angabe aus der Vorwoche übernommen)"
+    },
+    {
+      "datum": "2026-11-19",
+      "text": "FCC-Abstimmung zu 450-MHz-Steuerverbindungen und 24-GHz-Radar zur Drohnenerkennung (Angabe aus der Vorwoche übernommen)"
+    },
+    {
+      "datum": "2026-11-20",
+      "text": "Sony FX5: Marktstart in Japan, USA laut B&H Mitte November (Angabe aus der Vorwoche übernommen)"
+    },
+    {
+      "datum": "2026-11-23",
+      "label": "Woche ab 23.11.",
+      "text": "DJI Matrice 5T: erste Lieferung beim britischen Händler Heliguy erwartet (Angabe aus der Vorwoche übernommen)"
+    },
+    {
+      "datum": "2026-11-30",
+      "label": "Nov. (Verschiebung gemeldet)",
+      "text": "Fujifilm X-T6 und XF 50-140 mm f/2.8 II: Fuji Rumors hält den November-Termin für unwahrscheinlich",
+      "geruecht": true
+    },
+    {
+      "datum": "2026-12-01",
+      "label": "Dezember",
+      "text": "Blackmagic Ambisonic Microphone: Auslieferung laut CineD im Dezember"
+    },
+    {
+      "datum": "2026-12-01",
+      "label": "Anfang Dez.",
+      "text": "Leica Q3 43 Monochrom erwartet",
+      "geruecht": true
+    },
+    {
+      "datum": "2026-12-07",
+      "text": "Gesetzliche Frist für die FAA-Regel Part 108 (Flüge ausser Sicht) (Angabe aus der Vorwoche übernommen)"
+    },
+    {
+      "datum": "2027-01-01",
+      "label": "Anfang 2027",
+      "text": "Adobe: MCP-Anbindung für Premiere, After Effects, Photoshop und Illustrator für Creative-Cloud-Kunden"
+    },
+    {
+      "datum": "2027-01-27",
+      "text": "Ring Drone Cam (Innenraum-Drohne, 249 US-Dollar): geplanter Versand"
+    },
+    {
+      "datum": "2027-09-28",
+      "label": "28.–30.9.2027",
+      "text": "SMPTE-Summit und NAB Show New York (29.–30.9.), Javits Center (Angabe aus der Vorwoche übernommen)"
+    }
+  ],
+  "items": [
+    {
+      "id": "yamaha-disguise",
+      "kat": "broadcast",
+      "typ": "news",
+      "titel": "Yamaha übernimmt Disguise, den Spezialisten für Virtual Production",
+      "kurz": "Yamaha hat Disguise gekauft, den Hersteller von Plattformen für Live-Events und Virtual Production. Die Marke und die Kundenbeziehungen bleiben erhalten, Finanzdetails nennt Yamaha nicht. Disguise soll ein neues Kerngeschäft neben Instrumenten und Audiotechnik werden; geplant sind gemeinsame Lösungen und Cross-Selling.",
+      "warum": "Relevanz mittel: Audio- und Medienserver-Welt rücken zusammen – Einsatz: Studios mit LED-Wand oder AR-Grafik, bei denen Medienserver und Tonsysteme künftig aus einer Hand über das Netzwerk laufen könnten.",
+      "quelle": "TV Technology",
+      "url": "https://www.tvtechnology.com/business/yamaha-acquires-virtual-production-specialist-disguise",
+      "datum": "2026-11-13",
+      "schlagzeile": true
+    },
+    {
+      "id": "strada-vision-pro",
+      "kat": "broadcast",
+      "typ": "update",
+      "titel": "Strada streamt Apple Immersive Video von jedem Mac zur Vision Pro",
+      "kurz": "Die Software Strada kann laut CineD Apple Immersive Video von einem Mac zur Apple Vision Pro streamen und unterstützt immersive Dailies aus BRAW samt Kommentaren in der Brille. Preis und Verfügbarkeit waren in der abgerufenen Seite nicht lesbar.",
+      "warum": "Relevanz gering bis mittel: Sichtung immersiver Aufnahmen im Netzwerk – Einsatz: Abnahme von 180-Grad-Material im Studio, falls Blackmagic-Immersive-Kameras zum Einsatz kommen.",
+      "quelle": "CineD",
+      "url": "https://www.cined.com/strada-for-apple-vision-pro-released-stream-apple-immersive-video-from-any-mac-immersive-dailies-from-braw/",
+      "datum": "2026-11-12"
+    },
+    {
+      "id": "blackmagic-ambisonic-mic",
+      "kat": "kamera",
+      "typ": "news",
+      "titel": "Blackmagic Ambisonic Microphone: 7. Ordnung, 108 MEMS-Kapseln, ein USB-C-Kabel",
+      "kurz": "Blackmagic hat ein Ambisonic-Mikrofon mit 108 MEMS-Kapseln für Aufnahmen in siebter Ordnung angekündigt, das über ein einziges USB-C-Kabel angeschlossen wird. Die Auslieferung ist laut CineD für Dezember geplant. Einen Preis fand ich in der abgerufenen Seite nicht.",
+      "warum": "Relevanz mittel: Raumklang für immersive und Sportproduktionen – Einsatz: Atmo-Aufnahme für Surround- und Atmos-Mischungen, die sich später automatisiert in Stereo oder Binaural umrechnen lässt.",
+      "quelle": "CineD",
+      "url": "https://www.cined.com/blackmagic-ambisonic-microphone-announced-7th-order-ambisonics-108-mems-microphones-single-usb-c-cable/",
+      "datum": "2026-11-12",
+      "schlagzeile": true
+    },
+    {
+      "id": "sony-a7s-iv-rumor",
+      "kat": "kamera",
+      "typ": "geruecht",
+      "titel": "Gerücht: Kommt die Sony A7S IV? YouTuber Manny Ortiz ist sicher",
+      "kurz": "Sony Alpha Rumors greift die Aussage des YouTubers Manny Ortiz auf, die A7S IV komme bestimmt. Begründung des Autors: Die FX5 hat weder Standbild-Funktion noch Sucher noch das Alpha-Menü, also bleibe Platz für ein Hybridmodell. Weitere Quellen oder Leaks nennt der Beitrag nicht, und er fürchtet, dass es nicht mehr in diesem Jahr klappt.",
+      "warum": "Relevanz gering: reine Spekulation – Einsatz: allenfalls als lichtstarke B-Kamera für Interviews, abzuwarten.",
+      "quelle": "Sony Alpha Rumors",
+      "url": "https://www.sonyalpharumors.com/manny-ortiz-is-certain-the-sony-a7siv-is-coming/",
+      "datum": "2026-11-12",
+      "sicherheit": 1
+    },
+    {
+      "id": "ace-pro3-action7-2027",
+      "kat": "kamera",
+      "typ": "geruecht",
+      "titel": "Gerücht: Insta360 Ace Pro 3 und DJI Osmo Action 7 wohl erst im Frühjahr 2027",
+      "kurz": "RedShark News gibt die Einschätzung von Simon Wyndham wieder, wonach beide Action-Kameras eher im zweiten Quartal 2027 erscheinen. Gründe sind das volle Jahr, Weihnachtsrabatte und fehlende Presse-Briefings. Für die Ace Pro 3 liegt allerdings schon eine FCC-Zulassung vor; das Ganze bleibt Einschätzung, keine Ankündigung.",
+      "warum": "Relevanz gering: Action-Cams als Zusatzkameras – Einsatz: Kamera für enge Stellen oder Fahrzeugmontage; Kaufentscheid lässt sich bis Frühjahr verschieben.",
+      "quelle": "RedShark News",
+      "url": "https://www.redsharknews.com/insta360-ace-pro-3-dji-osmo-action-7-spring-2027-release",
+      "datum": "2026-11-09",
+      "sicherheit": 1
+    },
+    {
+      "id": "fujifilm-xt6-verschoben",
+      "kat": "kamera",
+      "typ": "geruecht",
+      "titel": "Gerücht: Fujifilm X-T6 wohl auch im November nicht mehr",
+      "kurz": "Fuji Rumors meldet unter Berufung auf ungenannte Quellen, dass der für den 19. November geplante Termin der X-T6 wohl platzt. Die Kamera war zuerst für den 4. September erwartet worden. Der Autor nennt einen November-Start selbst Spekulation und wäre überrascht, wenn er noch käme.",
+      "warum": "Relevanz gering: Foto-Hybridkamera – Einsatz: kein Broadcast-Bezug, nur für Standbild und Social-Video.",
+      "quelle": "Fuji Rumors",
+      "url": "https://www.fujirumors.com/?p=145598",
+      "datum": "2026-11-02",
+      "sicherheit": 1,
+      "hintergrund": true
+    },
+    {
+      "id": "nanlite-rapid-softboxen",
+      "kat": "licht",
+      "typ": "news",
+      "titel": "Nanlite Rapid: drei Softboxen mit Bowens-Mount und eine 10-cm-Diffusionskugel",
+      "kurz": "Nanlite hat die Softboxen Rapid 90 (quadratisch), Rapid 100x70 (rechteckig) und Rapid 120 (achteckig) angekündigt, alle mit Bowens-Mount und laut Überschrift mit Eggcrate. Dazu kommt eine 10-cm-Diffusionskugel für die Nanlux-Leuchten. Preise und Termine waren in der abgerufenen Seite nicht lesbar.",
+      "warum": "Relevanz gering bis mittel: Lichtformung für bestehende Leuchten – Einsatz: weiches Licht für Interviews und Studioecken mit den gängigen Bowens-Köpfen.",
+      "quelle": "CineD",
+      "url": "https://www.cined.com/nanlite-rapid-square-rectangular-and-octagonal-softboxes-announced-bowens-mount-eggcrate-included-plus-a-10cm-nanlux-diffusion-ball/",
+      "datum": "2026-11-12"
+    },
+    {
+      "id": "dji-firmware-welle",
+      "kat": "drohnen",
+      "typ": "update",
+      "titel": "DJI verteilt Firmware für sieben Drohnen, ohne Details in den Notizen",
+      "kurz": "DJI hat am 13. November Updates für Air 3S, Mini 4 Pro, Mini 5 Pro, Mavic 4 Pro, Avata 360, Avata 2 und Neo 2 veröffentlicht; alle brauchen DJI Fly 1.21.18. Die Notizen nennen kaum Änderungen, warnen aber, dass bei Mini 5 Pro und Mavic 4 Pro Kameraeinstellungen und bei Avata und Neo 2 Flugparameter wie die Rückkehrhöhe zurückgesetzt werden können.",
+      "warum": "Relevanz mittel: betrifft die Drohnenflotte – Einsatz: Einstellungen vor dem Update sichern und nach dem Update vor jedem Einsatz prüfen.",
+      "quelle": "DroneXL",
+      "url": "https://dronexl.co/2026/11/14/dji-air-3s-firmware-v01-00-1900-november-2026/",
+      "datum": "2026-11-14"
+    },
+    {
+      "id": "matrice4-akku-sperre",
+      "kat": "drohnen",
+      "typ": "geruecht",
+      "titel": "Bericht: Matrice-4-Firmware sperrt angeblich Fremdakkus",
+      "kurz": "Ein Reddit-Nutzer berichtet, dass die Matrice 4E/4T nach der Firmware v19.01.00.07 vom 5. November einen Fremdakku verweigerte und erst nach dem Zurückspielen der alten Version wieder abhob. DroneXL hat den Fall nicht nachgestellt und DJI angefragt; die Release-Notes erwähnen keine Akkus.",
+      "warum": "Relevanz gering bis mittel: Einzelbericht, aber relevant für Wartung – Einsatz: Bei Enterprise-Drohnen Firmware erst an einem Testgerät prüfen, bevor die ganze Flotte aktualisiert wird.",
+      "quelle": "DroneXL",
+      "url": "https://dronexl.co/2026/11/12/dji-matrice-4-firmware-third-party-battery-lockout-report/",
+      "datum": "2026-11-12",
+      "sicherheit": 1
+    },
+    {
+      "id": "dji-insta360-liste",
+      "kat": "drohnen",
+      "typ": "geruecht",
+      "titel": "Gerüchte-Übersicht: Neo 3, Osmo Nano 2, Action 7 und Insta360 Ace Pro 3",
+      "kurz": "Photo Rumors fasst die erwarteten DJI- und Insta360-Produkte zusammen. Die Neo 3 gilt als Gerücht mit 1-Zoll-Sensor und unter 250 Gramm, die Osmo Nano 2 für das vierte Quartal, die Osmo Action 7 für November bis 2027. Für die Insta360 Ace Pro 3 gibt es eine FCC-Zulassung vom 29. September, Termin und Daten bleiben offen.",
+      "warum": "Relevanz gering: Consumer-Kameras – Einsatz: kleine Zweitkameras für Making-of und Social; die Liste hilft, Käufe zeitlich einzuordnen.",
+      "quelle": "Photo Rumors",
+      "url": "https://photorumors.com/2026/11/11/updated-list-of-upcoming-dji-and-insta360-products/amp/",
+      "datum": "2026-11-11",
+      "sicherheit": 1
+    },
+    {
+      "id": "dji-neo3-leaks",
+      "kat": "drohnen",
+      "typ": "geruecht",
+      "titel": "Gerücht: DJI Neo 3 mit quadratischem 1/1,1-Zoll-Sensor und Vertikalvideo",
+      "kurz": "Ein geleaktes Datenblatt nennt für die Neo 3 einen quadratischen Sensor, nativ vertikale Aufnahme, 2-fach-Zoom ohne Qualitätsverlust, Start und Landung von der Handfläche und die Fernsteuerung RC Mini. Ein Produktionseintrag gibt 192,7 Gramm an. Es gibt weder Preis noch Termin, und ohne FCC-Zulassung wäre ein US-Verkauf offen. Die Meldung ist älter, wird aber durch die aktuelle Übersicht gestützt.",
+      "warum": "Relevanz gering: Mini-Drohne für Social – Einsatz: vertikale Clips ohne Nachbearbeitung für Kurzformate.",
+      "quelle": "DroneXL",
+      "url": "https://dronexl.co/2026/10/03/dji-neo-3-spec-sheet-leak-square-sensor/",
+      "datum": "2026-10-03",
+      "sicherheit": 2,
+      "hintergrund": true
+    },
+    {
+      "id": "ring-drone-cam",
+      "kat": "drohnen",
+      "typ": "news",
+      "titel": "Ring Drone Cam: Innenraum-Drohne für 249 US-Dollar ab Januar 2027",
+      "kurz": "Amazons Tochter Ring stellt eine 165 Gramm schwere Drohne für den Innenraum vor, die 2K aufnimmt und die Wohnung beim Flug kartiert. Sie fliegt 5 bis 8 Minuten, lädt im Dock und soll am 27. Januar 2027 ausgeliefert werden. Ein Grossteil der Verarbeitung läuft laut DroneXL in der Cloud.",
+      "warum": "Relevanz gering: Heim-Sicherheit – Einsatz: kein Broadcast-Bezug, als Beispiel für autonome Innenraumflüge aber interessant für Studiofahrten.",
+      "quelle": "DroneXL",
+      "url": "https://dronexl.co/2026/11/13/axon-skydio-1-2-billion-ring-drone-cam-nampa-amazon-flight-data/",
+      "datum": "2026-11-13"
+    },
+    {
+      "id": "premiere-27-adobe-max",
+      "kat": "schnitt",
+      "typ": "news",
+      "titel": "Premiere 27: Color Mode fertig, KI-Assistent und Generative Remove in der Beta",
+      "kurz": "Adobe hat zum MAX Premiere 27.0 vorgestellt. Der Color Mode, der erstmals zur NAB gezeigt wurde, ist jetzt allgemein verfügbar; der KI-Assistent für mehrstufige Schnittaufgaben und Generative Remove zum Entfernen von Objekten wie Angeln oder Logos sind noch Beta. Neu sind auch Generate Video, Sound, Soundscape und Music mit Firefly sowie Modellen von Google, Kling, Runway und Luma, dazu Werkzeuge zum Trennen von Tonquellen und überlappenden Sprechern.",
+      "warum": "Relevanz hoch: automatisiert Routineschritte im Schnitt – Einsatz: Beiträge für Magazin oder Social, bei denen Ton getrennt, Objekte entfernt und Looks per Assistent über die ganze Sequenz gesetzt werden.",
+      "quelle": "RedShark News",
+      "url": "https://www.redsharknews.com/adobe-max-2026-premiere-color-mode-mcp",
+      "datum": "2026-11-10",
+      "schlagzeile": true
+    },
+    {
+      "id": "resolve-21-2",
+      "kat": "schnitt",
+      "typ": "update",
+      "titel": "DaVinci Resolve 21.2: schnelleres Rendern auf M5 und neue Color-Science-LUTs",
+      "kurz": "Blackmagic hat Resolve 21.2 veröffentlicht. Es unterstützt die MacBook-Pro-Touchscreens, rendert auf M5 Pro und M5 Max laut Bericht bis zu fünfmal schneller und bringt LUTs für Generation-6-Color-Science. Multicam-Clips öffnen sich als Quellclips in Quell-Timelines; die Studio-Version erweitert die KI-Assistenz und False Color. Das Update erschien schon am 5. November, ist aber im vorherigen Lauf nicht erfasst worden.",
+      "warum": "Relevanz mittel: Pflegeupdate mit Multicam-Verbesserung – Einsatz: Mehrkamera-Schnitt von Sendungsaufzeichnungen; Update erst auf einem Testrechner prüfen.",
+      "quelle": "RedShark News",
+      "url": "https://www.redsharknews.com/davinci-resolve-21-2-whats-new",
+      "datum": "2026-11-05",
+      "hintergrund": true
+    },
+    {
+      "id": "adobe-mcp",
+      "kat": "ki",
+      "typ": "news",
+      "titel": "Adobe öffnet Creative Cloud per MCP für Claude, ChatGPT und Gemini",
+      "kurz": "Adobe veröffentlicht einen lokalen MCP-Server, der Funktionen von Illustrator, Photoshop, After Effects und Premiere für KI-Chatbots wie ChatGPT, Claude und Gemini zugänglich macht. Laut RedShark News bearbeiten die Agenten native Projektdateien lokal, Ebenen, Bins und Sequenzen bleiben editierbar; die Vorschau soll Anfang 2027 für Creative-Cloud-Kunden kommen. Adobe will den Umfang der Schnittstellen nach Nutzerfeedback nicht künstlich begrenzen.",
+      "warum": "Relevanz hoch: Schnitt per Sprachbefehl und Skript – Einsatz: Eine KI legt Rohschnitt, Titel und Exporte in Premiere an, ausgelöst aus dem Redaktionssystem oder einem Workflow-Werkzeug wie n8n.",
+      "quelle": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/10/adobe-adds-more-ai-to-its-products-and-launches-an-mcp/",
+      "datum": "2026-11-10",
+      "schlagzeile": true
+    },
+    {
+      "id": "premiere-multicam-ki",
+      "kat": "ki",
+      "typ": "news",
+      "titel": "Premiere-KI synchronisiert mehrere Kameras und Ton auf Zuruf",
+      "kurz": "Der erweiterte Adobe-Assistent kann laut Digital Camera World mehrere Kameras und Audioaufnahmen per Text-Anweisung zu einem editierbaren Multicam-Clip zusammenfassen. In einer Vorführung gelang das mit drei Kamerawinkeln samt Ton in einem Schritt. Zeitpunkt der Verfügbarkeit nennt die Quelle nicht.",
+      "warum": "Relevanz hoch: Mehrkamera-Vorbereitung ist in der Nachbearbeitung zeitraubend – Einsatz: Talkformate, Podcasts und Events mit mehreren Kameras, bei denen die Synchronisation automatisch passiert.",
+      "quelle": "Digital Camera World",
+      "url": "https://www.digitalcameraworld.com/tech/software/adobe-premiere-can-now-sync-your-cameras-generate-soundtracks-and-make-unwanted-objects-disappear-all-thanks-to-ai",
+      "datum": "2026-11-10",
+      "schlagzeile": true
+    },
+    {
+      "id": "firefly-video-assembler",
+      "kat": "ki",
+      "typ": "news",
+      "titel": "Firefly: KI-Werkzeug setzt aus Clips, Bildern und Effekten ein Video zusammen",
+      "kurz": "Neben dem proaktiven, dauerhaft aktiven Adobe-Agenten nennt TechCrunch ein Firefly-Werkzeug, das Clips, Bilder und Soundeffekte automatisch zu einem Video montiert. Weitere Angaben zu Funktionsumfang und Verfügbarkeit waren im gelesenen Artikel nicht enthalten.",
+      "warum": "Relevanz mittel: Schnellschnitt für Kurzformate – Einsatz: Social-Clips und Trailer aus vorhandenem Archivmaterial teilautomatisch bauen.",
+      "quelle": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/10/adobe-adds-more-ai-to-its-products-and-launches-an-mcp/",
+      "datum": "2026-11-10"
+    },
+    {
+      "id": "lightroom-open-eyes",
+      "kat": "foto",
+      "typ": "news",
+      "titel": "Lightroom: „Open Eyes“ korrigiert Blinzeln, Blemish Removal kommt auf den Desktop",
+      "kurz": "Adobe hat in Lightroom die Beta-Funktion Open Eyes vorgestellt, die ein Blinzeln mit einem anderen Foto derselben Person aus der Bibliothek behebt. Das Werkzeug zur Hautretusche, das es mobil schon gab, kommt mit zusätzlichen Reglern auf den Desktop. Laut Quelle ist das meiste der Ankündigungen sofort verfügbar, einiges in der Beta.",
+      "warum": "Relevanz gering: Fotoretusche – Einsatz: Gruppenporträts und Teamfotos für Website oder Sendungsmaterial schneller fertigstellen.",
+      "quelle": "The Next Web",
+      "url": "https://thenextweb.com/news/adobe-photoshop-relight-premiere-lightroom-open-eyes",
+      "datum": "2026-11-10"
+    },
+    {
+      "id": "photoshop-relight",
+      "kat": "foto",
+      "typ": "news",
+      "titel": "Photoshop: neue Relight-Funktion und Regler für generative Stile",
+      "kurz": "Laut TechCrunch bringt Photoshop zum MAX eine Funktion zum nachträglichen Umleuchten von Bildern sowie Regler für Stile, die per Prompt entstehen. Genauere Angaben zu Funktionsweise und Verfügbarkeit enthielt der gelesene Artikel nicht.",
+      "warum": "Relevanz gering bis mittel: Bildkorrektur nach dem Dreh – Einsatz: Standbilder, Thumbnails und Sendungsgrafiken in der Lichtstimmung angleichen.",
+      "quelle": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/10/adobe-adds-more-ai-to-its-products-and-launches-an-mcp/",
+      "datum": "2026-11-10"
+    },
+    {
+      "id": "topaz-wonder-4",
+      "kat": "foto",
+      "typ": "news",
+      "titel": "Topaz Labs: Wonder 4 und ImageHDR nach der Adobe-Übernahme",
+      "kurz": "Topaz Labs, das Adobe laut TechCrunch kürzlich übernommen hat, bringt Wonder 4 zum Hochskalieren und Entrauschen sowie ImageHDR zur Umwandlung normaler Bilder in HDR. Preis und Termine waren im gelesenen Artikel nicht genannt.",
+      "warum": "Relevanz gering bis mittel: Bildqualität aus Altmaterial – Einsatz: Archivfotos und Screenshots für HD- oder 4K-Grafiken aufbereiten.",
+      "quelle": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/10/adobe-adds-more-ai-to-its-products-and-launches-an-mcp/",
+      "datum": "2026-11-10"
+    }
+  ]
+}
